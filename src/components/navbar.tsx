@@ -39,14 +39,14 @@ const NavBar = ({ logo, Links }: navBarPropsType) => {
                   </li>
                 ))}
             </ul>
-            <div className="text-sky flex gap-2">
-              <LanguageSwitcher />
-              <button className="border-[3px] border-sky px-6 py-3 rounded-full font-bold">
-                Nous Contacter
-              </button>
-            </div>
           </div>
-          {/* Mobile */}
+          <div className="text-sky flex gap-2">
+            <LanguageSwitcher />
+            <button className="border-[3px] border-sky px-6 py-3 rounded-full font-bold whitespace-nowrap text-nowrap">
+              Nous Contacter
+            </button>
+          </div>
+
           <div className="lg:hidden p-6">
             <button
               onClick={() => setIsOpen(!isOpen)}
