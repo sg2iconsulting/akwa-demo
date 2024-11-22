@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Wraper } from "@/components/animation/Wraper";
 import { useRouter } from "next/navigation";
 import useInView from "../../hooks/isInView";
+import Carousel from "@/components/carousel/Carousel";
 
 // Fade in on scroll
 const Section = ({ children }: { children: ReactNode }) => {
@@ -57,7 +58,7 @@ const MaghribOxygen = () => {
         initial="hidden"
         animate="visible"
         whileHover="float"
-        className="fixed right-20 top-24 w-[170px] z-[2000] cursor-pointer hidden xl:block"
+        className="fixed right-20 top-24 w-[170px] z-[2000] cursor-pointer hidden"
         src="/maghriboxygen/Balloon.png"
         alt="Cute Balloon"
         onClick={scrollToTop}
@@ -77,6 +78,9 @@ const MaghribOxygen = () => {
       </Section>
       <Section>
         <News />
+      </Section>
+      <Section>
+        <Carousel />
       </Section>
     </main>
   );
