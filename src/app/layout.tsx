@@ -14,21 +14,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const links = [
+  const navlinks = [
     { label: "Nous Connaitre" },
     { label: "Applications" },
     { label: "Réseaux" },
     { label: "QHSE" },
     { label: "Actualités" },
   ];
+  const footlinks = [
+    { label: "Contact" },
+    { label: "Conditions d'utilisation" },
+    { label: "Politique de Confidentialité" },
+    { label: "FAQ" },
+  ];
   return (
     <html lang="en">
       <body className="antialiased font-poppins">
         <Wraper>
-          <NavBar Links={links} logo="/maghriboxygen/logo.png" />
+          <NavBar Links={navlinks} logo="/maghriboxygen/logo.png" />
 
           {children}
-          <Footer links={links} />
+          <Footer links={footlinks} />
         </Wraper>
       </body>
     </html>

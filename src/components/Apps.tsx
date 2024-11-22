@@ -10,24 +10,13 @@ const Apps = () => {
           Applications
         </div>
 
-        <motion.div
-          className="rounded-[54px] bg-cover bg-no-repeat min-h-[500px] lg:min-h-[700px] flex flex-col xl:flex-row items-center justify-center gap-8 lg:gap-12 xl:gap-24 p-2 md:py-12 md:px-6 lg:px-16 xl:px-24"
+        <div
+          className="rounded-[54px] max-md:bg-none md:bg-cover md:bg-no-repeat w-full min-h-[500px] lg:min-h-[700px] flex flex-col xl:flex-row items-center justify-center gap-8 lg:gap-12 xl:gap-24 md:py-12 md:px-6 lg:px-16 xl:px-24"
           style={{ backgroundImage: "url(/maghriboxygen/apps.png)" }}
-          initial="hidden"
-          animate="show"
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 1, // Delay between child animations
-              },
-            },
-          }}
         >
           {/* Card Industrie */}
           <motion.div
-            className="flex flex-col gap-8 rounded-[50px] text-start bg-white shadow-[0_0_50px_0_rgba(0,0,0,0.1)] w-full py-8 px-4 md:px-12 max-w-[650px] min-h-[650px] hover:scale-105 hover:shadow-xl transition-all duration-300"
+            className="flex flex-col gap-8 rounded-[50px] text-start bg-white shadow-[0_0_50px_0_rgba(0,0,0,0.1)] w-full p-6 max-w-[650px] min-h-[650px] hover:scale-105 hover:shadow-xl transition-all duration-300"
             variants={{
               hidden: { opacity: 0 },
               show: { opacity: 1, transition: { duration: 0.6 } },
@@ -53,12 +42,15 @@ const Apps = () => {
               forme liquide ou gazeuse (oxygène, acétylène, hydrogène, gaz
               carbonique, hélium,…).
             </p>
-            <Link
-              href="#"
-              className="flex items-center rounded-full justify-center bg-sky h-16 w-16"
-            >
-              <HiArrowLongRight className="h-9 w-9 text-white" />
-            </Link>
+            <div className="flex items-center justify-start">
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                href="#"
+                className="flex items-center justify-center rounded-full bg-sky h-16 w-16"
+              >
+                <HiArrowLongRight className="h-9 w-9 text-white" />
+              </motion.a>
+            </div>
           </motion.div>
 
           {/* Card Sante */}
@@ -85,14 +77,17 @@ const Apps = () => {
               aux traitements thérapeutiques (monoxyde d'azote, gaz
               carbonique,…).
             </p>
-            <Link
-              href="#"
-              className="flex items-center rounded-full justify-center bg-sky h-16 w-16"
-            >
-              <HiArrowLongRight className="h-9 w-9 text-white" />
-            </Link>
+            <div className="flex items-center justify-start">
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                href="#"
+                className="flex items-center justify-center rounded-full bg-sky h-16 w-16"
+              >
+                <HiArrowLongRight className="h-9 w-9 text-white" />
+              </motion.a>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

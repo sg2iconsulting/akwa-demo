@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import useInView from "../../hooks/isInView";
+import NewsCard from "./SmallNewsCard";
 
 const News = () => {
   const { ref, isInView } = useInView();
@@ -76,44 +77,29 @@ const News = () => {
                   {MainCard.Desc}
                 </p>
               </div>
-
-              <Link
+              <motion.a
+                whileHover={{ scale: 1.2 }}
                 href={MainCard.articleLink}
                 className="w-full md:w-56 rounded-full bg-sky"
               >
+                {" "}
                 <button className="w-full text-primary font-normal tracking-wide p-4">
                   Lire l'article
                 </button>
-              </Link>
+              </motion.a>
             </div>
           </motion.div>
 
           {/* Small Cards Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-1 gap-4 xl:w-2/5 px-2 md:p-0">
             {SmallCards.map((card, index) => (
-              <motion.div
+              <NewsCard
+                featuredImage={card.featuredImage}
+                index={index}
+                publishDate={card.publishDate}
+                title={card.title}
                 key={index}
-                className="border border-[#F1F1F1] rounded-[12px] flex  pl-6 p-3 items-center justify-between hover:scale-105 hover:shadow-xl transition-all duration-300"
-                ref={ref}
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <div className="flex flex-col">
-                  <h4 className="text-xs mb-2 text-start">
-                    {card.publishDate}
-                  </h4>
-
-                  <h2 className="font-bold line-clamp-3 text-start">
-                    {card.title}
-                  </h2>
-                </div>
-                <img
-                  src={card.featuredImage}
-                  alt={card.title}
-                  className="max-w-[120px] w-full rounded-xl object-cover aspect-square"
-                />
-              </motion.div>
+              />
             ))}
           </div>
         </div>

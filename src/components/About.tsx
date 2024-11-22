@@ -26,7 +26,7 @@ const About = () => {
             </p>
             <Link href={""} className="max-w-72">
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.15 }}
                 className="bg-white rounded-[55px] w-full px-12 py-4 flex items-center justify-center text-sm"
               >
                 En savoir plus

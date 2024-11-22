@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
-import Link from "next/link";
 import { CiMenuBurger } from "react-icons/ci";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const NavBar = ({ logo, Links }: navBarPropsType) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,36 +16,42 @@ const NavBar = ({ logo, Links }: navBarPropsType) => {
       <nav className="max-container relative z-[1000]">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center ">
+          <div className="flex items-center">
             <Link href="/">
               <img
                 src={logo}
                 alt="Logo"
-                className="max-lg:w-[160px] lg:min-w-[180px] w-full object-cover p-2"
+                className="w-[160px] lg:min-w-[180px] object-cover p-2"
               />
             </Link>
           </div>
           {/* Desktop Links & Others*/}
-          <div className="w-full  gap-4 hidden lg:flex  justify-evenly  whitespace-nowrap text-nowrap">
-            <ul className="flex flex-row justify-center items-center  gap-4 xl:gap-10 text-lg xl:text-[22px]">
+          <div className="w-full gap-4 hidden lg:flex justify-evenly whitespace-nowrap">
+            <ul className="flex flex-row justify-center items-center gap-4 xl:gap-10 text-lg xl:text-[22px]">
               {Links &&
-                Links.map((Link: NavBarLink, key) => (
-                  <li key={key}>
-                    <a
-                      href={"/"}
-                      className="leading-normal font-bold text-sky "
-                    >
-                      {Link.label}
-                    </a>
-                  </li>
+                Links.map((link: NavBarLink, key) => (
+                  <motion.div
+                    whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
+                    key={key}
+                  >
+                    <Link href="/">
+                      <p className="leading-normal font-bold text-sky">
+                        {link.label}
+                      </p>
+                    </Link>
+                  </motion.div>
                 ))}
             </ul>
           </div>
-          <div className="text-sky flex gap-2">
+
+          <div className="text-sky flex gap-4 max-lg:hidden p-6">
             <LanguageSwitcher />
-            <button className="border-[3px] border-sky px-6 py-3 rounded-full font-bold whitespace-nowrap text-nowrap">
+            <motion.button
+              whileHover={{ scale: 1.15, transition: { duration: 0.2 } }}
+              className="border-[3px] border-sky px-6 py-3 rounded-full font-bold whitespace-nowrap text-nowrap"
+            >
               Nous Contacter
-            </button>
+            </motion.button>
           </div>
 
           <div className="lg:hidden p-6">
@@ -76,6 +83,14 @@ const NavBar = ({ logo, Links }: navBarPropsType) => {
                 </a>
               </li>
             ))}
+          <li>
+            <div className="text-sky flex gap-2 p-2">
+              <LanguageSwitcher />
+              <button className="border-[3px] border-sky px-6 py-3 rounded-full font-bold whitespace-nowrap text-nowrap">
+                Nous Contacter
+              </button>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>

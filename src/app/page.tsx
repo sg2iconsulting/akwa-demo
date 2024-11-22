@@ -6,8 +6,7 @@ import { Hero } from "@/components/Hero";
 import News from "@/components/News";
 import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Wraper } from "@/components/animation/Wraper";
-import { useRouter } from "next/navigation";
+
 import useInView from "../../hooks/isInView";
 import Carousel from "@/components/carousel/Carousel";
 
@@ -43,7 +42,7 @@ const MaghribOxygen = () => {
         duration: 4,
         ease: "easeInOut",
         repeat: Infinity,
-        repeatType: "mirror",
+        repeatType: "mirror" as const,
       },
     },
   };
@@ -66,7 +65,6 @@ const MaghribOxygen = () => {
       <Section>
         <Hero />
       </Section>
-
       <Section>
         <CTA />
       </Section>
@@ -77,10 +75,10 @@ const MaghribOxygen = () => {
         <Apps />
       </Section>
       <Section>
-        <News />
+        <Carousel />
       </Section>
       <Section>
-        <Carousel />
+        <News />
       </Section>
     </main>
   );

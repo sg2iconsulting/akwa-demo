@@ -12,6 +12,10 @@ export const Hero = () => {
     visible: { opacity: 1, y: 0 },
   };
 
+  const buttonVariants = {
+    rest: { scale: 1 },
+    hover: { scale: 1.2 },
+  };
   return (
     <section className="padding-x w-full flex items-center justify-center">
       <div className="max-container  flex flex-col md:flex-row gap-6">
@@ -34,13 +38,19 @@ export const Hero = () => {
               </motion.span>
             ))}
           </p>
-
-          <Link
-            href="/sante"
-            className="flex items-center rounded-full justify-center bg-sky h-16 w-16"
+          <motion.div
+            variants={buttonVariants}
+            initial="rest"
+            whileHover="hover"
+            className="flex items-center justify-center"
           >
-            <HiArrowLongRight className="h-9 w-9 text-white" />
-          </Link>
+            <Link
+              href="/sante"
+              className="flex items-center rounded-full justify-center bg-sky h-16 w-16"
+            >
+              <HiArrowLongRight className="h-9 w-9 text-white" />
+            </Link>
+          </motion.div>
         </div>
         <div
           className="rounded-[82px] bg-cover bg-no-repeat h-[300px] md:h-[400px] lg:h-[700px] flex flex-col items-center justify-center gap-8 max-container"
@@ -60,13 +70,19 @@ export const Hero = () => {
               </motion.span>
             ))}
           </p>
-
-          <Link
-            href="/sante"
-            className="flex items-center rounded-full justify-center bg-sky h-16 w-16"
+          <motion.div
+            variants={buttonVariants}
+            initial="rest"
+            whileHover="hover"
+            className="flex items-center justify-center"
           >
-            <HiArrowLongRight className="h-9 w-9 text-white" />
-          </Link>
+            <Link
+              href="/sante"
+              className="flex items-center rounded-full justify-center bg-sky h-16 w-16"
+            >
+              <HiArrowLongRight className="h-9 w-9 text-white" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
