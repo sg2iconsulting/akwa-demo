@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
+import useInView from "../../hooks/isInView";
 
 const News = () => {
+  const { ref, isInView } = useInView();
+
   const SmallCards = [
     {
       featuredImage: "/maghriboxygen/news/picB.jpeg",
@@ -91,8 +94,9 @@ const News = () => {
               <motion.div
                 key={index}
                 className="border border-[#F1F1F1] rounded-[12px] flex  pl-6 p-3 items-center justify-between hover:scale-105 hover:shadow-xl transition-all duration-300"
+                ref={ref}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
                 <div className="flex flex-col">

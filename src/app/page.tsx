@@ -5,27 +5,21 @@ import { CTA } from "@/components/CTA";
 import { Hero } from "@/components/Hero";
 import News from "@/components/News";
 import React, { ReactNode } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { Wraper } from "@/components/animation/Wraper";
 import { useRouter } from "next/navigation";
-
-const fadeInVariants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0 },
-};
+import useInView from "../../hooks/isInView";
 
 // Fade in on scroll
 const Section = ({ children }: { children: ReactNode }) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const { ref, isInView } = useInView();
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      variants={fadeInVariants}
-      transition={{ duration: 1, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 60 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8 }}
     >
       {children}
     </motion.div>
@@ -34,7 +28,7 @@ const Section = ({ children }: { children: ReactNode }) => {
 
 const MaghribOxygen = () => {
   const balloonVariants = {
-    hidden: { y: 1000 },
+    hidden: { y: 1200 },
     visible: {
       y: 0,
       transition: {
@@ -63,26 +57,27 @@ const MaghribOxygen = () => {
         initial="hidden"
         animate="visible"
         whileHover="float"
-        className="fixed right-20 top-24 w-[170px] z-[2000] cursor-pointer "
+        className="fixed right-20 top-24 w-[170px] z-[2000] cursor-pointer hidden xl:block"
         src="/maghriboxygen/Balloon.png"
         alt="Cute Balloon"
         onClick={scrollToTop}
       ></motion.img>
-      <Wraper>
+      <Section>
         <Hero />
-        <Section>
-          <CTA />
-        </Section>
-        <Section>
-          <About />
-        </Section>
-        <Section>
-          <Apps />
-        </Section>
-        <Section>
-          <News />
-        </Section>
-      </Wraper>
+      </Section>
+
+      <Section>
+        <CTA />
+      </Section>
+      <Section>
+        <About />
+      </Section>
+      <Section>
+        <Apps />
+      </Section>
+      <Section>
+        <News />
+      </Section>
     </main>
   );
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Wraper } from "@/components/animation/Wraper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,10 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-poppins">
-        <NavBar Links={links} logo="/maghriboxygen/logo.png" />
+        <Wraper>
+          <NavBar Links={links} logo="/maghriboxygen/logo.png" />
 
-        {children}
-        <Footer links={links} />
+          {children}
+          <Footer links={links} />
+        </Wraper>
       </body>
     </html>
   );
