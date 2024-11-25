@@ -7,7 +7,7 @@ import { FaFacebookF } from "react-icons/fa6";
 const Footer = () => {
   return (
     <section className="font-poppins w-full min-h-[175px] xl:h-[175px] bg-[#387CCC] dark:bg-[#1E1E1E] px-2 lg:px-5 xl:px-10 text-white flex items-center mt-10">
-      <div className="w-full flex flex-col py-8 xl:py-0 gap-y-5 xl:flex-row justify-between items-center max-w-[1940px] mx-auto ">
+      <div className="w-full flex flex-col py-8 xl:py-0 gap-y-5 xl:flex-row justify-between items-center max-w-[1940px] mx-auto relative">
         <div>
           <img
             src="/logo/fotterLogo.png"
@@ -90,3 +90,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

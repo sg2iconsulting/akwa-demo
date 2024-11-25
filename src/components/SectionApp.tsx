@@ -17,26 +17,26 @@ const SectionApp = ({ imageSrc, title, text }: SectionProps) => {
           <div className="w-full lg:w-[55%] h-1/2 lg:h-full rounded-t-[20px] lg:rounded-l-[20px] xl:rounded-l-[50px] lg:rounded-r-[0px] bg-gradient-to-r from-[#2C5799] to-[#59A5D8] flex justify-center items-center text-white p-4 lg:p-16">
             <div className="w-full">
               <div className="flex flex-col gap-2 md:gap-4 xl:gap-8">
-                <p className="text-lg md:text-[23px] lg:text-2xl xl:text-[40px] font-bold leading-tight xl:leading-[56px] w-3/5">
+                <p className="text-lg md:text-[23px] lg:text-2xl xl:text-[40px] font-bold leading-tight xl:leading-[56px] lg:w-[60%] xl:w-[80%] 2xl:w-[65%]  mb-3">
                   {title}
                 </p>
                 <motion.button
-                  className="h-[35px] md:h-[45px] xl:h-[55px] w-[135px] md:w-[165px] xl:w-[200px] text-[10px] md:text-[13px] lg:text-[16px] font-medium rounded-full bg-white text-gray-900"
+                  className="mb-2 h-[35px] md:h-[45px] xl:h-[55px] w-[135px] md:w-[165px] xl:w-[200px] text-[10px] md:text-[13px] lg:text-[16px] font-medium rounded-full bg-white text-gray-900"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
                   Télécharger
                 </motion.button>
-                <div className={`flex gap-5 2xl:gap-10 pt-2 2xl:pt-10`}>
+                <div className={`flex gap-5 2xl:gap-10 pt-2 2xl:pt-3`}>
                   <img
                     src="/section/appStore.png"
                     alt=""
-                    className="w-[32%] md:w-[18%] xl:w-auto md:h-auto "
+                    className="w-[100px] md:w-[120px] lg:w-[150px] xl:w-[180px] 2xl:w-[210px] "
                   />
                   <img
                     src="/section/googlePlay.png"
                     alt=""
-                    className="w-[32%] md:w-[18%] xl:w-auto md:h-auto "
+                    className="w-[100px] md:w-[120px] lg:w-[150px] xl:w-[180px] 2xl:w-[210px] "
                   />
                 </div>
                 <p className="text-[10px] md:text-[13px] lg:text-[16px] font-medium">

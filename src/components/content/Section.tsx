@@ -25,8 +25,8 @@ const Section = ({ imageSrc, title, text, btn }: SectionProps) => {
         <div className="w-full h-[450px] md:h-[700px] lg:h-[400px] xl:h-[500px] flex flex-col lg:flex-row border dark:border-[#373737] rounded-[20px] xl:rounded-[50px] ">
           <div className="w-full lg:w-[55%] h-1/2 lg:h-full rounded-t-[20px] lg:rounded-l-[20px] xl:rounded-l-[50px] lg:rounded-r-[0px] bg-gradient-to-r from-[#2C5799] to-[#59A5D8] flex justify-center items-center text-white p-4 lg:p-16">
             <div className="w-full">
-              <div className="flex flex-col gap-2 md:gap-4 xl:gap-8">
-                <p className="text-lg md:text-[23px] lg:text-2xl xl:text-[40px] font-bold leading-tight xl:leading-9">
+              <div className={`flex flex-col ${!btn ? "gap-2 md:gap-4 xl:gap-8" : "gap-3"}`}>
+                <p className={`text-lg md:text-[23px] lg:text-2xl xl:text-[40px] font-bold leading-tight xl:leading-[48px] ${btn ? "w-1/2" : ""}`}>
                   {title}
                 </p>
                 <p className="text-[10px] md:text-[13px] lg:text-[16px] font-medium">

@@ -8,13 +8,13 @@ import AnimatedService from "./AnimatedService";
 
 const Content = () => {
   return (
-    <div className="flex flex-col gap-5 md:gap-10 lg:gap-20">
+    <div className="flex flex-col gap-5 md:gap-10 lg:gap-20 xl:gap-24">
       <Slider />
       <AnimatedSection
         imageSrc="/section/citerne.png"
         title="GPL en citerne"
         text="Afriquia Gaz optimise les qualités du gaz propane grâce à des citernes, aériennes ou enterrées, dont la livraison et la mise en service sont assurées par des équipes réactives. Ainsi conditionné, le gaz propane associe performance et souplesse d'utilisation pour satisfaire tous les besoins."
-        btn={true}
+        btn={false}
       />
       <AnimatedBanner imageSrc="/banner.png" />
       <AnimatedSection
@@ -27,7 +27,7 @@ const Content = () => {
         imageSrc="/section/telemetrie.png"
         title="Solution de télémétrie"
         text=""
-        btn={false}
+        btn={true}
       />
       <AnimatedActuality />
       <AnimatedService />
