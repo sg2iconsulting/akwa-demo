@@ -6,11 +6,28 @@ import { GiEarthAmerica } from "react-icons/gi";
 import { FaMoon } from "react-icons/fa";
 import { GoSun } from "react-icons/go";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 const Navbar = ({ btnColor, space, link }: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  const { setTheme, resolvedTheme } = useTheme();
+
+  // useEffect(() => {
+  //   setMounted(true);
+  //   setIsDarkMode(resolvedTheme === "dark");
+  // }, [resolvedTheme]);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleToggle = (e: any) => {
+    const newTheme = e.target.checked ? "light" : "dark";
+    setTheme(newTheme);
+  };
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -31,13 +48,20 @@ const Navbar = ({ btnColor, space, link }: any) => {
     };
   }, [isOpen]);
 
-  const handleToggle = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+  // const handleToggle = (e :any) => {
+  //   setIsDarkMode(!isDarkMode);
+  //   if (e.target.checked)
+  //     setTheme('light');
+  //   else
+  //     setTheme('dark');
+  //   console.log('togle : ', e.target.checked)
+  // };
+
+  if (!mounted) return null;
 
   return (
-    <div className="font-poppins w-full max-w-[1920px] mx-auto">
-      <div className="w-full h-[80px] md:h-[96px] flex px-5 md:px-10 justify-between items-center">
+    <div className="font-poppins w-full bg-white dark:bg-[#1E1E1E]">
+      <div className="w-full h-[80px] md:h-[96px] xl:h-[175px] flex px-5 md:px-10  max-w-[2000px] mx-auto justify-between items-center">
         <div>
           <img
             src="/logo/navbarLogo.png"
@@ -46,8 +70,8 @@ const Navbar = ({ btnColor, space, link }: any) => {
           />
         </div>
 
-        <div className="xl:hidden">
-          <div className="hidden xl:flex gap-3 md:gap-5 text-[12px] md:text-[14px]">
+        <div className="xl:hidden flex">
+          <div className="xl:flex gap-3 md:gap-5 text-[12px] md:text-[14px]">
             {/* <div className="flex items-center lg:gap-3">
               <GiEarthAmerica className="lg:text-xl" />
               <select
@@ -83,6 +107,37 @@ const Navbar = ({ btnColor, space, link }: any) => {
                 <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
               </label>
             </div> */}
+            <div className="flex items-center gap-3">
+              {resolvedTheme === "dark" ? (
+                <GoSun className="text-slate-600 text-[13px] lg:text-[18px] dark:text-white" />
+              ) : (
+                <FaMoon className="text-slate-600 text-[10px] lg:text-[15px]" />
+              )}
+              <label className="inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  checked={resolvedTheme === "light"}
+                  onChange={handleToggle}
+                />
+                <div
+                  // className="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-300 
+                  //  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                  //  peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 
+                  //  after:start-[2px] after:bg-gray-700 after:border-gray-300 after:border 
+                  //  after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                  //  focus:outline-none focus:ring-0"
+                  className="relative w-9 h-5 bg-gray-200 rounded-full peer dark:bg-gray-300 
+                peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] 
+                after:start-[2px] after:bg-gray-700 after:border-gray-300 after:border 
+                after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600
+                focus:outline-none focus:ring-0
+                sm:w-11 sm:h-6 sm:after:h-5 sm:after:w-5"
+                ></div>
+                <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
+              </label>
+            </div>
           </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -142,7 +197,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
           </ul>
         </div>
 
-        <div className="hidden xl:flex gap-3 md:gap-5 text-[12px] md:text-[14px]">
+        <div className="hidden xl:flex text-[12px] md:text-[14px]">
           {/* <div className="flex items-center lg:gap-3">
             <GiEarthAmerica className="lg:text-xl" />
             <select
@@ -153,31 +208,31 @@ const Navbar = ({ btnColor, space, link }: any) => {
               <option value="en">EN</option>
             </select>
           </div> */}
-          {/* <div className="flex items-center gap-3">
-            {!isDarkMode ? (
-              <FaMoon className="text-slate-600 text-[10px]" />
+          <div className="flex items-center gap-3">
+            {resolvedTheme === "dark" ? (
+              <GoSun className="text-slate-600 text-[13px] lg:text-[18px] dark:text-white" />
             ) : (
-              <GoSun className="text-slate-600 text-[13px]" />
+              <FaMoon className="text-slate-600 text-[10px] lg:text-[15px]" />
             )}
             <label className="inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
                 className="sr-only peer"
-                checked={isDarkMode}
-                value={"isDarkMode"}
+                checked={resolvedTheme === "light"}
                 onChange={handleToggle}
               />
               <div
-                className="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-300 
-                   peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
-                   peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 
-                   after:start-[2px] after:bg-gray-700 after:border-gray-300 after:border 
-                   after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600
-                   focus:outline-none focus:ring-0"
+                className="relative w-9 h-5 bg-gray-200 rounded-full peer dark:bg-gray-300 
+                peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full 
+                peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] 
+                after:start-[2px] after:bg-gray-700 after:border-gray-300 after:border 
+                after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600
+                focus:outline-none focus:ring-0
+                sm:w-11 sm:h-6 sm:after:h-5 sm:after:w-5"
               ></div>
               <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
             </label>
-          </div> */}
+          </div>
         </div>
 
         {/* <div className="hidden xl:flex gap-3 md:gap-5 text-[12px] md:text-[14px]">
@@ -207,7 +262,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
       </div>
 
       <div
-        className={`xl:hidden w-full bg-white shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
+        className={`xl:hidden w-full bg-white dark:bg-[#121212] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
           isOpen ? "max-h-[300px]" : "max-h-0"
         }`}
       >

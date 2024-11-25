@@ -1,10 +1,6 @@
+'use client'
 import React from "react";
 import Slider from "./Slider";
-import Section from "./Section";
-import Service from "./Service";
-import Actuality from "../actuality/Actuality";
-import Banner from "./Banner";
-import Footer from "../Footer";
 import AnimatedSection from "./AnimatedSection";
 import AnimatedBanner from "./AnimatedBanner";
 import AnimatedActuality from "./AnimatedActuality";
@@ -12,7 +8,7 @@ import AnimatedService from "./AnimatedService";
 
 const Content = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-5 md:gap-10 lg:gap-20">
       <Slider />
       <AnimatedSection
         imageSrc="/section/citerne.png"

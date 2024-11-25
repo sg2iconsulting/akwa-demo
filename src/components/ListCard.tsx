@@ -9,9 +9,9 @@ import Card from "./Card";
 
 const ListCard = () => {
   return (
-    <section className="mt-7">
-      <div className="w-full md:my-10 max-w-[1850px] mx-auto">
-        <div className="px-10 md:flex items-center justify-around w-full xl:mx-auto gap-5 2xl:justify-around 2xl:w-full hidden flex-wrap">
+    <section className="w-full">
+      <div className="w-full max-w-[2000px] h-auto flex flex-col mx-auto gap-2 md:gap-4 xl:gap-8  px-3 md:px-7 xl:px-10 2xl:px-20">
+        <div className="md:flex items-center justify-around w-full xl:mx-auto gap-5 2xl:justify-around 2xl:w-full hidden flex-wrap">
           <div className="">
             <Card
               imageSrc="/Cards/card1.jpeg"

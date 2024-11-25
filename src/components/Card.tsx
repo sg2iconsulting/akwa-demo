@@ -15,7 +15,7 @@ const Card = ({ imageSrc, title }: CardProps) => {
     >
       <div
         id="content"
-        className="h-[233px] w-[217px] xl:w-[317px] xl:h-[333px] 2xl:w-[417px] 2xl:h-[433px] flex items-center rounded-[50px] justify-center relative"
+        className="h-[233px] w-[217px] xl:w-[317px] xl:h-[333px] 2xl:w-[417px] 2xl:h-[433px] flex items-center rounded-[50px] justify-center relative  aspect-square"
         style={{
           backgroundImage: `url(${imageSrc})`,
           backgroundPosition: "center",
