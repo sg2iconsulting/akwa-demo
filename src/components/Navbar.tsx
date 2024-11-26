@@ -20,6 +20,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
   //   setMounted(true);
   //   setIsDarkMode(resolvedTheme === "dark");
   // }, [resolvedTheme]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -60,8 +61,8 @@ const Navbar = ({ btnColor, space, link }: any) => {
   if (!mounted) return null;
 
   return (
-    <div className="font-poppins w-full bg-white dark:bg-[#1E1E1E]">
-      <div className="w-full h-[80px] md:h-[96px] xl:h-[175px] flex px-5 md:px-10  max-w-[2000px] mx-auto justify-between items-center">
+    <div className="font-poppins w-full bg-white dark:bg-[#121212]">
+      <div className="w-full h-[80px] md:h-[96px] flex px-5 md:px-10  max-w-[2000px] mx-auto justify-between items-center">
         <div>
           <img
             src="/logo/navbarLogo.png"
