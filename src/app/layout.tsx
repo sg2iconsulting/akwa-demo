@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavBar from "@/components/navbar";
-import Footer from "@/components/footer";
-import { Wraper } from "@/components/animation/Wraper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,29 +11,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const navlinks = [
-    { label: "Nous Connaitre" },
-    { label: "Applications" },
-    { label: "Réseaux" },
-    { label: "QHSE" },
-    { label: "Actualités" },
-  ];
-  const footlinks = [
-    { label: "Contact" },
-    { label: "Conditions d'utilisation" },
-    { label: "Politique de Confidentialité" },
-    { label: "FAQ" },
-  ];
   return (
-    <html lang="en">
-      <body className="antialiased font-poppins">
-        <Wraper>
-          <NavBar Links={navlinks} logo="/maghriboxygen/logo.png" />
-
-          {children}
-          <Footer links={footlinks} />
-        </Wraper>
-      </body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased font-poppins">{children}</body>
     </html>
   );
 }

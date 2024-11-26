@@ -32,6 +32,8 @@ export default {
     },
     extend: {
       colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         sky: "#0085C3",
         ocean: "#0963AA",
       },
@@ -42,4 +44,5 @@ export default {
     },
   },
   plugins: [],
+  darkMode: "class",
 } satisfies Config;
