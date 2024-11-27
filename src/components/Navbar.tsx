@@ -108,11 +108,11 @@ const Navbar = ({ btnColor, space, link }: any) => {
                 <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
               </label>
             </div> */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-1">
               {resolvedTheme === "dark" ? (
-                <GoSun className="text-slate-600 text-[13px] lg:text-[18px] dark:text-white" />
+                <GoSun className="text-slate-600 text-[13px] md:text-[18px] mb-1 dark:text-white" />
               ) : (
-                <FaMoon className="text-slate-600 text-[10px] lg:text-[15px]" />
+                <FaMoon className="text-slate-600 text-[10px] md:text-[15px] mb-1" />
               )}
               <form>
 
@@ -215,9 +215,9 @@ const Navbar = ({ btnColor, space, link }: any) => {
           </div> */}
           <div className="flex items-center gap-3">
             {resolvedTheme === "dark" ? (
-              <GoSun className="text-slate-600 text-[13px] lg:text-[18px] dark:text-white" />
+              <GoSun className="text-slate-600 text-[13px] md:text-[18px] mb-1 dark:text-white" />
             ) : (
-              <FaMoon className="text-slate-600 text-[10px] lg:text-[15px]" />
+              <FaMoon className="text-slate-600 text-[10px] md:text-[15px] mb-1" />
             )}
             <form>
 
