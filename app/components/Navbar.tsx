@@ -108,12 +108,14 @@ const Navbar = ({ btnColor, space, link }: any) => {
               </form>
             </div>
           </div>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
             onClick={() => setIsOpen(!isOpen)}
             className="text-white text-[20px] md:text-[24px]"
           >
             <GrMenu />
-          </button>
+          </motion.button>
         </div>
 
         {/* Desktop Menu */}
@@ -256,17 +258,24 @@ const Navbar = ({ btnColor, space, link }: any) => {
               autoPlay
               muted
             />
-            <div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white"
+            >
               <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[60%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 Groupe énergétique par excellence
               </p>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
                 onClick={() => handleOpenModal("/slides/Groupeenergetique.mp4")}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </SwiperSlide>
           <SwiperSlide>
             <video
@@ -276,22 +285,29 @@ const Navbar = ({ btnColor, space, link }: any) => {
               autoPlay
               muted
             />
-            <div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white"
+            >
               <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[70%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 Transition Énergétique,
               </p>
               <p className="text-[6px] sm:text-[10px] md:text-[15px] xl:text-[40px] font-bold ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 la voie de l’avenir
               </p>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
                 onClick={() =>
                   handleOpenModal("/slides/transitionenergetique.mp4")
                 }
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </SwiperSlide>
           <SwiperSlide>
             <video
@@ -301,20 +317,27 @@ const Navbar = ({ btnColor, space, link }: any) => {
               autoPlay
               muted
             />
-            <div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white">
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white"
+            >
               <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[60%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 AKWA AFRICA,
               </p>
               <p className="text-[6px] sm:text-[10px] md:text-[15px] xl:text-[40px] font-bold ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 de nouvelles perspectives d’avenir
               </p>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
                 onClick={() => handleOpenModal("/slides/AkwaAfrica.mp4")}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </SwiperSlide>
         </Swiper>
         {/* Modal */}
@@ -325,12 +348,14 @@ const Navbar = ({ btnColor, space, link }: any) => {
                 <h2 className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-bold mb-4 px-2 text-white">
                   Video
                 </h2>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                   onClick={handleCloseModal}
                   className="text-white mb-4 px-2"
                 >
                   <IoCloseCircle className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px]" />
-                </button>
+                </motion.button>
               </div>
               {/* Video player */}
               {videoSrc && (
@@ -350,4 +375,3 @@ const Navbar = ({ btnColor, space, link }: any) => {
 };
 
 export default Navbar;
-
