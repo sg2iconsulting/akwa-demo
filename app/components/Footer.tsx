@@ -12,10 +12,10 @@ const Footer = () => {
           <img
             src="logo/akwaLogo.png"
             alt="Akwa Group Logo"
-            className="w-[60px] md:w-[80px] lg:w-[100px]"
+            className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
           />
         </div>
-        <ul className="flex flex-wrap md:w-[60%] lg:w-auto lg:flex-nowrap  xl:flex-row text-center justify-center gap-4 xl:gap-16 font-bold text-[10px] md:text-[12px] xl:text-[16px]">
+        <ul className="flex flex-wrap md:w-[60%] lg:w-auto lg:flex-nowrap  xl:flex-row text-center justify-center gap-4 xl:gap-16 font-bold text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px]">
           <motion.li
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
@@ -60,7 +60,7 @@ const Footer = () => {
           >
             <ImLinkedin
               color="white"
-              className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6   "
+              className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8   "
             />
           </motion.div>
         </div>

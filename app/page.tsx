@@ -14,7 +14,7 @@ import ActualityAnimation from "./components/animation/ActualityAnimation";
 
 const home = () => {
   return (
-    <section className="flex flex-col gap-6 lg:gap-10 xl:gap-16">
+    <section className="flex flex-col gap-6 lg:gap-10 xl:gap-[100px] 2xl:gap-[165px]">
       <Navbar />
       <GroupAnimation />
       <ChiffreAnimation />
