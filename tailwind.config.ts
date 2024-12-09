@@ -21,7 +21,7 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/aspect-ratio')
+    require('@tailwindcss/aspect-ratio'),
   ],
   darkMode: 'class'
 } satisfies Config;

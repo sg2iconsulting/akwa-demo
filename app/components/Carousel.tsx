@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
-
 import { EffectCoverflow, Navigation } from "swiper/modules";
-import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 import useInView from "../hook/useView";
+import { FaChevronLeft } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 
 interface Slide {
   image: string;
@@ -73,6 +73,8 @@ const TrendingSlider: React.FC = () => {
         </motion.div>
       </div>
       <div className="w-full h-full relative">
+        {" "}
+        {/* Ensure relative position */}
         <Swiper
           ref={swiperRef}
           modules={[Navigation, EffectCoverflow]}
@@ -88,6 +90,7 @@ const TrendingSlider: React.FC = () => {
             depth: 100,
             modifier: 2.5,
           }}
+          className="h-full"
           breakpoints={{
             319: {
               slidesPerView: 2.5,
@@ -107,28 +110,35 @@ const TrendingSlider: React.FC = () => {
           }}
         >
           {slides.map((slide, index) => (
-            <SwiperSlide key={index} className="w-full">
+            <SwiperSlide key={index} className="w-full h-full">
+              {" "}
+              {/* Match height */}
               <img
                 src={slide.image}
-                className="rounded-2xl w-full  h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]"
+                className="rounded-2xl w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]"
               />
             </SwiperSlide>
           ))}
         </Swiper>
-        <motion.div
-          whileHover={{ scale: 1.15 }}
-          onClick={handlePrev}
-          className="bg-black bg-opacity-50 p-4 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 absolute left-24 xl:left-28 2xl:left-36 cursor-pointer select-none max-lg:hidden"
+        {/* Navigation Buttons */}
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            handlePrev();
+          }}
+          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-lg: transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
         >
-          <BsChevronCompactLeft className="text-[20px] xl:text-[32px] 2xl:text-[48px] text-white" />
-        </motion.div>
-        <motion.div
-          whileHover={{ scale: 1.15 }}
-          onClick={handleNext}
-          className="bg-black bg-opacity-50 p-4 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 absolute right-24 xl:right-28 2xl:right-36 cursor-pointer select-none max-lg:hidden"
+          <FaChevronLeft className="text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold text-white" />
+        </div>
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            handleNext();
+          }}
+          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-lg:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
         >
-          <BsChevronCompactRight className="text-[20px] xl:text-[32px] 2xl:text-[48px] text-white" />
-        </motion.div>
+          <FaChevronRight className="text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold text-white" />
+        </div>
       </div>
     </section>
   );

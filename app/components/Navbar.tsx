@@ -14,12 +14,12 @@ import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
 import useInView from "../hook/useView";
 
-
 const Navbar = ({ btnColor, space, link }: any) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollDirection, setScrollDirection] = useState("up");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoSrc, setVideoSrc] = useState("");
+  const [videoTitle, setVideoTitle] = useState("");
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
@@ -69,13 +69,17 @@ const Navbar = ({ btnColor, space, link }: any) => {
     <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212]">
       {/* Navbar */}
       <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex px-5 md:px-10 justify-between items-center">
-        <div>
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.3 }}
+          className="cursor-pointer"
+        >
           <img
             src="/logo/akwaLogo.png"
             alt="Afriquia Gaz Logo"
             className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
           />
-        </div>
+        </motion.div>
 
         {/* Menu Button for Mobile */}
         <div className="xl:hidden flex gap-3">
@@ -244,7 +248,6 @@ const Navbar = ({ btnColor, space, link }: any) => {
 
       {/* Swiper Section */}
       <div className="w-full h-full relative">
-        
         <Swiper
           modules={[Pagination, Navigation, Autoplay]}
           pagination={{ clickable: true }}
@@ -268,7 +271,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => handleOpenModal("/slides/Groupeenergetique.mp4")}
+                onClick={() => {handleOpenModal("/slides/Groupeenergetique.mp4"); setVideoTitle("Groupe énergétique par excellence")}}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
@@ -294,9 +297,10 @@ const Navbar = ({ btnColor, space, link }: any) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() =>
-                  handleOpenModal("/slides/transitionenergetique.mp4")
-                }
+                onClick={() => {
+                  handleOpenModal("/slides/transitionenergetique.mp4");
+                  setVideoTitle("Transition Énergétique")
+                }}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
@@ -322,7 +326,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => handleOpenModal("/slides/AkwaAfrica.mp4")}
+                onClick={() => {handleOpenModal("/slides/AkwaAfrica.mp4"); setVideoTitle("AKWA AFRICA")}}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
@@ -336,7 +340,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
             <div className="bg-[#121212] p-2 md:p-4 lg:p-6 rounded-lg shadow-lg w-[90%]">
               <div className="w-full flex justify-between">
                 <h2 className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-bold mb-4 px-2 text-white">
-                  Video
+                  {videoTitle}
                 </h2>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -350,10 +354,10 @@ const Navbar = ({ btnColor, space, link }: any) => {
               {/* Video player */}
               {videoSrc && (
                 <video
-                src={videoSrc}
-                className="w-full object-cover"
-                controls
-                autoPlay
+                  src={videoSrc}
+                  className="w-full object-cover"
+                  controls
+                  autoPlay
                 />
               )}
             </div>

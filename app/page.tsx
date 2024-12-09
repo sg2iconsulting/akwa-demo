@@ -1,11 +1,7 @@
+'use client'
 import React from "react";
 import Navbar from "./components/Navbar";
-import Group from "./components/Group";
-import Chiffre from "./components/Chiffre";
 import Footer from "./components/Footer";
-import Actuality from "./components/actuality/Actuality";
-import Section from "./components/Section";
-import TrendingSlider from "./components/Carousel";
 import GroupAnimation from "./components/animation/GroupAnimation";
 import ChiffreAnimation from "./components/animation/ChiffreAnimation";
 import CarouselAnimation from "./components/animation/CarouselAnimation";
@@ -30,7 +26,6 @@ const home = () => {
         imgSrc="/section/afriqueBg.png"
       />
       <ActualityAnimation />
-
       <Footer />
     </section>
   );
