@@ -4,11 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
-import { EffectCoverflow, Navigation } from "swiper/modules";
+import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import useInView from "../hook/useView";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
+import "@/app/styles/carousel.css";
 
 interface Slide {
   image: string;
@@ -77,11 +78,16 @@ const TrendingSlider: React.FC = () => {
         {/* Ensure relative position */}
         <Swiper
           ref={swiperRef}
-          modules={[Navigation, EffectCoverflow]}
+          modules={[Navigation, EffectCoverflow, Autoplay]}
           effect="coverflow"
           grabCursor
           centeredSlides
           loop
+          autoplay={{
+            delay: 1000, 
+            disableOnInteraction: false, 
+          }}
+          speed={800}
           slidesPerView="auto"
           coverflowEffect={{
             slideShadows: false,
@@ -93,15 +99,15 @@ const TrendingSlider: React.FC = () => {
           className="h-full"
           breakpoints={{
             319: {
-              slidesPerView: 2.5,
-              spaceBetween: 10,
-            },
-            640: {
               slidesPerView: 3,
               spaceBetween: 0,
             },
+            640: {
+              slidesPerView: 3.5,
+              spaceBetween: 0,
+            },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 3.5,
             },
             1024: {
               slidesPerView: 3.5,
@@ -126,7 +132,7 @@ const TrendingSlider: React.FC = () => {
             e.preventDefault();
             handlePrev();
           }}
-          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-lg: transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
+          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
         >
           <FaChevronLeft className="text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold text-white" />
         </div>
@@ -135,7 +141,7 @@ const TrendingSlider: React.FC = () => {
             e.preventDefault();
             handleNext();
           }}
-          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-lg:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
+          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
         >
           <FaChevronRight className="text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold text-white" />
         </div>

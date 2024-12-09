@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -7,11 +7,27 @@ import ChiffreAnimation from "./components/animation/ChiffreAnimation";
 import CarouselAnimation from "./components/animation/CarouselAnimation";
 import SectionAnimation from "./components/animation/SectionAnimation";
 import ActualityAnimation from "./components/animation/ActualityAnimation";
+import { TbArrowBarToUp } from "react-icons/tb";
 
 const home = () => {
+  const scrollToNavbar = () => {
+    const navbarElement = document.getElementById("navbar");
+    if (navbarElement) {
+      navbarElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="flex flex-col gap-6 lg:gap-10 xl:gap-[100px] 2xl:gap-[165px]">
-      <Navbar />
+      <section id="navbar">
+        <Navbar />
+      </section>
+      <button
+        onClick={scrollToNavbar}
+        className="fixed bottom-28 right-6 bg-[#19A0BF] text-white p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
+      >
+        <TbArrowBarToUp style={{ fontSize: "28px", fontWeight: "900" }} className=""/>
+      </button>
       <GroupAnimation />
       <ChiffreAnimation />
       <CarouselAnimation />
