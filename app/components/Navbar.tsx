@@ -303,7 +303,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
                 }}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
-                Voir la video
+                En savoir plus
               </motion.button>
             </motion.div>
           </SwiperSlide>
@@ -329,7 +329,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
                 onClick={() => {handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"); setVideoTitle("AKWA AFRICA")}}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
-                Voir la video
+                En savoir plus
               </motion.button>
             </motion.div>
           </SwiperSlide>
