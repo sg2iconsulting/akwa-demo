@@ -8,6 +8,7 @@ export interface ImageLinksProp {
 
 const ImagesFadeShow = ({ imgLinks, duration }: ImageLinksProp) => {
     const [activeIndex, setActiveIndex] = useState(0);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [fade, setFade] = useState(true);
   
     useEffect(() => {

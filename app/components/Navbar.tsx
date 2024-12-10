@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { GrMenu } from "react-icons/gr";
@@ -14,8 +14,10 @@ import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
 import useInView from "../hook/useView";
 
-const Navbar = ({ btnColor, space, link }: any) => {
+const Navbar = ({ link = "" }: { link?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoSrc, setVideoSrc] = useState("");
@@ -23,6 +25,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { ref, isInView } = useInView();
 
   useEffect(() => {
@@ -39,7 +42,8 @@ const Navbar = ({ btnColor, space, link }: any) => {
     setVideoSrc("");
   };
 
-  const handleToggle = (e: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleToggle = (e:  React.ChangeEvent<HTMLInputElement>) => {
     const newTheme = e.target.checked ? "light" : "dark";
     setTheme(newTheme);
   };

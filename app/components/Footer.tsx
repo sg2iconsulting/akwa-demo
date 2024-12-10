@@ -38,7 +38,7 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Condition d'utilisation
+            {"Condition d'utilisation"}
           </motion.li>
           <motion.li
             className="cursor-pointer"

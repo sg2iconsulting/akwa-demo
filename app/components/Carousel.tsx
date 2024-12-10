@@ -55,6 +55,7 @@ const slides: Slide[] = [
 ];
 
 const TrendingSlider: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const swiperRef = useRef<any>(null);
   const handleNext = () => swiperRef.current?.swiper?.slideNext();
   const handlePrev = () => swiperRef.current?.swiper?.slidePrev();

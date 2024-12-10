@@ -47,7 +47,7 @@ const Actuality = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                Lire l'article
+                {"Lire l'article"}
               </motion.button>
             </div>
           </div>
