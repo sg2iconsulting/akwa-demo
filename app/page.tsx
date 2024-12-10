@@ -24,7 +24,7 @@ const home = () => {
       </section>
       <button
         onClick={scrollToNavbar}
-        className="fixed bottom-28 right-6 bg-[#19A0BF] text-white p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
+        className="fixed bottom-48 right-6 bg-[#19A0BF] text-white p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
       >
         <TbArrowBarToUp style={{ fontSize: "28px", fontWeight: "900" }} className=""/>
       </button>

@@ -1,7 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Item = () => {
+export interface ItemsProp {
+  imgSrc: string;
+  title: string;
+  date: string;
+}
+
+const Item = ({ imgSrc, title, date }: ItemsProp) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -10,16 +16,14 @@ const Item = () => {
     >
       <div className="p-4 flex items-center justify-evenly w-full h-full gap-2">
         <div className="flex flex-col gap-2 w-[80%] h-auto">
-          <p className="text-[8px] md:text-[12px] xl:text-[16px]">
-            July 20, 2021
-          </p>
+          <p className="text-[8px] md:text-[12px] xl:text-[16px]">{date}</p>
           <p className="text-[10px] md:text-[14px] xl:text-[18px] font-bold ">
-            Afriquia gaz participe à la 15ème édition du salon maroctel
+            {title}
           </p>
         </div>
         <div className="w-[70px] h-[70px] md:w-[100px] md:h-[100px] aspect-square">
           <img
-            src="/actuality/item.jpeg"
+            src={imgSrc}
             alt=""
             className="w-full h-full rounded-[8px] object-cover"
           />

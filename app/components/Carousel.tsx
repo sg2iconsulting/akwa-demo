@@ -23,19 +23,25 @@ const slides: Slide[] = [
     image: "/akwagroup/images/dev.png",
   },
   {
+    image: "/akwagroup/images/transition.png",
+  },
+  {
     image: "/akwagroup/images/fluides.png",
   },
   {
     image: "/akwagroup/images/gaz.png",
-  },
-  {
-    image: "/akwagroup/images/transition.png",
   },
   {
     image: "/akwagroup/images/carburant.png",
   },
   {
+    image: "/akwagroup/images/immobilier.png",
+  },
+  {
     image: "/akwagroup/images/dev.png",
+  },
+  {
+    image: "/akwagroup/images/transition.png",
   },
   {
     image: "/akwagroup/images/fluides.png",
@@ -44,7 +50,7 @@ const slides: Slide[] = [
     image: "/akwagroup/images/gaz.png",
   },
   {
-    image: "/akwagroup/images/transition.png",
+    image: "/akwagroup/images/immobilier.png",
   },
 ];
 

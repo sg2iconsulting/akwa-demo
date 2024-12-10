@@ -52,11 +52,11 @@ const Actuality = () => {
             </div>
           </div>
           <div className="w-full xl:w-[35%] flex flex-col justify-between gap-4">
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            <Item imgSrc="/actuality/item1.png" title="afriquia gaz participe à la 15ème édition du salon marocotel" date="July 20, 2021"/>
+            <Item imgSrc="/actuality/item2.png" title="les dépositaires utilisateurs d’i-gaz récompensés" date="July 20, 2021"/>
+            <Item imgSrc="/actuality/item3.png" title="afriquia gaz s’allie à l’association tibu maroc et ouvre un centre pour la jeunesse d’inzegane" date="July 20, 2021"/>
+            <Item imgSrc="/actuality/item4.png" title="les nouvelles bouteilles d’afriquia gaz révolutionnent le marché" date="July 20, 2021"/>
+            <Item imgSrc="/actuality/item5.png" title="afriquia gaz s’allie à l’association tibu maroc et ouvre un centre pour la jeunesse d’inzegane" date="July 20, 2021"/>
           </div>
         </div>
       </div>

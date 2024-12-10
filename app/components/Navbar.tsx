@@ -257,7 +257,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
         >
           <SwiperSlide>
             <video
-              src={"/slides/Groupeenergetique.mp4"}
+              src={"https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"}
               className="w-full h-full object-cover relative"
               loop
               autoPlay
@@ -271,7 +271,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {handleOpenModal("/slides/Groupeenergetique.mp4"); setVideoTitle("Groupe énergétique par excellence")}}
+                onClick={() => {handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"); setVideoTitle("Groupe énergétique par excellence")}}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
@@ -280,7 +280,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
           </SwiperSlide>
           <SwiperSlide>
             <video
-              src={"/slides/transitionenergetique.mp4"}
+              src={"https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4"}
               className="w-full h-full object-cover relative"
               loop
               autoPlay
@@ -298,7 +298,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => {
-                  handleOpenModal("/slides/transitionenergetique.mp4");
+                  handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4");
                   setVideoTitle("Transition Énergétique")
                 }}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
@@ -309,7 +309,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
           </SwiperSlide>
           <SwiperSlide>
             <video
-              src={"/slides/AkwaAfrica.mp4"}
+              src={"https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"}
               className="w-full h-full object-cover relative"
               loop
               autoPlay
@@ -326,7 +326,7 @@ const Navbar = ({ btnColor, space, link }: any) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {handleOpenModal("/slides/AkwaAfrica.mp4"); setVideoTitle("AKWA AFRICA")}}
+                onClick={() => {handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"); setVideoTitle("AKWA AFRICA")}}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video

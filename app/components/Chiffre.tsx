@@ -35,9 +35,71 @@ const Chiffre = () => {
             </motion.div>
             <hr className="w-10 bg-white" />
             <div>
-              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">Emplois directs et</p>
-              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]"> indirects</p>
+              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+                Emplois directs et
+              </p>
+              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+                {" "}
+                indirects
+              </p>
             </div>
+          </div>
+          <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
+            <motion.div
+              ref={ref}
+              initial={{ y: 25 }}
+              animate={isInView ? { y: 0 } : { y: 25 }}
+              transition={{ duration: 0.8 }}
+              className="flex font-bold"
+            >
+              <span>
+                <AnimatedCounter value={2} duration={3} />
+              </span>
+            </motion.div>
+            <hr className="w-10 bg-white" />
+            <div>
+              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+                Sociétés cotées en
+              </p>
+              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+                bourse
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
+            <motion.div
+              ref={ref}
+              initial={{ y: 25 }}
+              animate={isInView ? { y: 0 } : { y: 25 }}
+              transition={{ duration: 0.8 }}
+              className="flex font-bold"
+            >
+              <span>
+                <AnimatedCounter value={70} duration={5} />
+              </span>
+            </motion.div>
+            <hr className="w-10 bg-white" />
+            <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+              Sociétés
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
+            <motion.div
+              ref={ref}
+              initial={{ y: 25 }}
+              animate={isInView ? { y: 0 } : { y: 25 }}
+              transition={{ duration: 0.8 }}
+              className="flex font-bold"
+            >
+              <span className="lg:text-[28px] 2xl:text-[48px]">+</span>
+              <span>
+                <AnimatedCounter value={40} duration={5} />
+              </span>
+            </motion.div>
+            <hr className="w-10 bg-white" />
+            <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+              Marques phares
+            </p>
           </div>
           <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
             <motion.div
@@ -56,56 +118,9 @@ const Chiffre = () => {
               <span className="lg:text-[28px] 2xl:text-[48px]">Milliards</span>
             </motion.div>
             <hr className="w-10 bg-white" />
-            <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">de chiffres annuel</p>
-          </div>
-          <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
-            <motion.div
-              ref={ref}
-              initial={{ y: 25 }}
-              animate={isInView ? { y: 0 } : { y: 25 }}
-              transition={{ duration: 0.8 }}
-              className="flex font-bold"
-            >
-              <span>
-                <AnimatedCounter value={2} duration={3} />
-              </span>
-            </motion.div>
-            <hr className="w-10 bg-white" />
-            <div>
-              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">Sociétés cotées en</p>
-              <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">bourse</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
-            <motion.div
-              ref={ref}
-              initial={{ y: 25 }}
-              animate={isInView ? { y: 0 } : { y: 25 }}
-              transition={{ duration: 0.8 }}
-              className="flex font-bold"
-            >
-              <span>
-                <AnimatedCounter value={70} duration={5} />
-              </span>
-            </motion.div>
-            <hr className="w-10 bg-white" />
-            <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">Sociétés</p>
-          </div>
-          <div className="flex flex-col items-center gap-2 md:h-24 lg:h-36 2xl:h-48">
-            <motion.div
-              ref={ref}
-              initial={{ y: 25 }}
-              animate={isInView ? { y: 0 } : { y: 25 }}
-              transition={{ duration: 0.8 }}
-              className="flex font-bold"
-            >
-              <span className="lg:text-[28px] 2xl:text-[48px]">+</span>
-              <span>
-                <AnimatedCounter value={40} duration={5} />
-              </span>
-            </motion.div>
-            <hr className="w-10 bg-white" />
-            <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">Marques phares</p>
+            <p className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+              de chiffres annuel
+            </p>
           </div>
         </div>
       </div>
