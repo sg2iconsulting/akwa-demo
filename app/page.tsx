@@ -34,12 +34,12 @@ const home = () => {
       <SectionAnimation
         title="Innovation"
         descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
-        imgSrc="https://sg2i.com/wp-content/uploads/2024/12/innovationBg.jpeg"
+        imgSrc="Section/innovationBg.jpeg"
       />
       <SectionAnimation
         title="Afrique"
         descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin. "
-        imgSrc="https://sg2i.com/wp-content/uploads/2024/12/afriqueBg.png"
+        imgSrc="Section/afriqueBg.png"
       />
       <ActualityAnimation />
       <Footer />
