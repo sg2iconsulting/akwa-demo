@@ -16,8 +16,8 @@ const Item = ({ imgSrc, title, date }: ItemsProp) => {
     >
       <div className="p-4 flex items-center justify-evenly w-full h-full gap-2">
         <div className="flex flex-col gap-2 w-[80%] h-auto">
-          <p className="text-[8px] md:text-[12px] xl:text-[16px]">{date}</p>
-          <p className="text-[10px] md:text-[14px] xl:text-[18px] font-bold ">
+          <p className="text-[8px] md:text-[12px] xl:text-[13px]">{date}</p>
+          <p className="text-[10px] md:text-[14px] xl:text-[15px] font-bold ">
             {title}
           </p>
         </div>

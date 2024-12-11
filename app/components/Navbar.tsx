@@ -6,13 +6,15 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { GrMenu } from "react-icons/gr";
-import { IoCloseCircle, IoSunny } from "react-icons/io5";
+import { IoCloseCircle } from "react-icons/io5";
+import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
 import useInView from "../hook/useView";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +45,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleToggle = (e:  React.ChangeEvent<HTMLInputElement>) => {
+  const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newTheme = e.target.checked ? "light" : "dark";
     setTheme(newTheme);
   };
@@ -72,7 +74,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   return (
     <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212]">
       {/* Navbar */}
-      <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex px-5 md:px-10 justify-between items-center">
+      <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
@@ -88,9 +90,9 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         {/* Menu Button for Mobile */}
         <div className="xl:hidden flex gap-3">
           <div className="xl:flex gap-3 md:gap-5 text-[12px] md:text-[14px]">
-            <div className="flex items-center gap-3 mt-1">
+            <div className="flex items-center gap-1 mt-1 w-24 justify-around">
               {resolvedTheme === "dark" ? (
-                <IoSunny className="text-white text-[13px] md:text-[18px] mb-1 dark:text-white" />
+                <HiSun className="text-white text-[20px] mb-1 dark:text-white" />
               ) : (
                 <FaMoon className="text-white text-[10px] md:text-[15px] mb-1" />
               )}
@@ -129,7 +131,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden xl:flex gap-5">
-          <ul className="flex gap-20 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
+          <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
@@ -161,10 +163,13 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           </ul>
         </div>
 
-        <div className="xl:flex gap-5 hidden">
-          <div className="flex items-center gap-3 mt-1">
+        <div className="xl:flex gap-4 hidden">
+          <div className="flex items-center">
+            <LanguageSwitcher />
+          </div>
+          <div className="flex items-center gap-2 mt-1 justify-around w-[90px] mr-3">
             {resolvedTheme === "dark" ? (
-              <IoSunny className="text-white text-[13px] md:text-[18px] mb-1 dark:text-white" />
+              <HiSun className="text-white text-[13px] md:text-[28px] mb-1 dark:text-white" />
             ) : (
               <FaMoon className="text-white text-[10px] md:text-[15px] mb-1" />
             )}
@@ -193,7 +198,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           {/* Desktop Buttons */}
           <div className="hidden xl:block">
             <motion.button
-              className={`lg:w-[220px] xl:w-[250px] w-[200px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#19A0BF]`}
+              className={`lg:w-[220px] xl:w-[180px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#19A0BF]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -255,27 +260,34 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         <Swiper
           modules={[Pagination, Navigation, Autoplay]}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 6000 }}
           loop
           className="w-full relative h-full z-40"
         >
           <SwiperSlide>
             <video
-              src={"https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"}
+              src={
+                "https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"
+              }
               className="w-full h-full object-cover relative"
               loop
               autoPlay
               muted
             />
             <div className="w-full h-full bg-black inset-0 absolute opacity-45"></div>
-            <motion.div className="w-full h-full absolute inset-0 z-40 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white">
+            <motion.div className="w-full h-full absolute inset-0 z-40 mt-4 sm:mt-0 ml-0 flex flex-col justify-center text-white">
               <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[60%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 Groupe énergétique par excellence
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"); setVideoTitle("Groupe énergétique par excellence")}}
+                onClick={() => {
+                  handleOpenModal(
+                    "https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"
+                  );
+                  setVideoTitle("Groupe énergétique par excellence");
+                }}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 Voir la video
@@ -284,14 +296,16 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           </SwiperSlide>
           <SwiperSlide>
             <video
-              src={"https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4"}
+              src={
+                "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4"
+              }
               className="w-full h-full object-cover relative"
               loop
               autoPlay
               muted
             />
             <div className="w-full h-full bg-black inset-0 absolute opacity-45"></div>
-            <motion.div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white">
+            <motion.div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-0 flex flex-col justify-center text-white">
               <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[70%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 Transition Énergétique,
               </p>
@@ -302,8 +316,10 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => {
-                  handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4");
-                  setVideoTitle("Transition Énergétique")
+                  handleOpenModal(
+                    "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4"
+                  );
+                  setVideoTitle("Transition Énergétique");
                 }}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
@@ -320,7 +336,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
               muted
             />
             <div className="w-full h-full bg-black inset-0 absolute opacity-45"></div>
-            <motion.div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-4 xl:ml-20 flex flex-col justify-center text-white">
+            <motion.div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-0 flex flex-col justify-center text-white">
               <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[60%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
                 AKWA AFRICA,
               </p>
@@ -330,7 +346,12 @@ const Navbar = ({ link = "" }: { link?: string }) => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {handleOpenModal("https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"); setVideoTitle("AKWA AFRICA")}}
+                onClick={() => {
+                  handleOpenModal(
+                    "https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"
+                  );
+                  setVideoTitle("AKWA AFRICA");
+                }}
                 className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
               >
                 En savoir plus

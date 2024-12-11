@@ -8,7 +8,7 @@ const Group = () => {
   const { ref, isInView } = useInView();
 
   const images = [
-    ["/groupe/image-0.png", "/groupe/image-1.png", "/groupe/image-2.png"],
+    ["https://sg2i.com/wp-content/uploads/2024/12/image-0.png", "https://sg2i.com/wp-content/uploads/2024/12/image-1.png", "/groupe/image-2.png"],
     ["/groupe/image-3.png", "/groupe/image-4.png", "/groupe/image-5.png"],
     ["/groupe/image-12.png", "/groupe/image-13.png", "/groupe/image-14.png"],
     ["/groupe/image-15.png", "/groupe/image-16.png", "/groupe/image-17.png"],
@@ -64,16 +64,16 @@ const Group = () => {
           </div>
           <div className="flex gap-2 w-full h-full md:w-1/2  md:justify-end my-auto">
             <div className="flex flex-col gap-2 h-full">
-              <ImagesFadeShow imgLinks={images[0]} duration={2000} />
-              <ImagesFadeShow imgLinks={images[1]} duration={2000} />
+              <ImagesFadeShow imgLinks={images[0]} duration={6000} />
+              <ImagesFadeShow imgLinks={images[1]} duration={6000} />
             </div>
             <div className="flex flex-col gap-2 h-full">
               <div className="flex gap-2 w-full h-1/3">
-                <ImagesFadeShow imgLinks={images[2]} duration={2000} />
-                <ImagesFadeShow imgLinks={images[3]} duration={2000} />
+                <ImagesFadeShow imgLinks={images[2]} duration={6000} />
+                <ImagesFadeShow imgLinks={images[3]} duration={6000} />
               </div>
-              <ImagesFadeShow imgLinks={images[4]} duration={2000} />
-              <ImagesFadeShow imgLinks={images[5]} duration={2000} />
+              <ImagesFadeShow imgLinks={images[4]} duration={6000} />
+              <ImagesFadeShow imgLinks={images[5]} duration={6000} />
             </div>
           </div>
         </div>
