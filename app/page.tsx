@@ -39,7 +39,7 @@ const home = () => {
       <SectionAnimation
         title="Afrique"
         descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin. "
-        imgSrc="Section/afriqueBg.png"
+        imgSrc="https://sg2i.com/wp-content/uploads/2024/12/AfriqueBg.png"
       />
       <ActualityAnimation />
       <Footer />
