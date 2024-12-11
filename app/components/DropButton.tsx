@@ -1,97 +1,65 @@
-// import React, { useState } from "react";
-// import { FaChevronUp } from "react-icons/fa"; // Icon for dropdown arrow pointing up
-// import { motion } from "framer-motion";
-
-// const DropdownButton: React.FC = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-
-//   const toggleDropdown = () => {
-//     setIsOpen(!isOpen);
-//   };
-
-//   return (
-//     <div className="relative inline-block text-left">
-//       {/* Button */}
-//       <button
-//         onClick={toggleDropdown}
-//         className="font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px]"
-//       >
-//         Nos Filiales
-//       </button>
-
-//       {/* Dropdown Menu */}
-//       {isOpen && (
-//         <div className="absolute bottom-full right-0 z-10 mb-2 origin-bottom-right bg-white divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-//           <div className="py-1">
-//             <a
-//               href="#"
-//               className="block px-4 py-2 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px] text-gray-700 hover:bg-gray-100"
-//             >
-//              Speedy
-//             </a>
-//             <a
-//               href="#"
-//               className="block px-4 py-2 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px] text-gray-700 hover:bg-gray-100"
-//             >
-//               Afriquia Gaz
-//             </a>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default DropdownButton;
-
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MdOutlineChevronRight } from "react-icons/md";
+import { HiChevronRight } from "react-icons/hi";
 
-interface DropdownButtonProps {
-  setFooterExpanded: (expanded: boolean) => void;
-}
-
-const DropdownButton = ({ setFooterExpanded }: DropdownButtonProps) => {
+const DropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
-    setFooterExpanded(!isOpen);
   };
 
   return (
     <div className="relative">
       <motion.button
         whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.7 }}
         onClick={toggleDropdown}
         className="cursor-pointer font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px] relative"
       >
-        Nos Filiales
-      </motion.button>
-
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.3 }}
-          className="absolute -bottom-[48px] left-16 md:left-20 md:-bottom-[51px] lg:left-0 lg:bottom-full mb-4  w-24 md:w-28  xl:w-32 flex flex-col gap-2 text-start py-2 border border-r-0 border-[#19A0BF] border-l-0 text-white max-h-[70px] xl:max-h-[80px] overflow-y-auto"
-        >
-          <div className="space-y-2">
-            {["Speedy", "Afriquia Gaz"].map((option, index) => (
-              <div key={index} className="font-medium">
-                <a href="#" className="flex gap-2 items-center">
-                  <MdOutlineChevronRight />
-                  <p>{option}</p>
-                </a>
-              </div>
-            ))}
+        <div className="flex items-center gap-1">
+          <p>Nos Filiales</p>
+          <div>
+            <HiChevronRight
+              height={10}
+              width={10}
+              className={`lg:text-lg xl:text-xl transform transition-transform duration-500 ${
+                isOpen ? "rotate-90 md:-rotate-90" : "rotate-0"
+              }`}
+            />
           </div>
-        </motion.div>
-      )}
+        </div>
+      </motion.button>
+      <div
+        className={`absolute left-[70px] -bottom-[101px] md:left-[85px] md:-bottom-[21px] lg:-left-6 lg:bottom-[3px] xl:-left-8 xl:bottom-[24px] 2xl:-left-7 rounded-[10px] mb-4 w-28 md:w-32 xl:w-[170px] 2xl:w-[195px] flex flex-col gap-2 text-start lg:py-2 bg-[#052337] text-white overflow-hidden md:transition-all md:duration-700 md:ease-out ${
+          isOpen ? "block md:max-h-[160px] 2xl:max-h-[180px]" : "hidden md:block md:max-h-0"
+        }`}
+      >
+        <div className="flex flex-col gap-2 pl-3 lg:pl-5 md:py-1 xl:py-2">
+          {[
+            "Afriquia Gaz",
+            "Afriquia smdc",
+            "Fastvolt",
+            "Maghreb oxygene",
+            "Speedy",
+          ].map((option, index) => (
+            <motion.div
+              key={index}
+              className="font-normal"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.7 }}
+            >
+              <a
+                href="#"
+                className="flex gap-2 items-center text-[9px] md:text-[11px] xl:text-[14px] 2xl:text-[17px]"
+              >
+                <p>{option}</p>
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

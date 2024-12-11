@@ -70,12 +70,12 @@ const TrendingSlider: React.FC = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
           transition={{ duration: 0.8 }}
-          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black"
+          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black pb-6"
         >
           <h2 className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black text-[#0E1B25] dark:text-white">
             6 Pôles
           </h2>
-          <h3 className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium text-[#334C60] dark:text-white">
+          <h3 className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium text-[#334C60] dark:text-white ">
             diversifiés pour apporter des réponses globales
           </h3>
         </motion.div>
