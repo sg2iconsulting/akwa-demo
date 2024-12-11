@@ -64,16 +64,16 @@ const Group = () => {
           </div>
           <div className="flex gap-2 w-full h-full md:w-1/2  md:justify-end my-auto">
             <div className="flex flex-col gap-2 h-full">
-              <ImagesFadeShow imgLinks={images[0]} duration={2000} />
-              <ImagesFadeShow imgLinks={images[1]} duration={2000} />
+              <ImagesFadeShow imgLinks={images[0]} duration={6000} />
+              <ImagesFadeShow imgLinks={images[1]} duration={6000} />
             </div>
             <div className="flex flex-col gap-2 h-full">
               <div className="flex gap-2 w-full h-1/3">
-                <ImagesFadeShow imgLinks={images[2]} duration={2000} />
-                <ImagesFadeShow imgLinks={images[3]} duration={2000} />
+                <ImagesFadeShow imgLinks={images[2]} duration={6000} />
+                <ImagesFadeShow imgLinks={images[3]} duration={6000} />
               </div>
-              <ImagesFadeShow imgLinks={images[4]} duration={2000} />
-              <ImagesFadeShow imgLinks={images[5]} duration={2000} />
+              <ImagesFadeShow imgLinks={images[4]} duration={6000} />
+              <ImagesFadeShow imgLinks={images[5]} duration={6000} />
             </div>
           </div>
         </div>

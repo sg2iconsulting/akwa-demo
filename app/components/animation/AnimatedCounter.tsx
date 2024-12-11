@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
 import useInView from "@/app/hook/useView";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AnimatedCounter = ({ value, duration }: any) => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
@@ -10,6 +11,7 @@ const AnimatedCounter = ({ value, duration }: any) => {
 
   useEffect(() => {
     if (isInView) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const animation = animate(count, value, {
         duration: duration,
       });
