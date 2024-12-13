@@ -3,13 +3,29 @@ import React from "react";
 import { motion } from "framer-motion";
 import useInView from "../hook/useView";
 import ImagesFadeShow from "./ImagesFadeShow";
+import { useMediaQuery } from "react-responsive";
 
 const Group = () => {
   const { ref, isInView } = useInView();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const initial = isInView
+  ? isMobile
+    ? { opacity: 0, y: 25 }
+    : { opacity: 0, x: 40 }
+  : {};
+
+const animate = isInView
+  ? isMobile
+    ? { opacity: 1, y: 0 }
+    : { opacity: 1, x: 0 }
+  : isMobile
+  ? { opacity: 0, y: 25 }
+  : { opacity: 0, x: 40 };
 
   const images = [
-    ["https://sg2i.com/wp-content/uploads/2024/12/image-0.png", "https://sg2i.com/wp-content/uploads/2024/12/Image-1.png", "https://sg2i.com/wp-content/uploads/2024/12/image-2.png"],
-    ["https://sg2i.com/wp-content/uploads/2024/12/image-3.png", "https://sg2i.com/wp-content/uploads/2024/12/image-4.png", "https://sg2i.com/wp-content/uploads/2024/12/image-5.png"],
+    ["/groupe/image-0.png", "/groupe/image-1.png", "/groupe/image-2.png"],
+    ["/groupe/image-3.png", "/groupe/image-4.png", "/groupe/image-5.png"],
     ["/groupe/image-12.png", "/groupe/image-13.png", "/groupe/image-14.png"],
     ["/groupe/image-15.png", "/groupe/image-16.png", "/groupe/image-17.png"],
     ["/groupe/image-9.png", "/groupe/image-10.png", "/groupe/image-11.png"],
@@ -23,8 +39,8 @@ const Group = () => {
           <div className="flex flex-col md:w-1/2 gap-3 lg:gap-6 xl:gap-10 2xl:gap-12 h-full my-auto">
             <motion.div
               ref={ref}
-              initial={{ opacity: 0, x: 40 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+              initial={initial}
+              animate={animate}
               transition={{ duration: 0.8 }}
               className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black"
             >

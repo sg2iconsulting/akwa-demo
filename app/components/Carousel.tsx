@@ -10,6 +10,7 @@ import useInView from "../hook/useView";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import "@/app/styles/carousel.css";
+import { useMediaQuery } from "react-responsive";
 
 interface Slide {
   image: string;
@@ -61,16 +62,31 @@ const TrendingSlider: React.FC = () => {
   const handlePrev = () => swiperRef.current?.swiper?.slidePrev();
 
   const { ref, isInView } = useInView();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const initial = isInView
+  ? isMobile
+    ? { opacity: 0, y: 25 }
+    : { opacity: 0, x: 40 }
+  : {};
+
+const animate = isInView
+  ? isMobile
+    ? { opacity: 1, y: 0 }
+    : { opacity: 1, x: 0 }
+  : isMobile
+  ? { opacity: 0, y: 25 }
+  : { opacity: 0, x: 40 };
 
   return (
     <section className="font-poppins w-full max-w-[2000px] mx-auto h-full">
       <div className="w-full p-5 md:px-10 lg:px-20 h-full">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, x: 40 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+          initial={initial}
+          animate={animate}
           transition={{ duration: 0.8 }}
-          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black pb-6"
+          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black md:pb-3 xl:pb-6"
         >
           <h2 className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black text-[#0E1B25] dark:text-white">
             6 Pôles

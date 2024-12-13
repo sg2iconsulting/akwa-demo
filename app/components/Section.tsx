@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import useInView from "../hook/useView";
+import { useMediaQuery } from "react-responsive";
 
 export interface SectonProps {
   title: string;
@@ -11,6 +12,21 @@ export interface SectonProps {
 const Section = ({ title, descrip, imgSrc }: SectonProps) => {
 
   const { ref, isInView } = useInView();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const initial = isInView
+  ? isMobile
+    ? { opacity: 0, y: 25 }
+    : { opacity: 0, x: 40 }
+  : {};
+
+const animate = isInView
+  ? isMobile
+    ? { opacity: 1, y: 0 }
+    : { opacity: 1, x: 0 }
+  : isMobile
+  ? { opacity: 0, y: 25 }
+  : { opacity: 0, x: 40 };
 
   return (
     <section className="font-poppins w-full max-w-[2000px] mx-auto">
@@ -22,8 +38,8 @@ const Section = ({ title, descrip, imgSrc }: SectonProps) => {
           <div className="absolute inset-0 bg-black bg-opacity-30 z-40 rounded-3xl 2xl:rounded-[50px]"></div>
           <motion.h2
             ref={ref}
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+            initial={initial}
+            animate={animate}
             transition={{ duration: 0.8 }}
             className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black md:ml-4 lg:ml-8 xl:ml-16 z-50"
           >

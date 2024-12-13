@@ -89,8 +89,8 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Menu Button for Mobile */}
         <div className="xl:hidden flex gap-3">
-          <div className="xl:flex gap-3 md:gap-5 text-[12px] md:text-[14px]">
-            <div className="flex items-center gap-1 mt-1 w-24 justify-around">
+          <div className="xl:flex gap-5 text-[12px] md:text-[14px]">
+            <div className="flex items-center gap-1 mt-1 justify-around">
               {resolvedTheme === "dark" ? (
                 <HiSun className="text-white text-[20px] mb-1 dark:text-white" />
               ) : (

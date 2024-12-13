@@ -18,15 +18,15 @@ const home = () => {
   };
 
   return (
-    <section className="flex flex-col gap-6 lg:gap-10 xl:gap-[100px] 2xl:gap-[160px]">
+    <section className="flex flex-col gap-3 md:gap-6 lg:gap-10 xl:gap-[100px] 2xl:gap-[160px]">
       <section id="navbar">
         <Navbar />
       </section>
       <button
         onClick={scrollToNavbar}
-        className="fixed bottom-28 right4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
+        className="fixed bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
       >
-        <TbArrowBarToUp style={{ fontSize: "28px", fontWeight: "900" }} className=""/>
+        <TbArrowBarToUp className="md:text-[20px] lg:text-[24px] xl:text-[28px] font-black"/>
       </button>
       <GroupAnimation />
       <ChiffreAnimation />
@@ -34,12 +34,12 @@ const home = () => {
       <SectionAnimation
         title="Innovation"
         descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
-        imgSrc="Section/innovationBg.jpeg"
+        imgSrc="/section/innovationBg.jpeg"
       />
       <SectionAnimation
         title="Afrique"
         descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin. "
-        imgSrc="https://sg2i.com/wp-content/uploads/2024/12/AfriqueBg.png"
+        imgSrc="/section/afriqueBg.png"
       />
       <ActualityAnimation />
       <Footer />
