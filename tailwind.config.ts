@@ -18,6 +18,9 @@ export default {
       fontFamily: {
         poppins: ['poppins', 'sans-serif']
       },
+      screens: {
+        '1xl': '1405px', // Custom screen breakpoint
+      },
     },
   },
   plugins: [
