@@ -22,6 +22,7 @@ const ActualityAnimation = () => {
                 Afriquia Gaz a décidé de développer un casque protecteur, en
                 rendant la bouteille beaucoup plus pratique, plus ergonomique,
                 plus sécurisée et avec un nouveau design."
+        Date={"23 Decembre 2024"}
       />
     </motion.div>
   );

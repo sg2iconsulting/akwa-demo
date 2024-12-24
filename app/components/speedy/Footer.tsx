@@ -3,10 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
-import DropdownButton from "../DropButton";
 
 const Footer = () => {
-
   return (
     <section
       className={`font-poppins w-full xl:h-auto bg-[#2B3773] p-5 md:px-10 lg:px-20 text-white flex items-center mt-10 transition-all duration-300`}
@@ -59,30 +57,48 @@ const Footer = () => {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
           >
-            <FaFacebookF
-              color="white"
-              className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
-            />
+            <a
+              href="https://web.facebook.com/SpeedyMarocOfficiel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF
+                color="white"
+                className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
+              />
+            </a>
           </motion.div>
           <motion.div
             className="cursor-pointer"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
           >
-            <FaInstagram
-              color="white"
-              className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
-            />
+            <a
+              href="https://www.instagram.com/speedymarocofficiel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram
+                color="white"
+                className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
+              />
+            </a>
           </motion.div>
           <motion.div
             className="cursor-pointer"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
           >
-            <FaTwitter
-              color="white"
-              className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
-            />
+            <a
+              href="https://x.com/speedy_fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter
+                color="white"
+                className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
+              />
+            </a>
           </motion.div>
         </div>
       </div>

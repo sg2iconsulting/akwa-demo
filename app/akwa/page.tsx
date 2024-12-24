@@ -26,25 +26,27 @@ const home = () => {
         onClick={scrollToNavbar}
         className="fixed bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
       >
-        <TbArrowBarToUp className="md:text-[20px] lg:text-[24px] xl:text-[28px] font-black"/>
+        <TbArrowBarToUp className="md:text-[20px] lg:text-[24px] xl:text-[28px] font-black" />
       </button>
       <GroupAnimation />
       <ChiffreAnimation />
       <CarouselAnimation />
-      <SectionAnimation
-        title="Innovation"
-        descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
-        imgSrc="/section/innovationBg.jpeg"
-        spee={false}
-        pub={false}
-      />
-      <SectionAnimation
-        title="Afrique"
-        descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin. "
-        imgSrc="/section/afriqueBg.png"
-        spee={false}
-        pub={false}
-      />
+      <div className="mt-5">
+        <SectionAnimation
+          title="Innovation"
+          descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
+          imgSrc="/section/innovationBg.jpeg"
+          spee={false}
+          pub={false}
+        />
+        <SectionAnimation
+          title="Afrique"
+          descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin. "
+          imgSrc="/section/afriqueBg.png"
+          spee={false}
+          pub={false}
+        />
+      </div>
       <ActualityAnimation />
       <Footer />
     </section>

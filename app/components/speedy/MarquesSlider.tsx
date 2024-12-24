@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import "@/app/styles/promosBullets.css";
 import useInView from "@/app/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
@@ -71,7 +70,7 @@ const MarquesSlider = () => {
     : { opacity: 0, x: 40 };
 
   return (
-    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full mt-10 md:mt-0">
+    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full mt-10 md:mt-0 mb-4 md:mb-0">
       <div className="w-full h-full flex flex-col px-5 md:px-10 lg:px-20">
         <motion.h2
           ref={ref}
@@ -85,15 +84,21 @@ const MarquesSlider = () => {
       </div>
       <div className="w-full flex items-center px-5 md:px-10 lg:px-20 h-full mt-4 bg-white">
         <Swiper
-          //   pagination={{ clickable: true }}
           modules={[Pagination, Autoplay]}
           slidesPerView={5}
           loop={true}
-          autoplay={{ delay: 2000 }}
+          autoplay={{
+            delay: 0,
+            disableOnInteraction: false,
+          }}
+          speed={2000} 
           className="w-full"
           breakpoints={{
             320: {
               slidesPerView:1,
+            },
+            768: {
+              slidesPerView:3,
             },
             1024: {
               slidesPerView:5,

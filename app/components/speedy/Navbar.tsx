@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { GrMenu } from "react-icons/gr";
-import { IoCloseCircle } from "react-icons/io5";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import "swiper/css";
@@ -22,9 +19,6 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [videoSrc, setVideoSrc] = useState("");
-  const [videoTitle, setVideoTitle] = useState("");
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
@@ -34,16 +28,6 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const handleOpenModal = (src: string) => {
-    setVideoSrc(src);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setVideoSrc("");
-  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -217,7 +201,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Contacter nous</Link>
+              <Link href={link || "www.google.com"}>Contacter nous</Link>
             </motion.button>
           </div>
         </div>
@@ -288,7 +272,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
       <div className="w-full h-full relative">
         <img
           src="/speedy/navback.jpeg"
-          className="w-full h-[400px] md:h-full object-cover"
+          className="w-full h-[400px] md:h-screen 2xl:min-h-[900px] object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white bg-black bg-opacity-40 ">
           <div className="flex w-full h-full flex-col justify-center items-center mb-40 xl:mb-10 gap-5 lg:gap-10 xl:gap-16">

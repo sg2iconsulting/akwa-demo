@@ -11,9 +11,10 @@ export interface ActProps {
   btnColor: string;
   title: string;
   descrip: string;
+  Date: string
 }
 
-const Actuality = ({imgSrc, color, btnColor, title, descrip}: ActProps) => {
+const Actuality = ({imgSrc, color, btnColor, title, descrip, Date}: ActProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -54,12 +55,12 @@ const animate = isInView
             </div>
             <div className={`w-full ${color} rounded-b-[20px] text-white flex flex-col justify-center gap-2 md:gap-4 p-6 md:px-10 lg:px-16`}>
               <p className="text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]">
-                July 20, 2021
+                {Date}
               </p>
-              <p className="text-lg text-[18px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold">
+              <p className="text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold">
                 {title}
               </p>
-              <p className="text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium">
+              <p className="text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2">
                 {descrip}
               </p>
 
@@ -72,12 +73,12 @@ const animate = isInView
               </motion.button>
             </div>
           </div>
-          <div className="w-full xl:w-[35%] flex flex-col justify-between gap-4">
-            <Item imgSrc="/actuality/item1.png" title="afriquia gaz participe à la 15ème édition du salon marocotel" date="July 20, 2021"/>
-            <Item imgSrc="/actuality/item2.png" title="les dépositaires utilisateurs d’i-gaz récompensés" date="July 20, 2021"/>
-            <Item imgSrc="/actuality/item3.png" title="afriquia gaz s’allie à l’association tibu maroc et ouvre un centre pour la jeunesse d’inzegane" date="July 20, 2021"/>
-            <Item imgSrc="/actuality/item4.png" title="les nouvelles bouteilles d’afriquia gaz révolutionnent le marché" date="July 20, 2021"/>
-            <Item imgSrc="/actuality/item5.png" title="afriquia gaz s’allie à l’association tibu maroc et ouvre un centre pour la jeunesse d’inzegane" date="July 20, 2021"/>
+          <div className="w-full xl:w-[35%] flex flex-col justify-between gap-2 xl:gap-4">
+            <Item imgSrc="/actuality/item6.jpeg" title="Le meilleur de l'entretien" date="20 Decembre 2024"/>
+            <Item imgSrc="/actuality/item2.jpeg" title="Nous sommes toujours prêts à vous accueillir" date="15 Decembre 2024"/>
+            <Item imgSrc="/actuality/item3.jpeg" title="Garder votre flotte opérationnelle avec l'entretien speedy" date="03 Decembre 2024"/>
+            <Item imgSrc="/actuality/item4.jpeg" title="Remplacement 100% utile" date="19 Octobre 2024"/>
+            <Item imgSrc="/actuality/item5.jpeg" title="Baie dédiée et techniciens experts pour un entretien rapide de votre flotte" date="12 Octobre 2024"/>
           </div>
         </div>
       </div>
