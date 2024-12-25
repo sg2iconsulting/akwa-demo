@@ -16,7 +16,7 @@ const Footer = () => {
           className="cursor-pointer"
         >
           <img
-            src="/Speedy/logoSpeedy.png"
+            src="/speedy/logoSpeedy.png"
             alt="Speedy Logo"
             className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
           />
