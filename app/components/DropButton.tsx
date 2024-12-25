@@ -24,7 +24,7 @@ const DropdownButton = () => {
             <HiChevronRight
               height={10}
               width={10}
-              className={`lg:text-lg xl:text-xl transform transition-transform duration-500 ${
+              className={`lg:text-lg xl:text-xl transform transition-transform md:duration-500 ${
                 isOpen ? "rotate-90 md:-rotate-90" : "rotate-0"
               }`}
             />

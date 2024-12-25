@@ -1,15 +1,10 @@
 'use client'
 import useInView from "@/app/hook/useView";
 import {motion} from 'framer-motion'
-import Section from "../Section";
+import Section, { SectionProps } from "../Section";
 
-export interface SectonProps {
-    title: string;
-    descrip: string;
-    imgSrc: string;
-}
 
-const SectionAnimation = ({title, descrip, imgSrc}: SectonProps) => {
+const SectionAnimation = ({title, descrip, imgSrc, spee, pub}: SectionProps) => {
     const { ref, isInView } = useInView();
   
     return (
@@ -19,7 +14,7 @@ const SectionAnimation = ({title, descrip, imgSrc}: SectonProps) => {
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
         transition={{ duration: 0.8 }}
       >
-        <Section title={title} descrip={descrip} imgSrc={imgSrc} />
+        <Section title={title} descrip={descrip} imgSrc={imgSrc} spee={spee} pub={pub} />
       </motion.div>
     );
   };

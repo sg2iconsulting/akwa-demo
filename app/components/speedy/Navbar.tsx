@@ -3,27 +3,22 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { GrMenu } from "react-icons/gr";
-import { IoCloseCircle } from "react-icons/io5";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
-import useInView from "../hook/useView";
-import LanguageSwitcher from "./LanguageSwitcher";
+import useInView from "../../hook/useView";
+import LanguageSwitcher from "../LanguageSwitcher";
+import SelectOptions from "./SelectOptions";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [videoSrc, setVideoSrc] = useState("");
-  const [videoTitle, setVideoTitle] = useState("");
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
 
@@ -33,16 +28,6 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const handleOpenModal = (src: string) => {
-    setVideoSrc(src);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setVideoSrc("");
-  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,14 +66,14 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           className="cursor-pointer"
         >
           <img
-            src="/logo/akwaLogo.png"
-            alt="Afriquia Gaz Logo"
+            src="/speedy/logoSpeedy.png"
+            alt="Speedy Logo"
             className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
           />
         </motion.div>
 
         {/* Menu Button for Mobile */}
-        <div className="xl:hidden flex gap-3">
+        <div className="1xl:hidden flex gap-3">
           <div className="xl:flex gap-5 text-[12px] md:text-[14px]">
             <div className="flex items-center gap-1 mt-1 justify-around">
               {resolvedTheme === "dark" ? (
@@ -130,40 +115,54 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden xl:flex gap-5">
+        <div className="hidden 1xl:flex gap-5">
           <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Le Groupe
+              Qui sommes-nous
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Pôles d’activités
+              Pneu
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Finance
+              Entretien
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Engagements
+              Promos
+            </motion.li>
+            <motion.li
+              className="cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              Blog
+            </motion.li>
+            <motion.li
+              className="cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              FAQ
             </motion.li>
           </ul>
         </div>
 
-        <div className="xl:flex gap-4 hidden">
+        <div className="1xl:flex gap-4 hidden">
           <div className="flex items-center">
             <LanguageSwitcher />
           </div>
@@ -196,13 +195,13 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             </form>
           </div>
           {/* Desktop Buttons */}
-          <div className="hidden xl:block">
+          <div className="hidden 1xl:block">
             <motion.button
-              className={`lg:w-[220px] xl:w-[180px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#19A0BF]`}
+              className={`lg:w-[200px] xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] border border-white text-white font-medium`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Espace Media</Link>
+              <Link href={link || "www.google.com"}>Contacter nous</Link>
             </motion.button>
           </div>
         </div>
@@ -210,18 +209,18 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`xl:hidden w-full bg-[#052337] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
-          isOpen ? "max-h-[300px]" : "max-h-0"
+        className={`1xl:hidden w-full bg-[#2B3773] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
+          isOpen ? "max-h-[400px]" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 text-white">
           <li className="">
             <motion.button
-              className={`lg:w-[220px] xl:w-[250px] w-[200px] h-[40px] md:h-[50px] rounded-full font-bold bg-[#19A0BF]`}
+              className={`lg:w-[220px] xl:w-[250px] w-[140px] h-[40px] md:h-[50px] border border-white font-medium `}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Espace Media</Link>
+              <Link href={link || "#"}>Contacter nous</Link>
             </motion.button>
           </li>
           <motion.li
@@ -229,165 +228,102 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Le Groupe
+            Qui sommes-nous
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Pôles d’activités
+            Pneu
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Finance
+            Entretien
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Engagements
+            Promos
+          </motion.li>
+          <motion.li
+            className=" cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            Blog
+          </motion.li>
+          <motion.li
+            className=" cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            FAQ
           </motion.li>
         </ul>
       </div>
 
       {/* Swiper Section */}
       <div className="w-full h-full relative">
-        <Swiper
-          modules={[Pagination, Navigation, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 6000 }}
-          loop
-          className="w-full relative h-full z-40"
-        >
-          <SwiperSlide>
-            <video
-              src={
-                "https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"
-              }
-              className="w-full h-full object-cover relative"
-              loop
-              autoPlay
-              muted
-            />
-            <div className="w-full h-full bg-black inset-0 absolute opacity-45"></div>
-            <motion.div className="w-full h-full absolute inset-0 z-40 mt-4 sm:mt-0 ml-0 flex flex-col justify-center text-white">
-              <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[60%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
-                Groupe énergétique par excellence
-              </p>
+        <img
+          src="/speedy/navback.jpeg"
+          className="w-full h-[400px] md:h-screen 2xl:min-h-[900px] object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white bg-black bg-opacity-40 ">
+          <div className="flex w-full h-full flex-col justify-center items-center mb-40 xl:mb-10 gap-5 lg:gap-10 xl:gap-16">
+            <h1 className="text-[18px] sm:text-4xl lg:text-5xl xl:text-6xl font-bold mt-40 xl:mt-0 px-4 xl:px-60 w-full ">
+              Chez SPEEDY, Profitez d’un bilan technique gratuit !
+            </h1>
+            <div className="flex flex-col sm:flex-row gap-2 xl:gap-10 ">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {
-                  handleOpenModal(
-                    "https://sg2i.com/wp-content/uploads/2024/12/Groupeenergetique.mp4"
-                  );
-                  setVideoTitle("Groupe énergétique par excellence");
-                }}
-                className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
+                className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#3B7AB7] font-bold cursor-pointer text-white"
               >
-                Voir la video
+                <img src="/speedy/icons/Icon-1.png" className="w-4 l md:w-7g:w-10" />
+                <p className="text-[8px] md:text-[11px] lg:text-[14px]">ACHETEZ VOS PNEUS</p>
               </motion.button>
-            </motion.div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <video
-              src={
-                "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4"
-              }
-              className="w-full h-full object-cover relative"
-              loop
-              autoPlay
-              muted
-            />
-            <div className="w-full h-full bg-black inset-0 absolute opacity-45"></div>
-            <motion.div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-0 flex flex-col justify-center text-white">
-              <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[70%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
-                Transition Énergétique,
-              </p>
-              <p className="text-[6px] sm:text-[10px] md:text-[15px] xl:text-[40px] font-bold ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
-                la voie de l’avenir
-              </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {
-                  handleOpenModal(
-                    "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4"
-                  );
-                  setVideoTitle("Transition Énergétique");
-                }}
-                className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
+                className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#043882] font-bold cursor-pointer text-white"
               >
-                En savoir plus
+                <img src="/speedy/icons/Icon-7.png" className="w-4 l md:w-7g:w-10" />
+                <p className="text-[8px] md:text-[11px] lg:text-[14px]">DEMANDE DE DEVIS</p>
               </motion.button>
-            </motion.div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <video
-              src={"https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"}
-              className="w-full h-full object-cover relative"
-              loop
-              autoPlay
-              muted
-            />
-            <div className="w-full h-full bg-black inset-0 absolute opacity-45"></div>
-            <motion.div className="w-full h-full absolute inset-0 z-50 mt-4 sm:mt-0 ml-0 flex flex-col justify-center text-white">
-              <p className="text-[12px] sm:text-[24px] md:text-[36px] xl:text-[70px] w-[60%] font-black ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
-                AKWA AFRICA,
-              </p>
-              <p className="text-[6px] sm:text-[10px] md:text-[15px] xl:text-[40px] font-bold ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20">
-                de nouvelles perspectives d’avenir
-              </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => {
-                  handleOpenModal(
-                    "https://sg2i.com/wp-content/uploads/2024/12/AkwaAfrica.mp4"
-                  );
-                  setVideoTitle("AKWA AFRICA");
-                }}
-                className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-white cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-black mt-3 sm:mt-5 md:mt-8 lg:mt-12 ml-4 sm:ml-6 md:ml-10 lg:ml-16 xl:ml-20 xl:mt-16"
+                className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#01A8FF] font-bold cursor-pointer text-white"
               >
-                En savoir plus
+                <img src="/speedy/icons/Location.png" className="w-4 md:w-7 lg:w-10" />
+                <p className="text-[8px] md:text-[11px] lg:text-[14px]">TROUVEZ UN CENTRE</p>
               </motion.button>
-            </motion.div>
-          </SwiperSlide>
-        </Swiper>
-        {/* Modal */}
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-[#121212] p-2 md:p-4 lg:p-6 rounded-lg shadow-lg w-[90%]">
-              <div className="w-full flex justify-between">
-                <h2 className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-bold mb-4 px-2 text-white">
-                  {videoTitle}
-                </h2>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  onClick={handleCloseModal}
-                  className="text-white mb-4 px-2"
-                >
-                  <IoCloseCircle className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px]" />
-                </motion.button>
-              </div>
-              {/* Video player */}
-              {videoSrc && (
-                <video
-                  src={videoSrc}
-                  className="w-full object-cover"
-                  controls
-                  autoPlay
-                />
-              )}
             </div>
           </div>
-        )}
+        </div>
+        <div className="hidden xl:block xl:absolute xl:bottom-0 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:translate-y-1/2 w-full xl:w-[80%] xl:h-[500px] shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">
+          <div className="w-full h-full flex flex-col items-center">
+            <div className="w-[480px] h-[35%] ">
+              <img src="/speedy/demi-pneu.png" />
+            </div>
+            <div className="w-full h-[65%] dark:bg-[#1E1E1E] bg-white flex flex-col items-center justify-center">
+              <div className="w-full flex flex-col gap-10">
+                <h2 className="w-full text-lg font-bold xl:px-8 1xl:px-12 2xl:px-24">
+                  Trouvez vos pneus
+                </h2>
+                <div className="w-full">
+                  <SelectOptions />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
