@@ -49,7 +49,7 @@ const Home = () => {
         <div className="flex flex-col gap-12 md:gap-16 xl:gap-20 1xl:gap-24 2xl:gap-28 ">
           <Section
             title="Conseil pratique"
-            descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
+            descrip="Vérifiez la pression des pneus chaque mois à froid et changez-les si les sculptures sont inférieures à 1,6 mm. Adoptez une conduite prudente et contrôlez régulièrement l’équilibrage ainsi que le parallélisme tous les 20 000 km."
             imgSrc="/speedy/section/sec-1.png"
             spee={true}
             pub={false}
