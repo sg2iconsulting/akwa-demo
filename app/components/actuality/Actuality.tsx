@@ -33,7 +33,7 @@ const animate = isInView
   : { opacity: 0, x: 40 };
 
   return (
-    <section className="w-full">
+    <section className="w-full ">
       <div className="w-full h-full max-w-[2000px] mx-auto flex flex-col gap-4 lg:gap-7 px-5 md:px-10 lg:px-20">
         <motion.h2
           ref={ref}

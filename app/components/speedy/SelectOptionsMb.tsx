@@ -13,7 +13,7 @@ const SelectOptions = () => {
 
   return (
     <div className="relative xl:hidden block">
-      <div className="w-[200px] sm:w-[280px] h-[35%] absolute -top-[73px] sm:-top-[103px] left-1/2 transform -translate-x-1/2">
+      <div className="w-[200px] sm:w-[280px] md:w-[320px] lg:w-[380px] h-[35%] absolute -top-[73px] sm:-top-[103px] md:-top-[118px] lg:-top-[140px] left-1/2 transform -translate-x-1/2">
         <img src="/speedy/demi-pneu.png" />
       </div>
       <div className="flex flex-col gap-5 w-[96%] md:h-[350px] justify-center dark:bg-[#1E1E1E] mx-auto h-full px-4 sm:px-8 mb-6 md:mb-0 py-5 md:py-0 shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">

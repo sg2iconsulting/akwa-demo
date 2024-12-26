@@ -7,7 +7,7 @@ import { FaFacebookF } from "react-icons/fa6";
 const Footer = () => {
   return (
     <section
-      className={`font-poppins w-full xl:h-auto bg-[#2B3773] p-5 md:px-10 lg:px-20 text-white flex items-center mt-10 transition-all duration-300`}
+      className={`font-poppins w-full xl:h-auto bg-[#2B3773] p-5 md:px-10 lg:px-20 text-white flex items-center xl:mt-10 transition-all duration-300`}
     >
       <div className="w-full flex flex-col gap-y-5 md:flex-row justify-between items-center max-w-[1940px] mx-auto relative">
         <motion.div

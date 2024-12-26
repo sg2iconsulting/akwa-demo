@@ -62,8 +62,8 @@ const PromosSlider = () => {
     : { opacity: 0, x: 40 };
 
   return (
-    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full">
-      <div className="w-full h-full flex flex-col px-5 md:px-10 lg:px-20">
+    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full flex flex-col px-5 md:px-10 lg:px-20 gap-4 lg:gap-7 ">
+      <div className="w-full h-full">
         <motion.h2
           ref={ref}
           initial={initial}
@@ -74,7 +74,7 @@ const PromosSlider = () => {
           Promos du moment
         </motion.h2>
       </div>
-      <div className="w-full p-5 md:px-10 lg:px-20 h-full">
+      <div className="w-full h-full">
         <Swiper
           // slidesPerView={2.5}
           spaceBetween={10}
@@ -122,7 +122,7 @@ const PromosSlider = () => {
           }}
         >
           {promoCards.map((promo) => (
-            <SwiperSlide key={promo.id} className="mb-16">
+            <SwiperSlide key={promo.id} className="mb-6 md:mb-10 lg:mb-16">
               <div className="p-1">
                 <PromoCard />
               </div>

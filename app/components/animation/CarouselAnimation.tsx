@@ -52,7 +52,10 @@ const CarouselAnimation = () => {
             image: "/akwagroup/images/immobilier.png",
           },
         ]}
-        check={false}
+        speedy={false}
+        fvolt={false}
+        title="6 Pôles"
+        descrip="diversifiés pour apporter des réponses globales"
       />
     </motion.div>
   );

@@ -18,10 +18,13 @@ interface Slide {
 
 interface TrendingSliderProps {
   slides: Slide[];
-  check: boolean;
+  speedy: boolean;
+  fvolt: boolean;
+  title: string;
+  descrip: string;
 }
 
-const TrendingSlider: React.FC<TrendingSliderProps> = ({slides, check}) => {
+const TrendingSlider: React.FC<TrendingSliderProps> = ({slides, speedy, fvolt, title, descrip}) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const swiperRef = useRef<any>(null);
   const handleNext = () => swiperRef.current?.swiper?.slideNext();
@@ -44,11 +47,9 @@ const animate = isInView
   ? { opacity: 0, y: 25 }
   : { opacity: 0, x: 40 };
 
-  console.log(check);
-
   return (
     <section className="font-poppins w-full max-w-[2000px] mx-auto h-full">
-      <div className={`${check ? "hidden" : ""} w-full p-5 md:px-10 lg:px-20 h-full`}>
+      <div className={`${speedy ? "hidden" : ""} w-full p-5 md:px-10 lg:px-20 h-full`}>
         <motion.div
           ref={ref}
           initial={initial}
@@ -56,11 +57,11 @@ const animate = isInView
           transition={{ duration: 0.8 }}
           className={`md:pb-3 xl:pb-6`}
         >
-          <h2 className={`text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black text-[#0E1B25] dark:text-white`}>
-            6 Pôles
+          <h2 className={`${fvolt ? "text-black" : "text-[#0E1B25]"} text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white`}>
+            {title}
           </h2>
-          <h3 className="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium text-[#334C60] dark:text-white ">
-            diversifiés pour apporter des réponses globales
+          <h3 className={`${fvolt ? "text-[#A2C24C]" : "text-[#334C60]"} text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white `}>
+            {descrip}
           </h3>
         </motion.div>
       </div>
@@ -85,14 +86,22 @@ const animate = isInView
             rotate: 0,
             stretch: 0,
             depth: 100,
-            modifier: 2.5,
+            modifier: 2,
           }}
           className="h-full"
           breakpoints={{
             319: {
+              slidesPerView: 2,
+              spaceBetween: 0,
+            },
+            426: {
+              slidesPerView: 2.5,
+              spaceBetween: 0,
+            },
+            1024: {
               slidesPerView: 3.5,
               spaceBetween: 0,
-            }
+            },
           }}
         >
           {slides.map((slide, index) => (
@@ -101,7 +110,7 @@ const animate = isInView
               {/* Match height */}
               <img
                 src={slide.image}
-                className={`${check ? "" : "rounded-lg md:rounded-xl lg:rounded-2xl"} w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]`}
+                className={`${speedy ? "" : "rounded-lg md:rounded-xl lg:rounded-2xl"} w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]`}
               />
             </SwiperSlide>
           ))}
@@ -112,18 +121,18 @@ const animate = isInView
             e.preventDefault();
             handlePrev();
           }}
-          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
+          className={`absolute ${fvolt ? "bg-[#D1FF33]" : "bg-black bg-opacity-50"} p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
-          <FaChevronLeft className="text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold text-white" />
+          <FaChevronLeft className={`${fvolt ? "text-black " : "text-white"} text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold`} />
         </div>
         <div
           onClick={(e) => {
             e.preventDefault();
             handleNext();
           }}
-          className="absolute bg-black bg-opacity-50 p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out"
+          className={`absolute ${fvolt ? "bg-[#D1FF33]" : "bg-black bg-opacity-50"} p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
-          <FaChevronRight className="text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold text-white" />
+          <FaChevronRight className={`${fvolt ? "text-black " : "text-white"} text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold`} />
         </div>
       </div>
     </section>

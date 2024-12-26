@@ -30,20 +30,20 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
     : { opacity: 0, x: 40 };
 
   return (
-    <section className="font-poppins w-full max-w-[2000px] mx-auto">
-      <div className="w-full h-full p-5 md:px-10 lg:px-20">
+    <section className="font-poppins w-full max-w-[2000px] mx-auto ">
+      <div className="w-full h-full px-5 md:px-10 lg:px-20">
         <div
           className={`relative bg-cover w-full ${
-            spee ? "" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
-          } py-2 px-3 md:p-3 text-white flex flex-col gap-1 md:gap-2 aspect-[3/1] 2xl:h-[600px]`}
+            spee ? "h-[180px] md:h-auto" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
+          } py-2 px-3 md:p-3 text-white flex flex-col gap-1 md:gap-2 aspect-[3/1] ${pub ? "2xl:h-[675px]" : "2xl:h-[600px]"}`}
           style={{ backgroundImage: `url(${imgSrc})` }}
         >
           <div
-            className={`absolute inset-0 bg-black opacity-40 ${
+            className={`absolute inset-0 ${pub ? "" : "bg-black opacity-40"} ${
               spee ? "" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
             }`}
           ></div>
-          <div className="h-full w-full flex flex-col justify-center">
+          <div className={`${pub ? "w-4/6 ml-10" : "w-full"} h-full flex flex-col justify-center`}>
             <motion.h2
               ref={ref}
               initial={initial}
@@ -60,10 +60,10 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               className={`${
-                pub ? "hidden" : ""
+                pub ? "bg-[#8BBA25]" : "bg-[#19A0BF]"
               } w-24 h-6 md:w-36 md:h-10 xl:w-56 xl:h-12 2xl:w-[290px] 2xl:h-[67px] text-white font-bold bg-[#19A0BF] ${
                 spee ? "" : "rounded-full"
-              } text-[8px] md:text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[22px] mt-1 sm:mt-2 md:mt-3 lg:mt-7 xl:mt-12 md:ml-4 lg:ml-8 xl:ml-16 z-40`}
+              } text-[8px] md:text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[22px] mt-2 md:mt-3 lg:mt-7 xl:mt-12 md:ml-4 lg:ml-8 xl:ml-16 z-40`}
             >
               voir plus
             </motion.button>

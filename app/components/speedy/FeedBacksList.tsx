@@ -32,8 +32,8 @@ const FeedBacks = [
 
 const FeedBacksList = () => {
   return (
-    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full">
-      <div className="w-full flex items-center px-5 md:px-10 lg:px-20 h-full mt-4 bg-white">
+    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full ">
+      <div className="w-full flex items-center px-5 md:px-10 lg:px-20 h-full bg-white">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={40}
@@ -47,6 +47,10 @@ const FeedBacksList = () => {
           breakpoints={{
             320: {
               slidesPerView: 1,
+              spaceBetween: 40,
+            },
+            440: {
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             768: {

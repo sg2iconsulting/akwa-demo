@@ -18,7 +18,7 @@ const home = () => {
   };
 
   return (
-    <section className="flex flex-col gap-3 md:gap-6 lg:gap-10 xl:gap-[100px] 2xl:gap-[160px]">
+    <section className="flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
       <section id="navbar">
         <Navbar />
       </section>
@@ -31,7 +31,7 @@ const home = () => {
       <GroupAnimation />
       <ChiffreAnimation />
       <CarouselAnimation />
-      <div className="mt-5">
+      <div className="mt-5 flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
         <SectionAnimation
           title="Innovation"
           descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
