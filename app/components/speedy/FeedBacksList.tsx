@@ -18,7 +18,7 @@ const FeedBacks = [
   },
   {
     fullName: "Khalid C",
-    link: "",
+    link: "https://maps.app.goo.gl/KdFTKTxgFpMW9PDq8",
     comment: "Travail remarquable , merci bcp a Mr rachid et mohcin.",
   },
   {
@@ -29,7 +29,7 @@ const FeedBacks = [
   },
   {
     fullName: "Yassine El Alaoui",
-    link: "",
+    link: "https://maps.app.goo.gl/QWhD8pgng4eqh5N1A",
     comment:
       "Grande expérience dans l'entretien automobile et un travail assidu.",
   },
