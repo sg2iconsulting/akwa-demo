@@ -289,7 +289,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#3B7AB7] font-bold cursor-pointer text-white"
+                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-4 2xl:py-5 bg-[#3B7AB7] font-bold cursor-pointer text-white"
                 >
                   <img
                     src="/speedy/icons/Icon-1.png"
