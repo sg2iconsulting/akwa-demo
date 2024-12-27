@@ -68,7 +68,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           <img
             src="/speedy/logoSpeedy.png"
             alt="Speedy Logo"
-            className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
+            className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px] lg:p-3 2xl:p-5"
           />
         </motion.div>
 
@@ -116,13 +116,13 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
+          <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] font-bold text-white">
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Qui sommes-nous
+              Qui sommes-nous ?
             </motion.li>
             <motion.li
               className="cursor-pointer"
@@ -209,14 +209,14 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`1xl:hidden w-full bg-[#2B3773] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
+        className={`1xl:hidden w-full bg-[#01A8FF] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
           isOpen ? "max-h-[400px]" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 text-white">
+        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-16 text-white">
           <li className="">
             <motion.button
-              className={`lg:w-[220px] xl:w-[250px] w-[140px] h-[40px] md:h-[50px] border border-white font-medium `}
+              className={`lg:w-[220px] xl:w-[250px] w-[150px] md:w-[165px] h-[40px] md:h-[47px] border border-white font-bold `}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -228,7 +228,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Qui sommes-nous
+            Qui sommes-nous ?
           </motion.li>
           <motion.li
             className=" cursor-pointer"
@@ -269,41 +269,63 @@ const Navbar = ({ link = "" }: { link?: string }) => {
       </div>
 
       {/* Swiper Section */}
-      <div className="w-full h-full relative">
+      <div className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[650px] xl:h-[850px] relative">
         <img
           src="/speedy/navback.jpeg"
-          className="w-full h-[400px] md:h-screen 2xl:min-h-[900px] object-cover"
+          className="w-full h-[400px] sm:h-[450px] md:h-full object-cover"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white bg-black bg-opacity-40 ">
-          <div className="flex w-full h-full flex-col justify-center items-center mb-40 xl:mb-10 gap-5 lg:gap-10 xl:gap-16">
-            <h1 className="text-[18px] sm:text-4xl lg:text-5xl xl:text-6xl font-bold mt-40 xl:mt-0 px-4 xl:px-60 w-full ">
-              Chez SPEEDY, Profitez d’un bilan technique gratuit !
-            </h1>
-            <div className="flex flex-col sm:flex-row gap-2 xl:gap-10 ">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#3B7AB7] font-bold cursor-pointer text-white"
-              >
-                <img src="/speedy/icons/Icon-1.png" className="w-4 l md:w-7g:w-10" />
-                <p className="text-[8px] md:text-[11px] lg:text-[14px]">ACHETEZ VOS PNEUS</p>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#043882] font-bold cursor-pointer text-white"
-              >
-                <img src="/speedy/icons/Icon-7.png" className="w-4 l md:w-7g:w-10" />
-                <p className="text-[8px] md:text-[11px] lg:text-[14px]">DEMANDE DE DEVIS</p>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#01A8FF] font-bold cursor-pointer text-white"
-              >
-                <img src="/speedy/icons/Location.png" className="w-4 md:w-7 lg:w-10" />
-                <p className="text-[8px] md:text-[11px] lg:text-[14px]">TROUVEZ UN CENTRE</p>
-              </motion.button>
+          <div className="flex w-full h-full flex-col justify-center items-center gap-3 md:gap-5 lg:gap-8 xl:gap-10">
+            <div className="flex flex-col w-full h-full justify-end ">
+              <h2 className="text-[18px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold w-full ">
+                Chez SPEEDY, Profitez d’un bilan
+              </h2>
+              <h2 className="text-[18px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold w-full ">
+                technique gratuit !
+              </h2>
+            </div>
+            <div className="flex w-full h-full justify-center items-start">
+              <div className="flex flex-col sm:flex-row gap-2 xl:gap-10">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-4 2xl:py-5 bg-[#3B7AB7] font-bold cursor-pointer text-white"
+                >
+                  <img
+                    src="/speedy/icons/Icon-1.png"
+                    className="w-4 l md:w-7 lg:w-10"
+                  />
+                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
+                    ACHETEZ VOS PNEUS
+                  </p>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#043882] font-bold cursor-pointer text-white"
+                >
+                  <img
+                    src="/speedy/icons/Icon-7.png"
+                    className="w-4 l md:w-7 lg:w-10"
+                  />
+                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
+                    DEMANDE DE DEVIS
+                  </p>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#01A8FF] font-bold cursor-pointer text-white"
+                >
+                  <img
+                    src="/speedy/icons/Location.png"
+                    className="w-4 md:w-7 lg:w-10"
+                  />
+                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
+                    TROUVEZ UN CENTRE
+                  </p>
+                </motion.button>
+              </div>
             </div>
           </div>
         </div>

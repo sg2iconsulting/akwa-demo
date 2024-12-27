@@ -84,7 +84,7 @@ const animate = isInView
               <ImagesFadeShow imgLinks={images[1]} duration={6000} />
             </div>
             <div className="flex flex-col gap-2 h-full">
-              <div className="flex gap-2 w-full h-1/3">
+              <div className="flex gap-2 w-full h-1/3 xl:mb-[2px] 2xl:mb-[4px]">
                 <ImagesFadeShow imgLinks={images[2]} duration={6000} />
                 <ImagesFadeShow imgLinks={images[3]} duration={6000} />
               </div>

@@ -23,7 +23,7 @@ const Tabs = () => {
   };
 
   return (
-    <section className="font-poppins w-full max-w-[2000px] mx-auto flex flex-col gap-8 xl:mt-60">
+    <section className="font-poppins w-full max-w-[2000px] mx-auto flex flex-col gap-8 xl:mt-[300px] 2xl:mt-[350px] ">
       <div className="relative w-full px-5 md:hidden">
         <button
           onClick={handleDropdownToggle}
@@ -63,7 +63,7 @@ const Tabs = () => {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`flex-1 text-center text-sm xl:text-lg 2xl:text-xl py-2 ${
+            className={`flex-1 text-center text-sm xl:text-lg 2xl:text-2xl py-2 ${
               activeTab === tab.id
                 ? "border-b-2 border-black"
                 : "border-b border-[#E5E7EB] text-[#6B7280]"
@@ -120,7 +120,10 @@ const Tabs = () => {
                 image: "/speedy/carousel/batterie.png",
               },
             ]}
-            check={true}
+            speedy={true}
+            fvolt={false}
+            title=""
+            descrip=""
           />
         )}
         {activeTab === "tab2" && (

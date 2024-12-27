@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaInstagram} from "react-icons/fa";
+import { ImLinkedin } from "react-icons/im";
 import { FaFacebookF } from "react-icons/fa6";
 
 const Footer = () => {
   return (
     <section
-      className={`font-poppins w-full xl:h-auto bg-[#2B3773] p-5 md:px-10 lg:px-20 text-white flex items-center mt-10 transition-all duration-300`}
+      className={`font-poppins w-full xl:h-auto bg-[#2B3773] p-5 md:px-10 lg:px-20 text-white flex items-center xl:mt-10 transition-all duration-300`}
     >
       <div className="w-full flex flex-col gap-y-5 md:flex-row justify-between items-center max-w-[1940px] mx-auto relative">
         <motion.div
@@ -18,7 +19,7 @@ const Footer = () => {
           <img
             src="/speedy/logoSpeedy.png"
             alt="Speedy Logo"
-            className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
+            className="w-[60px] md:w-[80px] lg:w-[80px] 2xl:w-[110px]"
           />
         </motion.div>
         <ul className="flex flex-wrap w-[60%] lg:w-auto lg:flex-nowrap xl:flex-row text-center justify-center gap-6 lg:gap-20 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px]">
@@ -90,11 +91,11 @@ const Footer = () => {
             transition={{ duration: 0.3 }}
           >
             <a
-              href="https://x.com/speedy_fr"
+              href="https://www.linkedin.com/company/speedy-maroc/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTwitter
+              <ImLinkedin
                 color="white"
                 className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
               />
