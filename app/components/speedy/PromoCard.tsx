@@ -16,9 +16,9 @@ const PromoCard = () => {
               <p className="text-[12px] sm:text-lg text-[#787878]">
                 Prix unitaire web
               </p>
-              <div className="flex flex-col sm:flex-row sm:gap-2 w-full sm:w-40">
+              <div className="flex gap-2 ">
                 <p className="text-[16px] sm:text-xl font-bold">1760 DH</p>
-                <p className="text-[11px] sm:text-[15px] w-full sm:w-auto justify-center font-bold bg-yellow-400 line-through flex items-center sm:px-1">
+                <p className="text-[11px] sm:text-[15px] justify-center font-bold bg-yellow-400 line-through flex items-center sm:px-1">
                   2000 DH
                 </p>
               </div>
