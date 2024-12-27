@@ -77,7 +77,7 @@ const MarquesSlider = () => {
           initial={initial}
           animate={animate}
           transition={{ duration: 0.8 }}
-          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black"
+          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black"
         >
           Nos marques
         </motion.h2>

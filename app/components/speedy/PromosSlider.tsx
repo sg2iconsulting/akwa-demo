@@ -69,7 +69,7 @@ const PromosSlider = () => {
           initial={initial}
           animate={animate}
           transition={{ duration: 0.8 }}
-          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black xl:mb-7"
+          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black xl:mb-7"
         >
           Promos du moment
         </motion.h2>
