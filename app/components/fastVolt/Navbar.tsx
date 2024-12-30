@@ -128,7 +128,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-8 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
+          <ul className="flex xl:gap-8 2xl:gap-10 text-[10px] md:text-[12px] xl:text-[16px] 3xl:text-[22px] font-bold text-white">
             <motion.li
               className="cursor-pointer text-[#D1FF33] "
               whileHover={{ scale: 1.05 }}
