@@ -233,7 +233,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Qui sommes-nous
+            Qui sommes-nous?
           </motion.li>
           <motion.li
             className=" cursor-pointer"
