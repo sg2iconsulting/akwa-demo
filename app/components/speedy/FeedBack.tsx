@@ -8,7 +8,7 @@ interface FeedBackProps {
 
 const FeedBack = ({fullName, comment}: FeedBackProps) => {
   return (
-    <div className="w-[249px] md:w-[269px] xl:w-[349px] flex justify-center items-center p-2 h-68 mx-auto">
+    <div className="w-[200px] md:w-[269px] xl:w-[349px] flex justify-center items-center p-2 h-full mx-auto">
       <div className="flex flex-col gap-2 md:gap-4 lg:gap-6 justify-center items-center">
         <div className="flex flex-col justify-center items-center p-2 gap-3">
           <FaQuoteLeft className="text-lg md:text-xl lg:text-3xl"/>

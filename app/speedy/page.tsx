@@ -36,20 +36,20 @@ const Home = () => {
       <div
         className={`${
           isModalVisible ? "pointer-events-none" : ""
-        } flex flex-col gap-3 md:gap-16 lg:gap-10 xl:gap-24`}
+        } flex flex-col gap-12 md:gap-20 xl:gap-24 1xl:gap-28 2xl:gap-40`}
       >
         <div>
           <Navbar />
-          <div>
+          <div className="flex flex-col gap-9 md:gap-16">
             <SelectOptions />
+            <Tabs />
           </div>
         </div>
-        <Tabs />
         <MarquesSlider />
-        <div>
+        <div className="flex flex-col gap-12 md:gap-16 xl:gap-20 1xl:gap-24 2xl:gap-28 ">
           <Section
             title="Conseil pratique"
-            descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
+            descrip="Vérifiez la pression des pneus chaque mois à froid et changez-les si les sculptures sont inférieures à 1,6 mm. Adoptez une conduite prudente et contrôlez régulièrement l’équilibrage ainsi que le parallélisme tous les 20 000 km."
             imgSrc="/speedy/section/sec-1.png"
             spee={true}
             pub={false}

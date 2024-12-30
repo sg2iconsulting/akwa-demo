@@ -163,7 +163,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           </ul>
         </div>
 
-        <div className="xl:flex gap-4 hidden">
+        <div className="xl:flex 2xl:gap-4 hidden">
           <div className="flex items-center">
             <LanguageSwitcher />
           </div>
@@ -198,7 +198,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           {/* Desktop Buttons */}
           <div className="hidden xl:block">
             <motion.button
-              className={`lg:w-[220px] xl:w-[180px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#19A0BF]`}
+              className={`xl:w-[200px] 2xl:w-[220px] w-[18px] h-[40px] md:h-[50px] xl:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#19A0BF]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -217,7 +217,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 text-white">
           <li className="">
             <motion.button
-              className={`lg:w-[220px] xl:w-[250px] w-[200px] h-[40px] md:h-[50px] rounded-full font-bold bg-[#19A0BF]`}
+              className={`lg:w-[220px]  w-[140px] md:w-[180px] h-[40px] md:h-[50px] rounded-full font-bold bg-[#19A0BF]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >

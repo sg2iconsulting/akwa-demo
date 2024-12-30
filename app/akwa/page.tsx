@@ -18,7 +18,7 @@ const home = () => {
   };
 
   return (
-    <section className="flex flex-col gap-3 md:gap-6 lg:gap-10 xl:gap-[100px] 2xl:gap-[160px]">
+    <section className="flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
       <section id="navbar">
         <Navbar />
       </section>
@@ -30,19 +30,62 @@ const home = () => {
       </button>
       <GroupAnimation />
       <ChiffreAnimation />
-      <CarouselAnimation />
-      <div className="mt-5">
+      <CarouselAnimation
+        slides={[
+          {
+            image: "/akwagroup/images/carburant.png",
+          },
+          {
+            image: "/akwagroup/images/dev.png",
+          },
+          {
+            image: "/akwagroup/images/transition.png",
+          },
+          {
+            image: "/akwagroup/images/fluides.png",
+          },
+          {
+            image: "/akwagroup/images/gaz.png",
+          },
+          {
+            image: "/akwagroup/images/carburant.png",
+          },
+          {
+            image: "/akwagroup/images/immobilier.png",
+          },
+          {
+            image: "/akwagroup/images/dev.png",
+          },
+          {
+            image: "/akwagroup/images/transition.png",
+          },
+          {
+            image: "/akwagroup/images/fluides.png",
+          },
+          {
+            image: "/akwagroup/images/gaz.png",
+          },
+          {
+            image: "/akwagroup/images/immobilier.png",
+          },
+        ]}
+        speedy={false}
+        fvolt={false}
+        title="6 Pôles"
+        descrip="diversifiés pour apporter des réponses globales"
+      />
+      <div className="mt-5 flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
         <SectionAnimation
           title="Innovation"
           descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin."
-          imgSrc="/section/innovationBg.jpeg"
+          imgSrc="/Section/innovationBg.jpeg"
           spee={false}
           pub={false}
         />
         <SectionAnimation
           title="Afrique"
           descrip="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis pellentesque felis. Praesent sed ex quis arcu rhoncus sollicitudin. "
-          imgSrc="/section/afriqueBg.png"
+          imgSrc="/Section/AfriqueBg.png"
           spee={false}
           pub={false}
         />

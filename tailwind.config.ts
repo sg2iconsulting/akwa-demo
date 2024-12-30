@@ -19,7 +19,8 @@ export default {
         poppins: ['poppins', 'sans-serif']
       },
       screens: {
-        '1xl': '1405px', // Custom screen breakpoint
+        '1xl': '1405px',
+        '3xl': '1724px',
       },
     },
   },

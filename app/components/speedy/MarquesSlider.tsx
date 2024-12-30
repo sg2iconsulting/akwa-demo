@@ -70,19 +70,19 @@ const MarquesSlider = () => {
     : { opacity: 0, x: 40 };
 
   return (
-    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full mt-10 md:mt-0 mb-4 md:mb-0">
-      <div className="w-full h-full flex flex-col px-5 md:px-10 lg:px-20">
+    <div className="font-poppins w-full max-w-[2000px] mx-auto h-full flex flex-col px-5 md:px-10 lg:px-20 gap-4 lg:gap-7 ">
+      <div className="w-full h-full ">
         <motion.h2
           ref={ref}
           initial={initial}
           animate={animate}
           transition={{ duration: 0.8 }}
-          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black"
+          className="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black"
         >
           Nos marques
         </motion.h2>
       </div>
-      <div className="w-full flex items-center px-5 md:px-10 lg:px-20 h-full mt-4 bg-white">
+      <div className="w-full flex items-center h-full bg-white">
         <Swiper
           modules={[Pagination, Autoplay]}
           slidesPerView={5}
@@ -95,13 +95,15 @@ const MarquesSlider = () => {
           className="w-full"
           breakpoints={{
             320: {
-              slidesPerView:1,
+              slidesPerView:2,
+              spaceBetween: 0,
             },
-            768: {
+            426: {
               slidesPerView:3,
+              spaceBetween: 40,
             },
             1024: {
-              slidesPerView:5,
+              slidesPerView:4,
               spaceBetween: 40,
             },
             1124: {
@@ -116,7 +118,7 @@ const MarquesSlider = () => {
         >
           {marques.map((promo) => (
             <SwiperSlide key={promo.id} className="flex h-full my-auto items-center justify-center w-full">
-              <div className="flex h-full items-center justify-center w-full lg:h-24 xl:h-36 2xl:h-48 px-10 md:px-3 lg:px-O xl:py-2 xl:p-0">
+              <div className="flex items-center justify-center w-32 md:w-48 lg:w-full lg:h-24 xl:h-36 2xl:h-48 px-3 md:px-3 lg:px-O xl:py-2 xl:p-0">
                 <img
                   src={promo.image}
                   alt={"promo.name"}

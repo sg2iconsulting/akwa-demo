@@ -3,7 +3,19 @@ import useInView from "@/app/hook/useView";
 import { motion } from "framer-motion";
 import TrendingSlider from "../Carousel";
 
-const CarouselAnimation = () => {
+interface Slide {
+  image: string;
+}
+
+interface TrendingSliderProps {
+  slides: Slide[];
+  speedy: boolean;
+  fvolt: boolean;
+  title: string;
+  descrip: string;
+}
+
+const CarouselAnimation = ({slides, speedy, fvolt, title, descrip}: TrendingSliderProps) => {
   const { ref, isInView } = useInView();
 
   return (
@@ -14,45 +26,11 @@ const CarouselAnimation = () => {
       transition={{ duration: 0.8 }}
     >
       <TrendingSlider
-        slides={[
-          {
-            image: "/akwagroup/images/carburant.png",
-          },
-          {
-            image: "/akwagroup/images/dev.png",
-          },
-          {
-            image: "/akwagroup/images/transition.png",
-          },
-          {
-            image: "/akwagroup/images/fluides.png",
-          },
-          {
-            image: "/akwagroup/images/gaz.png",
-          },
-          {
-            image: "/akwagroup/images/carburant.png",
-          },
-          {
-            image: "/akwagroup/images/immobilier.png",
-          },
-          {
-            image: "/akwagroup/images/dev.png",
-          },
-          {
-            image: "/akwagroup/images/transition.png",
-          },
-          {
-            image: "/akwagroup/images/fluides.png",
-          },
-          {
-            image: "/akwagroup/images/gaz.png",
-          },
-          {
-            image: "/akwagroup/images/immobilier.png",
-          },
-        ]}
-        check={false}
+        slides={slides}
+        speedy={speedy}
+        fvolt={fvolt}
+        title={title}
+        descrip={descrip}
       />
     </motion.div>
   );

@@ -1,28 +1,28 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaInstagram} from "react-icons/fa";
+import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { ImLinkedin } from "react-icons/im";
 import { FaFacebookF } from "react-icons/fa6";
 
 const Footer = () => {
   return (
     <section
-      className={`font-poppins w-full xl:h-auto bg-[#2B3773] p-5 md:px-10 lg:px-20 text-white flex items-center xl:mt-10 transition-all duration-300`}
+      className={`font-poppins w-full xl:h-[120px] bg-[#ABC92A] p-5 md:px-10 lg:px-20 text-white flex items-center mt-10 transition-all duration-300`}
     >
-      <div className="w-full flex flex-col gap-y-5 md:flex-row justify-between items-center max-w-[1940px] mx-auto relative">
+      <div className="w-full flex flex-col gap-y-5 lg:flex-row justify-between items-center max-w-[1940px] mx-auto relative">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
           className="cursor-pointer"
         >
           <img
-            src="/speedy/logoSpeedy.png"
+            src="/fastVolt/footerLogo.png"
             alt="Speedy Logo"
-            className="w-[60px] md:w-[80px] lg:w-[80px] 2xl:w-[110px]"
+            className="w-[100px] md:w-[130px] lg:w-[160px] 2xl:w-[280px]"
           />
         </motion.div>
-        <ul className="flex flex-wrap w-[60%] lg:w-auto lg:flex-nowrap xl:flex-row text-center justify-center gap-6 lg:gap-20 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px]">
+        <ul className="flex flex-wrap w-[60%] lg:w-auto lg:flex-nowrap xl:flex-row text-center justify-center gap-6 xl:gap-16 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px]">
           <motion.li
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
@@ -52,14 +52,14 @@ const Footer = () => {
             FAQ
           </motion.li>
         </ul>
-        <div className="flex gap-4 lg:gap-6 xl:gap-10 py-4 xl:py-0">
+        <div className="flex gap-4 xl:gap-6 py-4 xl:py-0">
           <motion.div
             className="cursor-pointer"
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
           >
             <a
-              href="https://web.facebook.com/SpeedyMarocOfficiel"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -75,7 +75,7 @@ const Footer = () => {
             transition={{ duration: 0.3 }}
           >
             <a
-              href="https://www.instagram.com/speedymarocofficiel"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -91,15 +91,25 @@ const Footer = () => {
             transition={{ duration: 0.3 }}
           >
             <a
-              href="https://www.linkedin.com/company/speedy-maroc/"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <ImLinkedin
+              <FaTwitter
                 color="white"
                 className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
               />
             </a>
+          </motion.div>
+          <motion.div
+            className="cursor-pointer"
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ImLinkedin
+              color="white"
+              className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
+            />
           </motion.div>
         </div>
       </div>
