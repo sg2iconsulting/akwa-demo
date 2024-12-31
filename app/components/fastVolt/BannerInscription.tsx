@@ -16,7 +16,7 @@ const BannerInscription = () => {
                 <p className="font-medium text-[8px] md:text-[11px] lg:text-[13px] xl:text-[18px] 2xl:text-[24px]">dernières nouvelles et des offres exclusives</p>
             </div>
           </div>
-          <div className="relative w-[250px] sm:w-[350px] lg:w-[490px] xl:w-[600px] 2xl:w-[725px] text-black font-medium text-[8px] sm:text-[11px] lg:text-[13px] 2xl:text-[18px] px-5  md:pr-10 lg:pr-20 xl:pr-28">
+          <div className="relative w-[250px] sm:w-[350px] lg:w-[490px] xl:w-[600px] 2xl:w-[725px] text-black dark:text-white font-medium text-[8px] sm:text-[11px] lg:text-[13px] 2xl:text-[18px] px-5  md:pr-10 lg:pr-20 xl:pr-28">
             <input
               type="text"
               placeholder="Votre adresse e-mail"
