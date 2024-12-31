@@ -291,7 +291,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src="/fastVolt/GooglePlay-1.png"
+                    src="/fastVolt/googlePlay.png"
                     className="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto cursor-pointer"
                   />
                 </motion.button>
@@ -300,7 +300,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src="/fastVolt/GooglePlay-2.png"
+                    src="/fastVolt/appStore.png"
                     className="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto cursor-pointer"
                   />
                 </motion.button>

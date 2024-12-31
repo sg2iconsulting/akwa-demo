@@ -16,8 +16,6 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  console.log("path = ", imgSrc)
-
   const initial = isInView
     ? isMobile
       ? { opacity: 0, y: 0 }

@@ -90,22 +90,6 @@ const Footer = () => {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
           >
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter
-                color="white"
-                className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
-              />
-            </a>
-          </motion.div>
-          <motion.div
-            className="cursor-pointer"
-            whileHover={{ scale: 1.2 }}
-            transition={{ duration: 0.3 }}
-          >
             <ImLinkedin
               color="white"
               className="w-4 h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8"
