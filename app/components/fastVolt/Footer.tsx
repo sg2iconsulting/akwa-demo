@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import { ImLinkedin } from "react-icons/im";
 import { FaFacebookF } from "react-icons/fa6";
 

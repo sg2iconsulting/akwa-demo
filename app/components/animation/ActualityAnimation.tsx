@@ -1,9 +1,9 @@
 "use client";
 import useInView from "@/app/hook/useView";
 import { motion } from "framer-motion";
-import Actuality from "../actuality/Actuality";
+import Actuality, { ActProps } from "../actuality/Actuality";
 
-const ActualityAnimation = () => {
+const ActualityAnimation = ({imgSrc, color, btnColor, title, descrip, Date, ttlColor}: ActProps) => {
   const { ref, isInView } = useInView();
 
   return (
@@ -14,15 +14,13 @@ const ActualityAnimation = () => {
       transition={{ duration: 0.8 }}
     >
       <Actuality
-        imgSrc={"/actuality/actu.jpeg"}
-        btnColor="bg-[#19A0BF]"
-        color="bg-[#052337]"
-        title="Nouveau casque protecteur"
-        descrip="Après avoir étudié les attentes et besoins de nos clients,
-                Afriquia Gaz a décidé de développer un casque protecteur, en
-                rendant la bouteille beaucoup plus pratique, plus ergonomique,
-                plus sécurisée et avec un nouveau design."
-        Date={"23 Decembre 2024"}
+        imgSrc={imgSrc}
+        btnColor={btnColor}
+        color={color}
+        title={title}
+        ttlColor={ttlColor}
+        descrip={descrip}
+        Date={Date}
       />
     </motion.div>
   );

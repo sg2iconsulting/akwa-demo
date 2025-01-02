@@ -70,6 +70,7 @@ const Home = () => {
           color="bg-[#2B3773]"
           btnColor="bg-[#3B7AB7]"
           title="20 contrôles pour une performance optimale"
+          ttlColor="text-black"
           descrip="Avec les 20 points de contrôle Speedy, nous assurons une inspection approfondie de votre flotte par nos experts, lui garantissant performance et fiabilité."
           Date={"23 Decembre 2024"}
         />

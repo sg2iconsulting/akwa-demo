@@ -32,6 +32,12 @@ const Home = () => {
       imageSrc: "/fastVolt/navBackFv.png",
       title: "fastVolt",
     },
+    {
+      id: 4,
+      href: "/maghrebOxygen",
+      imageSrc: "/maghreb/maghrebNavBack.png",
+      title: "maghreb Oxygen",
+    },
   ];
 
   return (
