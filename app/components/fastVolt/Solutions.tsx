@@ -49,7 +49,7 @@ const Solutions = () => {
             <h2
               className={`w-full leading-none text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black text-black dark:text-white`}
             >
-              Un solution rapide et proche de chez vous
+              Une solution rapide et proche de chez vous
             </h2>
           </div>
           <h3
