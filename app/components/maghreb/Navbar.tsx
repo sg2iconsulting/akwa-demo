@@ -60,7 +60,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   return (
     <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212]">
       {/* Navbar */}
-      <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
+      <div className="z-10 w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
@@ -265,21 +265,26 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         </ul>
       </div>
 
-      {/* Swiper Section */}
-      <div className="w-full h-full relative">
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px]">
+        <video
+          src="/maghreb/MaghrebOxygene.mp4" 
+          autoPlay
+          loop
+          muted
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
         <Swiper
           modules={[Pagination, Autoplay]}
           pagination={{ clickable: true }}
-          autoplay={{ delay: 6000 }}
+          autoplay={{
+            delay: 6000,
+            disableOnInteraction: false,
+          }}
           loop
-          className="w-full relative h-full z-40"
+          speed={2000}
+          className="relative w-full h-full z-10 bg-black bg-opacity-40"
         >
           <SwiperSlide>
-            <img
-              src="/maghreb/maghrebNavBack.png"
-              className="w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white"></div>
             <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
               <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
                 <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
@@ -308,11 +313,6 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src="/maghreb/maghrebNavBack.png"
-              className="w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover"
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white"></div>
             <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
               <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
                 <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
