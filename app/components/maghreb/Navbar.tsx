@@ -69,7 +69,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           <img
             src="/maghreb/maghrebLogo.png"
             alt="maghreb Logo"
-            className="w-[100px] md:w-[130px] lg:w-[160px] 2xl:w-[200px]"
+            className="w-[80px] md:w-[100px] lg:w-[130px] 2xl:w-[160px]"
           />
         </motion.div>
 
@@ -127,7 +127,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-8 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
+          <ul className="flex xl:gap-8 2xl:gap-14 3xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] font-bold text-white">
             <motion.li
               className="cursor-pointer "
               whileHover={{ scale: 1.05 }}
@@ -201,7 +201,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           {/* Desktop Buttons */}
           <div className="hidden 1xl:block">
             <motion.button
-              className={`lg:w-[200px] xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#0085C3]`}
+              className={`lg:w-[200px] 3xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] rounded-full text-white font-bold bg-[#0085C3]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
