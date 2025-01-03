@@ -26,15 +26,27 @@ const Home = () => {
       imageSrc: "/speedy/navback.jpeg",
       title: "Speedy",
     },
+    {
+      id: 3,
+      href: "/fastVolt",
+      imageSrc: "/fastVolt/navBackFv.png",
+      title: "fastVolt",
+    },
+    {
+      id: 4,
+      href: "/maghrebOxygen",
+      imageSrc: "/maghreb/maghrebNavBack.png",
+      title: "maghreb Oxygen",
+    },
   ];
 
   return (
-    <div className="w-screen h-screen flex">
+    <div className="w-screen h-screen flex flex-col">
       {links.map((link, index) => (
         <Link
           key={link.id}
           href={link.href}
-          className="relative w-1/2 h-full overflow-hidden"
+          className="relative w-full h-full overflow-hidden"
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >

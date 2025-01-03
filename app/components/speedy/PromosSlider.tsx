@@ -76,7 +76,6 @@ const PromosSlider = () => {
       </div>
       <div className="w-full h-full">
         <Swiper
-          // slidesPerView={2.5}
           spaceBetween={10}
           pagination={{ clickable: true }}
           modules={[Pagination]}

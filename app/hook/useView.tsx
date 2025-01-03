@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState, useRef } from "react";
 
-const useInView = (threshold = 0.1) => {
+const useInView = (threshold = 0.05) => {
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
