@@ -267,17 +267,12 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                 <p className="">unique de l’électrique !</p>
               </div>
               <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
-                <p className="">
+                <p className="-[80%] md:w-[75%]">
                   Le temps d’une pause café, rechargez vos batteries et prenez
-                  la route vers une mobilité durable, avec
-                </p>
-                <p className="">
-                  les bornes de recharge rapide FastVolt destinées aux véhicules
-                  électriques et hybrides rechargeables
-                </p>
-                <p className="">
-                  que vous retrouverez dans les principaux axes routiers et
-                  centres urbains.
+                  la route vers une mobilité durable, avec les bornes de
+                  recharge rapide FastVolt destinées aux véhicules électriques
+                  et hybrides rechargeables que vous retrouverez dans les
+                  principaux axes routiers et centres urbains.
                 </p>
               </div>
             </div>

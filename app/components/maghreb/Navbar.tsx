@@ -292,7 +292,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                     <p className="">Industrie</p>
                   </div>
                   <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
-                    <p className="w-[65%]">
+                    <p className="w-[80%] md:w-[65%]">
                       Pour permettre aux industriels d’optimiser leurs coûts et
                       d’atteindre le niveau de qualité que les produits
                       industriels exigent, Maghreb Oxygène leur apporte des
@@ -320,7 +320,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                     <p className="">Santé</p>
                   </div>
                   <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
-                    <p className="w-[65%]">
+                    <p className="w-[80%] md:w-[65%]">
                       Maghreb Oxygène produit, conditionne et distribue des gaz
                       médicaux comme l’oxygène médical gazeux ou liquide, le
                       protoxyde d’azote et l’air synthétique, conformément aux
