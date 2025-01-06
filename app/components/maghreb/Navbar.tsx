@@ -6,13 +6,14 @@ import React, { useState, useEffect } from "react";
 import { GrMenu } from "react-icons/gr";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "@/app/styles/swiperBullets.css";
+import "@/app/styles/maghrebBullets.css";
 import useInView from "../../hook/useView";
 import LanguageSwitcher from "../LanguageSwitcher";
-import SelectOptions from "./SelectOptions";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,16 +60,16 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   return (
     <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212]">
       {/* Navbar */}
-      <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
+      <div className="z-10 w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
           className="cursor-pointer"
         >
           <img
-            src="/speedy/logoSpeedy.png"
-            alt="Speedy Logo"
-            className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px] lg:p-3 2xl:p-5"
+            src="/maghreb/maghrebLogo.png"
+            alt="maghreb Logo"
+            className="w-[80px] md:w-[100px] lg:w-[130px] 2xl:w-[160px]"
           />
         </motion.div>
 
@@ -77,9 +78,17 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           <div className="xl:flex gap-5 text-[12px] md:text-[14px]">
             <div className="flex items-center gap-1 mt-1 justify-around">
               {resolvedTheme === "dark" ? (
-                <HiSun className="text-white text-[20px] mb-1 dark:text-white" />
+                <HiSun
+                  className={`text-${
+                    isOpen ? "black" : "white"
+                  } dark:text-white transition-colors duration-1000 ease-in-out text-[20px] mb-1 `}
+                />
               ) : (
-                <FaMoon className="text-white text-[10px] md:text-[15px] mb-1" />
+                <FaMoon
+                  className={`text-${
+                    isOpen ? "black" : "white"
+                  } dark:text-white transition-colors duration-1000 ease-in-out text-[10px] md:text-[15px] mb-1`}
+                />
               )}
               <form>
                 <label className="inline-flex items-center cursor-pointer">
@@ -108,7 +117,9 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white text-[20px] md:text-[24px]"
+            className={`text-${
+              isOpen ? "black" : "white"
+            } dark:text-white transition-colors duration-1000 ease-in-out text-[20px] md:text-[24px]`}
           >
             <GrMenu />
           </motion.button>
@@ -116,48 +127,41 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] font-bold text-white">
+          <ul className="flex xl:gap-8 2xl:gap-14 3xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] font-bold text-white">
             <motion.li
-              className="cursor-pointer"
+              className="cursor-pointer "
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Qui sommes-nous ?
+              Nous connaitre
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Pneu
+              Application
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Entretien
+              Réseaux
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Promos
+              QHSE
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Blog
-            </motion.li>
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              FAQ
+              Actualités
             </motion.li>
           </ul>
         </div>
@@ -197,11 +201,11 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           {/* Desktop Buttons */}
           <div className="hidden 1xl:block">
             <motion.button
-              className={`lg:w-[200px] xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] border border-white text-white font-medium`}
+              className={`lg:w-[200px] 3xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] rounded-full text-white font-bold bg-[#0085C3]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "www.google.com"}>Contacter nous</Link>
+              <Link href={link || "www.google.com"}>Nous contacter</Link>
             </motion.button>
           </div>
         </div>
@@ -209,18 +213,18 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`1xl:hidden w-full bg-[#01A8FF] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
+        className={`1xl:hidden w-full bg-[#0085C3] dark:bg-black shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
           isOpen ? "max-h-[400px]" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-16 text-white">
+        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-14 text-black dark:text-white ">
           <li className="">
             <motion.button
-              className={`lg:w-[220px] xl:w-[250px] w-[150px] md:w-[165px] h-[40px] md:h-[47px] border border-white font-bold `}
+              className={`lg:w-[220px] xl:w-[250px] w-[140px] h-[40px] md:h-[50px] rounded-full text-black font-bold bg-white`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Contacter nous</Link>
+              <Link href={link || "#"}>Nous contacter</Link>
             </motion.button>
           </li>
           <motion.li
@@ -228,124 +232,115 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Qui sommes-nous ?
+            Nous connaitre
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Pneu
+            Applications
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Entretien
+            Réseaux
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Promos
+            QHSE
           </motion.li>
           <motion.li
-            className=" cursor-pointer"
+            className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Blog
-          </motion.li>
-          <motion.li
-            className=" cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            FAQ
+            Actualités
           </motion.li>
         </ul>
       </div>
 
-      {/* Swiper Section */}
-      <div className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[650px] xl:h-[850px] relative">
-        <img
-          src="/speedy/navback.jpeg"
-          className="w-full h-[400px] sm:h-[450px] md:h-full object-cover"
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px]">
+        <video
+          src="/maghreb/MaghrebOxygene.mp4" 
+          autoPlay
+          loop
+          muted
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white bg-black bg-opacity-40 ">
-          <div className="flex w-full h-full flex-col justify-center items-center gap-3 md:gap-5 lg:gap-8 xl:gap-10">
-            <div className="flex flex-col w-full h-full justify-end ">
-              <h2 className="text-[18px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold w-full ">
-                Chez SPEEDY, Profitez d’un bilan
-              </h2>
-              <h2 className="text-[18px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold w-full ">
-                technique gratuit !
-              </h2>
-            </div>
-            <div className="flex w-full h-full justify-center items-start">
-              <div className="flex flex-col sm:flex-row gap-2 xl:gap-10">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#3B7AB7] font-bold cursor-pointer text-white"
-                >
-                  <img
-                    src="/speedy/icons/Icon-1.png"
-                    className="w-4 l md:w-7 lg:w-10"
-                  />
-                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
-                    ACHETEZ VOS PNEUS
-                  </p>
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#043882] font-bold cursor-pointer text-white"
-                >
-                  <img
-                    src="/speedy/icons/Icon-7.png"
-                    className="w-4 l md:w-7 lg:w-10"
-                  />
-                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
-                    DEMANDE DE DEVIS
-                  </p>
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-4 2xl:py-5 bg-[#01A8FF] font-bold cursor-pointer text-white"
-                >
-                  <img
-                    src="/speedy/icons/Location.png"
-                    className="w-4 md:w-7 lg:w-10"
-                  />
-                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
-                    TROUVEZ UN CENTRE
-                  </p>
-                </motion.button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="hidden xl:block xl:absolute xl:bottom-0 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:translate-y-1/2 w-full xl:w-[80%] xl:h-[500px] shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">
-          <div className="w-full h-full flex flex-col items-center">
-            <div className="w-[480px] h-[35%] ">
-              <img src="/speedy/demi-pneu.png" />
-            </div>
-            <div className="w-full h-[65%] dark:bg-[#1E1E1E] bg-white flex flex-col items-center justify-center">
-              <div className="w-full flex flex-col gap-10">
-                <h2 className="w-full text-lg font-bold xl:px-8 1xl:px-12 2xl:px-24">
-                  Trouvez vos pneus
-                </h2>
-                <div className="w-full">
-                  <SelectOptions />
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 6000,
+            disableOnInteraction: false,
+          }}
+          loop
+          speed={2000}
+          className="relative w-full h-full z-10 bg-black bg-opacity-40"
+        >
+          <SwiperSlide>
+            <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
+              <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
+                <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+                  <div className="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[100px] font-bold leading-tight">
+                    <p className="">Industrie</p>
+                  </div>
+                  <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
+                    <p className="w-[80%] md:w-[65%]">
+                      Pour permettre aux industriels d’optimiser leurs coûts et
+                      d’atteindre le niveau de qualité que les produits
+                      industriels exigent, Maghreb Oxygène leur apporte des
+                      solutions intégrées gaz et soudage.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-y-2 md:gap-y-3 lg:gap-y-4 xl:gap-y-5 2xl:gap-y-6">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-[#0085C3] cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white mt-3 md:mt-4 lg:mt-6 xl:mt-8"
+                  >
+                    En savoir plus
+                  </motion.button>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
+              <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
+                <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+                  <div className="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[100px] font-bold leading-tight">
+                    <p className="">Santé</p>
+                  </div>
+                  <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
+                    <p className="w-[80%] md:w-[65%]">
+                      Maghreb Oxygène produit, conditionne et distribue des gaz
+                      médicaux comme l’oxygène médical gazeux ou liquide, le
+                      protoxyde d’azote et l’air synthétique, conformément aux
+                      spécifications de la pharmacopée Européenne.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-y-2 md:gap-y-3 lg:gap-y-4 xl:gap-y-5 2xl:gap-y-6">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-20 h-5 sm:w-28 sm:h-7 md:w-32 md:h-8 lg:h-[35px] lg:w-[150px] xl:h-[50px] xl:w-[200px] 2xl:w-[290px] 2xl:h-[67px] rounded-full bg-[#0085C3] cursor-pointer text-[6px] sm:text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white mt-3 md:mt-4 lg:mt-6 xl:mt-8"
+                  >
+                    En savoir plus
+                  </motion.button>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );

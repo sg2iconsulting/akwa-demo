@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { motion } from "framer-motion";
 import useInView from "../hook/useView";
@@ -33,27 +34,30 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
     <section className="font-poppins w-full max-w-[2000px] mx-auto ">
       <div className="w-full h-full px-5 md:px-10 lg:px-20">
         <div
-          className={`relative bg-cover w-full ${
+          className={`relative bg-cover w-full h-[180px] ${
             spee ? "h-[180px] md:h-auto" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
-          } py-2 px-3 md:p-3 text-white flex flex-col gap-1 md:gap-2 aspect-[3/1] ${pub ? "2xl:h-[675px]" : "2xl:h-[600px]"}`}
-          style={{ backgroundImage: `url(${imgSrc})` }}
+          } py-2 px-3 md:p-3 text-white flex flex-col gap-1 md:gap-2 aspect-[3/1] ${pub ? "h-[200px] sm:h-[300px] md:h-[350px] xl:h-[500px] 2xl:h-[675px]" : "md:h-auto 2xl:h-[600px]"}`}
+          style={{
+            backgroundImage: `url(${imgSrc})`,
+            backgroundPosition: pub ? "right 15% center" : "center center",
+          }}
         >
           <div
             className={`absolute inset-0 ${pub ? "" : "bg-black opacity-40"} ${
               spee ? "" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
             }`}
           ></div>
-          <div className={`${pub ? "w-4/6 ml-10" : "w-full"} h-full flex flex-col justify-center`}>
+          <div className={`${pub ? "w-full md:w-4/6 ml-1" : "w-full"} h-full flex flex-col gap-4 justify-center`}>
             <motion.h2
               ref={ref}
               initial={initial}
               animate={animate}
               transition={{ duration: 0.8 }}
-              className="text-[13px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black md:ml-4 lg:ml-8 xl:ml-16 z-40"
+              className="text-[13px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-bold leading-tight md:ml-4 lg:ml-8 xl:ml-16 z-40"
             >
               {title}
             </motion.h2>
-            <p className="font-medium text-[8px] sm:text-[11px] md:text-[16px] xl:text-[24px] 2xl:text-[36px] sm:w-2/3 md:ml-4 lg:ml-8 xl:ml-16 z-40">
+            <p className="font-medium text-[8px] sm:text-[11px] md:text-[16px] xl:text-[24px] 2xl:text-[36px] sm:w-2/3 md:ml-4 lg:ml-8 xl:ml-16 z-40 line-clamp-4">
               {descrip}
             </p>
             <motion.button

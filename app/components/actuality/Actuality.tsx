@@ -10,11 +10,12 @@ export interface ActProps {
   color: string;
   btnColor: string;
   title: string;
+  ttlColor: string;
   descrip: string;
   Date: string
 }
 
-const Actuality = ({imgSrc, color, btnColor, title, descrip, Date}: ActProps) => {
+const Actuality = ({imgSrc, color, btnColor, title, descrip, Date, ttlColor}: ActProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -40,7 +41,7 @@ const animate = isInView
           initial={initial}
           animate={animate}
           transition={{ duration: 0.8 }}
-          className="font-black w-full text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] text-[#0E1B25] font-poppins dark:text-white"
+          className={`font-black w-full text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-poppins dark:text-white ${ttlColor}`}
         >
           Actualités
         </motion.h2>

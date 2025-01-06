@@ -30,7 +30,50 @@ const home = () => {
       </button>
       <GroupAnimation />
       <ChiffreAnimation />
-      <CarouselAnimation />
+      <CarouselAnimation
+        slides={[
+          {
+            image: "/akwagroup/images/carburant.png",
+          },
+          {
+            image: "/akwagroup/images/dev.png",
+          },
+          {
+            image: "/akwagroup/images/transition.png",
+          },
+          {
+            image: "/akwagroup/images/fluides.png",
+          },
+          {
+            image: "/akwagroup/images/gaz.png",
+          },
+          {
+            image: "/akwagroup/images/carburant.png",
+          },
+          {
+            image: "/akwagroup/images/immobilier.png",
+          },
+          {
+            image: "/akwagroup/images/dev.png",
+          },
+          {
+            image: "/akwagroup/images/transition.png",
+          },
+          {
+            image: "/akwagroup/images/fluides.png",
+          },
+          {
+            image: "/akwagroup/images/gaz.png",
+          },
+          {
+            image: "/akwagroup/images/immobilier.png",
+          },
+        ]}
+        speedy={false}
+        fvolt={false}
+        title="6 Pôles"
+        descrip="diversifiés pour apporter des réponses globales"
+      />
       <div className="mt-5 flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
         <SectionAnimation
           title="Innovation"
@@ -47,7 +90,18 @@ const home = () => {
           pub={false}
         />
       </div>
-      <ActualityAnimation />
+      <ActualityAnimation
+        imgSrc={"/actuality/actu.jpeg"}
+        btnColor="bg-[#19A0BF]"
+        color="bg-[#052337]"
+        title="Nouveau casque protecteur"
+        ttlColor="text-[#0E1B25]"
+        descrip="Après avoir étudié les attentes et besoins de nos clients,
+              Afriquia Gaz a décidé de développer un casque protecteur, en
+              rendant la bouteille beaucoup plus pratique, plus ergonomique,
+              plus sécurisée et avec un nouveau design."
+        Date={"23 Decembre 2024"}
+      />
       <Footer />
     </section>
   );

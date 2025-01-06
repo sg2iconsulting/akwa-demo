@@ -12,7 +12,9 @@ import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
 import useInView from "../../hook/useView";
 import LanguageSwitcher from "../LanguageSwitcher";
-import SelectOptions from "./SelectOptions";
+import { BsLightning } from "react-icons/bs";
+import { MdAccessTimeFilled } from "react-icons/md";
+import { FiMapPin } from "react-icons/fi";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,9 +68,9 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           className="cursor-pointer"
         >
           <img
-            src="/speedy/logoSpeedy.png"
-            alt="Speedy Logo"
-            className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px] lg:p-3 2xl:p-5"
+            src="/fastVolt/fastVoltLogo.png"
+            alt="fastVolt Logo"
+            className="w-[100px] md:w-[130px] lg:w-[160px] 2xl:w-[200px]"
           />
         </motion.div>
 
@@ -77,9 +79,17 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           <div className="xl:flex gap-5 text-[12px] md:text-[14px]">
             <div className="flex items-center gap-1 mt-1 justify-around">
               {resolvedTheme === "dark" ? (
-                <HiSun className="text-white text-[20px] mb-1 dark:text-white" />
+                <HiSun
+                  className={`text-${
+                    isOpen ? "black" : "white"
+                  } dark:text-white transition-colors duration-1000 ease-in-out text-[20px] mb-1 `}
+                />
               ) : (
-                <FaMoon className="text-white text-[10px] md:text-[15px] mb-1" />
+                <FaMoon
+                  className={`text-${
+                    isOpen ? "black" : "white"
+                  } dark:text-white transition-colors duration-1000 ease-in-out text-[10px] md:text-[15px] mb-1`}
+                />
               )}
               <form>
                 <label className="inline-flex items-center cursor-pointer">
@@ -108,7 +118,9 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white text-[20px] md:text-[24px]"
+            className={`text-${
+              isOpen ? "black" : "white"
+            } dark:text-white transition-colors duration-1000 ease-in-out text-[20px] md:text-[24px]`}
           >
             <GrMenu />
           </motion.button>
@@ -116,48 +128,34 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] font-bold text-white">
+          <ul className="flex xl:gap-8 2xl:gap-10 text-[10px] md:text-[12px] xl:text-[16px] 3xl:text-[22px] font-bold text-white">
             <motion.li
-              className="cursor-pointer"
+              className="cursor-pointer text-[#D1FF33] "
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Qui sommes-nous ?
+              Accueil
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Pneu
+              Qui sommes-nous?
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Entretien
+              Comment ça marche?
             </motion.li>
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Promos
-            </motion.li>
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Blog
-            </motion.li>
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              FAQ
+              Carte des bornes
             </motion.li>
           </ul>
         </div>
@@ -197,11 +195,11 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           {/* Desktop Buttons */}
           <div className="hidden 1xl:block">
             <motion.button
-              className={`lg:w-[200px] xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] border border-white text-white font-medium`}
+              className={`lg:w-[200px] xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-black font-bold bg-[#D1FF33]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "www.google.com"}>Contacter nous</Link>
+              <Link href={link || "www.google.com"}>Nous appeler</Link>
             </motion.button>
           </div>
         </div>
@@ -209,18 +207,18 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`1xl:hidden w-full bg-[#01A8FF] shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
+        className={`1xl:hidden w-full bg-white dark:bg-black shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
           isOpen ? "max-h-[400px]" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-16 text-white">
+        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 text-black dark:text-white">
           <li className="">
             <motion.button
-              className={`lg:w-[220px] xl:w-[250px] w-[150px] md:w-[165px] h-[40px] md:h-[47px] border border-white font-bold `}
+              className={`lg:w-[220px] xl:w-[250px] w-[140px] h-[40px] md:h-[50px] rounded-full text-black font-bold bg-[#D1FF33]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Contacter nous</Link>
+              <Link href={link || "#"}>Nous appeler</Link>
             </motion.button>
           </li>
           <motion.li
@@ -228,123 +226,111 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Qui sommes-nous ?
+            Accueil
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Pneu
+            Qui sommes-nous?
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Entretien
+            Comment ça marche?
           </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Promos
-          </motion.li>
-          <motion.li
-            className=" cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            Blog
-          </motion.li>
-          <motion.li
-            className=" cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            FAQ
+            Carte des bornes
           </motion.li>
         </ul>
       </div>
 
       {/* Swiper Section */}
-      <div className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[650px] xl:h-[850px] relative">
+      <div className="w-full h-full relative">
         <img
-          src="/speedy/navback.jpeg"
-          className="w-full h-[400px] sm:h-[450px] md:h-full object-cover"
+          src="/fastVolt/navBackFv.png"
+          className="w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white bg-black bg-opacity-40 ">
-          <div className="flex w-full h-full flex-col justify-center items-center gap-3 md:gap-5 lg:gap-8 xl:gap-10">
-            <div className="flex flex-col w-full h-full justify-end ">
-              <h2 className="text-[18px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold w-full ">
-                Chez SPEEDY, Profitez d’un bilan
-              </h2>
-              <h2 className="text-[18px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold w-full ">
-                technique gratuit !
-              </h2>
+        <div className="absolute inset-0 flex flex-col items-center justify-center sm:justify-normal xl:justify-center text-center text-white"></div>
+        <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
+          <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
+            <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
+              <div className="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[100px] font-bold leading-tight">
+                <p className="">À vous l’expérience</p>
+                <p className="">unique de l’électrique !</p>
+              </div>
+              <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
+                <p className="w-[80%] md:w-[75%]">
+                  Le temps d’une pause café, rechargez vos batteries et prenez
+                  la route vers une mobilité durable, avec les bornes de
+                  recharge rapide FastVolt destinées aux véhicules électriques
+                  et hybrides rechargeables que vous retrouverez dans les
+                  principaux axes routiers et centres urbains.
+                </p>
+              </div>
             </div>
-            <div className="flex w-full h-full justify-center items-start">
-              <div className="flex flex-col sm:flex-row gap-2 xl:gap-10">
+            <div className="flex flex-col gap-y-2 md:gap-y-3 lg:gap-y-4 xl:gap-y-5 2xl:gap-y-6">
+              <p className="text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold">
+                Télécharger l’application FastVolt
+              </p>
+              <div className="flex gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#3B7AB7] font-bold cursor-pointer text-white"
                 >
                   <img
-                    src="/speedy/icons/Icon-1.png"
-                    className="w-4 l md:w-7 lg:w-10"
+                    src="/fastVolt/googlePlay.png"
+                    className="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto cursor-pointer"
                   />
-                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
-                    ACHETEZ VOS PNEUS
-                  </p>
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-3 bg-[#043882] font-bold cursor-pointer text-white"
                 >
                   <img
-                    src="/speedy/icons/Icon-7.png"
-                    className="w-4 l md:w-7 lg:w-10"
+                    src="/fastVolt/appStore.png"
+                    className="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto cursor-pointer"
                   />
-                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
-                    DEMANDE DE DEVIS
-                  </p>
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex gap-3 items-center justify-center px-6 py-2 xl:py-4 2xl:py-5 bg-[#01A8FF] font-bold cursor-pointer text-white"
-                >
-                  <img
-                    src="/speedy/icons/Location.png"
-                    className="w-4 md:w-7 lg:w-10"
-                  />
-                  <p className="text-[8px] md:text-[11px] lg:text-[14px] xl:text-[18px] 2xl:text-[22px]">
-                    TROUVEZ UN CENTRE
-                  </p>
                 </motion.button>
               </div>
             </div>
           </div>
         </div>
-        <div className="hidden xl:block xl:absolute xl:bottom-0 xl:left-1/2 xl:transform xl:-translate-x-1/2 xl:translate-y-1/2 w-full xl:w-[80%] xl:h-[500px] shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">
-          <div className="w-full h-full flex flex-col items-center">
-            <div className="w-[480px] h-[35%] ">
-              <img src="/speedy/demi-pneu.png" />
-            </div>
-            <div className="w-full h-[65%] dark:bg-[#1E1E1E] bg-white flex flex-col items-center justify-center">
-              <div className="w-full flex flex-col gap-10">
-                <h2 className="w-full text-lg font-bold xl:px-8 1xl:px-12 2xl:px-24">
-                  Trouvez vos pneus
-                </h2>
-                <div className="w-full">
-                  <SelectOptions />
-                </div>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div className="flex flex-col md:flex-row md:gap-x-10 lg:justify-between mt-10 w-full px-5 md:px-10 lg:px-20 gap-y-4">
+        <div className="flex gap-1 lg:gap-2 2xl:gap-4 items-center">
+          <FiMapPin
+            color="#D1FF33"
+            className="md:w-8 md:h-8 2xl:w-[40px] 2xl:h-[40px]"
+          />
+          <h2 className="text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold">
+            Réseau de bornes le plus important du royaume
+          </h2>
+        </div>
+        <div className="flex gap-1 lg:gap-2 2xl:gap-4 items-center">
+          <MdAccessTimeFilled
+            color="#D1FF33"
+            className="md:w-8 md:h-8 2xl:w-[50px] 2xl:h-[50px]"
+          />
+          <h2 className="text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold">
+            30 minutes de durée de recharge
+          </h2>
+        </div>
+        <div className="flex gap-1 lg:gap-2 2xl:gap-4 items-center">
+          <BsLightning
+            color="#D1FF33"
+            className="md:w-8 md:h-8  2xl:w-[50px] 2xl:h-[50px]"
+          />
+          <h2 className="text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold">
+            Puissance de recharge jusqu’a 100 Kw DC{" "}
+          </h2>
         </div>
       </div>
     </div>
