@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import useInView from "../hook/useView";
@@ -35,8 +35,14 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
       <div className="w-full h-full px-5 md:px-10 lg:px-20">
         <div
           className={`relative bg-cover w-full h-[180px] ${
-            spee ? "h-[180px] md:h-auto" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
-          } py-2 px-3 md:p-3 text-white flex flex-col gap-1 md:gap-2 aspect-[3/1] ${pub ? "h-[200px] sm:h-[300px] md:h-[350px] xl:h-[500px] 2xl:h-[675px]" : "md:h-auto 2xl:h-[600px]"}`}
+            spee
+              ? "h-[180px] md:h-auto"
+              : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
+          } py-2 px-3 md:p-3 text-white flex flex-col gap-1 md:gap-2 aspect-[3/1] ${
+            pub
+              ? "h-[200px] sm:h-[300px] md:h-[350px] xl:h-[500px] 2xl:h-[675px]"
+              : "md:h-auto 2xl:h-[600px]"
+          }`}
           style={{
             backgroundImage: `url(${imgSrc})`,
             backgroundPosition: pub ? "right 15% center" : "center center",
@@ -47,7 +53,11 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
               spee ? "" : "rounded-xl md:rounded-3xl 2xl:rounded-[50px]"
             }`}
           ></div>
-          <div className={`${pub ? "w-full md:w-4/6 ml-1" : "w-full"} h-full flex flex-col gap-4 justify-center`}>
+          <div
+            className={`${
+              pub ? "w-full md:w-4/6 ml-1" : "w-full"
+            } h-full flex flex-col gap-4 justify-center`}
+          >
             <motion.h2
               ref={ref}
               initial={initial}
