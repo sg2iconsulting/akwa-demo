@@ -30,13 +30,19 @@ const Home = () => {
       id: 3,
       href: "/fastVolt",
       imageSrc: "/fastVolt/navBackFv.png",
-      title: "fastVolt",
+      title: "FastVolt",
     },
     {
       id: 4,
       href: "/maghrebOxygen",
       imageSrc: "/maghreb/maghrebNavBack.png",
-      title: "maghreb Oxygen",
+      title: "Maghreb Oxygen",
+    },
+    {
+      id: 5,
+      href: "/afriquia_gaz",
+      imageSrc: "/afriquiaGaz/backgroundMenu.png",
+      title: "Afriquia Gaz",
     },
   ];
 

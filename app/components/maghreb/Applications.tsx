@@ -40,12 +40,14 @@ const Applications = () => {
           title="Industrie"
           descrip="Pour permettre aux industriels d’optimiser leurs coûts et d’atteindre le niveau de qualité que les produits industriels exigent, Maghreb Oxygène leur apporte des solutions intégrées gaz et soudage."
           color="bg-[#0085C3]"
+          app={false}
         />
         <Application
           imgSrc="/maghreb/santeApp.png"
           title="Santé"
           descrip="Maghreb Oxygène produit, conditionne et distribue des gaz médicaux comme l’oxygène médical gazeux ou liquide, le protoxyde d’azote et l’air synthétique, conformément aux spécifications de la pharmacopée Européenne."
           color="bg-[#179CAB]"
+          app={false}
         />
       </div>
     </section>

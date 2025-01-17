@@ -205,7 +205,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "www.google.com"}>Nous contacter</Link>
+              <Link href={link || "#"}>Nous contacter</Link>
             </motion.button>
           </div>
         </div>

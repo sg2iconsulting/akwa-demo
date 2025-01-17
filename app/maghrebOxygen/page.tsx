@@ -78,16 +78,50 @@ const Home = () => {
       <AboutUsAnimation />
       <ApplicationsAnimation />
       <ActualityAnimation
-        imgSrc={"/actuality/actu.jpeg"}
+        items={[
+          {
+            imgSrc: "/actuality/actu.jpeg",
+            title: "Nouveau casque protecteur",
+            descrip:
+              "Après avoir étudié les attentes et besoins de nos clients, Afriquia Gaz a décidé de développer un casque protecteur, en rendant la bouteille beaucoup plus pratique, plus ergonomique, plus sécurisée et avec un nouveau design.",
+            date: "23 Decembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item6.jpeg",
+            title: "Le meilleur de l'entretien",
+            date: "20 Décembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item2.jpeg",
+            title: "Nous sommes toujours prêts à vous accueillir",
+            date: "15 Décembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item3.jpeg",
+            title: "Garder votre flotte opérationnelle avec l'entretien speedy",
+            date: "03 Décembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item4.jpeg",
+            title: "Remplacement 100% utile",
+            date: "19 Octobre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item5.jpeg",
+            title:
+              "Baie dédiée et techniciens experts pour un entretien rapide de votre flotte",
+            date: "12 Octobre 2024",
+            url: "",
+          },
+        ]}
         btnColor="bg-[#0085C3]"
         color="bg-[#19517D]"
-        title="Nouveau casque protecteur"
         ttlColor="text-[#0085C3]"
-        descrip="Après avoir étudié les attentes et besoins de nos clients,
-                Afriquia Gaz a décidé de développer un casque protecteur, en
-                rendant la bouteille beaucoup plus pratique, plus ergonomique,
-                plus sécurisée et avec un nouveau design."
-        Date={"23 Decembre 2024"}
       />
       <LastPostsAnimation />
       <Footer />

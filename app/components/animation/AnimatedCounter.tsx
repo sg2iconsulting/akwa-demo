@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import useInView from "@/app/hook/useView";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const AnimatedCounter = ({ value, duration }: any) => {
+const AnimatedCounter = ({ value, duration, modal }: any) => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, Math.round);
   const { ref, isInView } = useInView();
@@ -21,7 +21,7 @@ const AnimatedCounter = ({ value, duration }: any) => {
   return (
     <motion.div
       ref={ref}
-      className="font-bold lg:text-[28px] 2xl:text-[48px]"
+      className={`font-bold  ${modal ? "" : "xl:text-[48px]"}`}
     >
       {rounded}
     </motion.div>
