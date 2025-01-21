@@ -24,8 +24,8 @@ const animate = isInView
   : { opacity: 0, x: 40 };
 
   const images = [
-    ["/groupe/Image-0.png", "/groupe/Image-1.png", "/groupe/Image-2.png"],
-    ["/groupe/Image-3.png", "/groupe/Image-4.png", "/groupe/Image-5.png"],
+    ["/groupe/image-0.png", "/groupe/image-1.png", "/groupe/image-2.png"],
+    ["/groupe/image-3.png", "/groupe/image-4.png", "/groupe/image-5.png"],
     ["/groupe/image-12.png", "/groupe/image-13.png", "/groupe/image-14.png"],
     ["/groupe/image-15.png", "/groupe/image-16.png", "/groupe/image-17.png"],
     ["/groupe/image-9.png", "/groupe/image-10.png", "/groupe/image-11.png"],

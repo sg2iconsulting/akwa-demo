@@ -5,6 +5,7 @@ export interface ItemsProp {
   imgSrc: string;
   title: string;
   date: string;
+  url?: string;
 }
 
 const Item = ({ imgSrc, title, date }: ItemsProp) => {

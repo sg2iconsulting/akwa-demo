@@ -72,7 +72,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   if (!mounted) return null;
 
   return (
-    <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212]">
+    <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212] z-40">
       {/* Navbar */}
       <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
         <motion.div

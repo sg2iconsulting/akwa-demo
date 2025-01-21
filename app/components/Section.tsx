@@ -67,7 +67,7 @@ const Section = ({ title, descrip, imgSrc, spee, pub }: SectionProps) => {
             >
               {title}
             </motion.h2>
-            <p className="font-medium text-[8px] sm:text-[11px] md:text-[16px] xl:text-[24px] 2xl:text-[36px] sm:w-2/3 md:ml-4 lg:ml-8 xl:ml-16 z-40 line-clamp-4">
+            <p className="font-medium text-[8px] sm:text-[11px] md:text-[16px] 2xl:text-[24px] sm:w-[95%] md:ml-4 lg:ml-8 xl:ml-16 z-40 line-clamp-4">
               {descrip}
             </p>
             <motion.button

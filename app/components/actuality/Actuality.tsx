@@ -5,17 +5,22 @@ import { motion } from "framer-motion";
 import useInView from "@/app/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
-export interface ActProps {
+interface ItemsProps {
   imgSrc: string;
-  color: string;
-  btnColor: string;
   title: string;
-  ttlColor: string;
-  descrip: string;
-  Date: string
+  descrip?: string;
+  date: string;
+  url: string;
 }
 
-const Actuality = ({imgSrc, color, btnColor, title, descrip, Date, ttlColor}: ActProps) => {
+export interface ActProps {
+  items: ItemsProps [],
+  color: string;
+  btnColor: string;
+  ttlColor: string;
+}
+
+const Actuality = ({color, btnColor, ttlColor, items}: ActProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -49,20 +54,20 @@ const animate = isInView
           <div className="w-full xl:w-[63%] xl:h-[695px] flex flex-col rounded-[20px] overflow-hidden">
             <div className="w-full rounded-t-[20px] overflow-hidden">
               <img
-                src={imgSrc}
+                src={items[0].imgSrc}
                 alt=""
                 className="object-cover w-full h-full"
               />
             </div>
             <div className={`w-full ${color} rounded-b-[20px] text-white flex flex-col justify-center gap-2 md:gap-4 p-6 md:px-10 lg:px-16`}>
               <p className="text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]">
-                {Date}
+                {items[0].date}
               </p>
               <p className="text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold">
-                {title}
+                {items[0].title}
               </p>
               <p className="text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2">
-                {descrip}
+                {items[0].descrip}
               </p>
 
               <motion.button
@@ -75,11 +80,11 @@ const animate = isInView
             </div>
           </div>
           <div className="w-full xl:w-[35%] flex flex-col justify-between gap-2 xl:gap-4">
-            <Item imgSrc="/actuality/item6.jpeg" title="Le meilleur de l'entretien" date="20 Decembre 2024"/>
-            <Item imgSrc="/actuality/item2.jpeg" title="Nous sommes toujours prêts à vous accueillir" date="15 Decembre 2024"/>
-            <Item imgSrc="/actuality/item3.jpeg" title="Garder votre flotte opérationnelle avec l'entretien speedy" date="03 Decembre 2024"/>
-            <Item imgSrc="/actuality/item4.jpeg" title="Remplacement 100% utile" date="19 Octobre 2024"/>
-            <Item imgSrc="/actuality/item5.jpeg" title="Baie dédiée et techniciens experts pour un entretien rapide de votre flotte" date="12 Octobre 2024"/>
+            <Item imgSrc={items[1].imgSrc} title={items[1].title} date={items[1].date} url={items[1].url}/>
+            <Item imgSrc={items[2].imgSrc} title={items[2].title} date={items[2].date} url={items[2].url}/>
+            <Item imgSrc={items[3].imgSrc} title={items[3].title} date={items[3].date} url={items[3].url}/>
+            <Item imgSrc={items[4].imgSrc} title={items[4].title} date={items[4].date} url={items[4].url}/>
+            <Item imgSrc={items[5].imgSrc} title={items[5].title} date={items[5].date} url={items[5].url}/>
           </div>
         </div>
       </div>
