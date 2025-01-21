@@ -1,21 +1,10 @@
 "use client";
 import useInView from "@/app/hook/useView";
 import { motion } from "framer-motion";
-import TrendingSlider from "../Carousel";
+import TrendingSlider, { TrendingSliderProps } from "../carousel/Carousel";
 
-interface Slide {
-  image: string;
-}
 
-interface TrendingSliderProps {
-  slides: Slide[];
-  speedy: boolean;
-  fvolt: boolean;
-  title: string;
-  descrip: string;
-}
-
-const CarouselAnimation = ({slides, speedy, fvolt, title, descrip}: TrendingSliderProps) => {
+const CarouselAnimation = ({slides, title, descrip, clrTitle, descripTitles, slidesStyle, navigationClr, navigationBg, hiddenTitle}: TrendingSliderProps) => {
   const { ref, isInView } = useInView();
 
   return (
@@ -27,10 +16,14 @@ const CarouselAnimation = ({slides, speedy, fvolt, title, descrip}: TrendingSlid
     >
       <TrendingSlider
         slides={slides}
-        speedy={speedy}
-        fvolt={fvolt}
         title={title}
         descrip={descrip}
+        clrTitle={clrTitle}
+        descripTitles={descripTitles}
+        slidesStyle={slidesStyle}
+        navigationClr={navigationClr}
+        navigationBg={navigationBg}
+        hiddenTitle={hiddenTitle}
       />
     </motion.div>
   );

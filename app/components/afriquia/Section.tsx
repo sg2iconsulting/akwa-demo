@@ -51,7 +51,7 @@ const Section = ({ title, descrip, imgSrc }: SectionProps) => {
               >
                 {title}
               </motion.h2>
-              <p className="font-medium text-[8px] sm:text-[11px] md:text-[16px] 2xl:text-[24px] sm:w-2/3 z-40 line-clamp-4">
+              <p className="font-medium text-[8px] sm:text-[11px] md:text-[16px] 2xl:text-[24px] sm:w-[95%] z-40 line-clamp-4">
                 {descrip}
               </p>
             </div>

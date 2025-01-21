@@ -28,6 +28,29 @@ const HeroSliders = () => {
           speed={2000}
           loop={true}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            319: {
+              spaceBetween: 20,
+            },
+            640: {
+              spaceBetween: 20,
+            },
+            768: {
+              spaceBetween: 30,
+            },
+            1024: {
+              spaceBetween: 40,
+            },
+            1440: {
+              spaceBetween: 60,
+            },
+            1700: {
+              spaceBetween: 80,
+            },
+            2000: {
+              spaceBetween: 100,
+            },
+          }}
         >
           <SwiperSlide>
             <div className="flex justify-center w-full py-3 xl:py-5 mb-7 lg:mb-20 2xl:mb-24">

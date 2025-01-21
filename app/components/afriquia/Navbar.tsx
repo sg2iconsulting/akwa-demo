@@ -83,11 +83,11 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
             <div className="flex items-center gap-1 mt-1 justify-around">
               {resolvedTheme === "dark" ? (
                 <HiSun
-                  className={`text-black dark:text-white transition-colors duration-1000 ease-in-out text-[20px] mb-1 `}
+                  className={`text-[#111111] dark:text-white transition-colors duration-1000 ease-in-out text-[20px] mb-1 `}
                 />
               ) : (
                 <FaMoon
-                  className={`text-black dark:text-white transition-colors duration-1000 ease-in-out text-[10px] md:text-[15px] mb-1`}
+                  className={`text-[#111111] dark:text-white transition-colors duration-1000 ease-in-out text-[10px] md:text-[15px] mb-1`}
                 />
               )}
               <form>
@@ -117,7 +117,7 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
             onClick={() => setIsOpen(!isOpen)}
-            className={`text-black dark:text-white transition-colors duration-1000 ease-in-out text-[20px] md:text-[24px]`}
+            className={`text-[#111111] dark:text-white transition-colors duration-1000 ease-in-out text-[20px] md:text-[24px]`}
           >
             <GrMenu />
           </motion.button>
@@ -125,7 +125,7 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
 
         {/* Desktop Menu */}
         <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-6 2xl:gap-8 3xl:gap-14 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] font-bold text-black dark:text-white">
+          <ul className="flex xl:gap-6 2xl:gap-8 3xl:gap-14 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] font-bold text-[#111111] dark:text-white">
             <motion.li
               className="cursor-pointer "
               whileHover={{ scale: 1.05 }}
@@ -170,9 +170,9 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
           </div>
           <div className="flex items-center gap-2 mt-1 justify-around w-[90px] mr-3">
             {resolvedTheme === "dark" ? (
-              <HiSun className="text-black text-[13px] md:text-[28px] mb-1 dark:text-white" />
+              <HiSun className="text-[#111111] text-[13px] md:text-[28px] mb-1 dark:text-white" />
             ) : (
-              <FaMoon className="text-black text-[10px] md:text-[15px] mb-1" />
+              <FaMoon className="text-[#111111] text-[10px] md:text-[15px] mb-1" />
             )}
             <form>
               <label className="inline-flex items-center cursor-pointer">
@@ -215,7 +215,7 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
           isOpen ? "max-h-[400px]" : "max-h-0"
         }`}
       >
-        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] text-black dark:text-white ">
+        <ul className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] text-[#111111] dark:text-white ">
           <li className="">
             <motion.button
               className={`lg:w-[220px] xl:w-[250px] w-[150px] h-[40px] md:h-[50px] rounded-full text-white font-bold ${btnColor}`}

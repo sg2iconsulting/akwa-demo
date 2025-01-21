@@ -21,12 +21,12 @@ const espace_professionel = () => {
           link={"/afriquia_gaz/espace_particulier"}
         />
         <div className="flex flex-col md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-6">
-          <div className="w-full px-5 md:px-10 lg:px-20">
+          <div className="w-full mx-auto max-w-[2000px] px-5 md:px-10 lg:px-20">
             <motion.h1
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2 }}
-              className={`flex flex-col text-[20px] md:text-[32px] lg:text-[45px] xl:text-[65px] 2xl:text-[100px] font-poppins font-extrabold leading-5 md:leading-7 lg:leading-[40px] xl:leading-[60px] 2xl:leading-[90px] `}
+              className={`flex flex-col text-[#212121] text-[20px] md:text-[32px] lg:text-[45px] xl:text-[65px] 2xl:text-[100px] font-poppins font-extrabold leading-5 md:leading-7 lg:leading-[40px] xl:leading-[60px] 2xl:leading-[90px] `}
             >
               Espace <span className={` text-[#3FABDF]`}>Professionel</span>
             </motion.h1>
@@ -54,16 +54,50 @@ const espace_professionel = () => {
         space={false}
       />
       <ActualityAnimation
-        imgSrc={"/actuality/actu.jpeg"}
+        items={[
+          {
+            imgSrc: "/actuality/actu.jpeg",
+            title: "Nouveau casque protecteur",
+            descrip:
+              "Après avoir étudié les attentes et besoins de nos clients, Afriquia Gaz a décidé de développer un casque protecteur, en rendant la bouteille beaucoup plus pratique, plus ergonomique, plus sécurisée et avec un nouveau design.",
+            date: "23 Decembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item6.jpeg",
+            title: "Le meilleur de l'entretien",
+            date: "20 Décembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item2.jpeg",
+            title: "Nous sommes toujours prêts à vous accueillir",
+            date: "15 Décembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item3.jpeg",
+            title: "Garder votre flotte opérationnelle avec l'entretien speedy",
+            date: "03 Décembre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item4.jpeg",
+            title: "Remplacement 100% utile",
+            date: "19 Octobre 2024",
+            url: "",
+          },
+          {
+            imgSrc: "/actuality/item5.jpeg",
+            title:
+              "Baie dédiée et techniciens experts pour un entretien rapide de votre flotte",
+            date: "12 Octobre 2024",
+            url: "",
+          },
+        ]}
         btnColor="bg-[#A2BB51]"
         color="bg-[#387CCC]"
-        title="Nouveau casque protecteur"
         ttlColor="text-[#0E1B25]"
-        descrip="Après avoir étudié les attentes et besoins de nos clients,
-            Afriquia Gaz a décidé de développer un casque protecteur, en
-            rendant la bouteille beaucoup plus pratique, plus ergonomique,
-            plus sécurisée et avec un nouveau design."
-        Date={"23 Decembre 2024"}
       />
       <PostsAnimation pro={true} />
       <ServiceAnimation />

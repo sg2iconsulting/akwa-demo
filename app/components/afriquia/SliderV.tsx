@@ -29,9 +29,32 @@ const SliderV = () => {
             speed={2000}
             loop={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
+            breakpoints={{
+              319: {
+                spaceBetween: 20,
+              },
+              640: {
+                spaceBetween: 20,
+              },
+              768: {
+                spaceBetween: 30,
+              },
+              1024: {
+                spaceBetween: 40,
+              },
+              1440: {
+                spaceBetween: 60,
+              },
+              1700: {
+                spaceBetween: 80,
+              },
+              2000: {
+                spaceBetween: 100,
+              },
+            }}
           >
             <SwiperSlide className="">
-              <div className="w-[100%] h-full flex justify-center py-3 xl:py-5 mb-7 lg:mb-20 2xl:mb-24">
+              <div className="w-[100%] h-full flex justify-center py-3 xl:py-5 mb-5 md:mb-8 lg:mb-12 xl:mb-20 2xl:mb-24 px-[2px] md:px-[4px] lg:px-[6px] xl:px-[8px]">
                 <div
                   className="w-full h-[300px] md:h-[420px] lg:h-[460px] xl:h-[580px] 2xl:h-[725px] flex justify-center items-center bg-white rounded-[10px] shadow-lg dark:bg-[#1E1E1E] xl:rounded-[25px]"
                   style={{
@@ -45,7 +68,7 @@ const SliderV = () => {
                         {"Bouteille Nouvelle Génération Clic-On"}
                       </div>
 
-                      <div className="px-3 md:text-[15px] xl:text-[18px] 2xl:text-[24px] text-[10px] font-poppins font-medium w-full line-clamp-4 lg:line-clamp-6 ">
+                      <div className="px-3 text-[#494949] md:text-[14px] xl:text-[18px] 2xl:text-[22px] text-[10px] font-poppins font-medium w-full line-clamp-4 lg:line-clamp-6 ">
                         {
                           "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
                         }
@@ -66,7 +89,7 @@ const SliderV = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide className="">
-              <div className="w-[100%] h-full flex justify-center py-3 xl:py-5 mb-7 lg:mb-20 2xl:mb-24">
+              <div className="w-[100%] h-full flex justify-center py-3 xl:py-5 mb-5 md:mb-8 lg:mb-12 xl:mb-20 2xl:mb-24 px-[2px] md:px-[4px] lg:px-[6px] xl:px-[8px]">
                 <div
                   className="w-full h-[300px] md:h-[420px] lg:h-[460px] xl:h-[580px] 2xl:h-[725px] flex justify-center items-center bg-white rounded-[10px] shadow-lg dark:bg-[#1E1E1E] xl:rounded-[25px]"
                   style={{
@@ -80,7 +103,7 @@ const SliderV = () => {
                         {"Conseils pour protéger ta famille"}
                       </div>
 
-                      <div className="px-3 md:text-[15px] xl:text-[18px] 2xl:text-[24px] text-[10px] font-poppins font-medium w-full line-clamp-4 lg:line-clamp-6 ">
+                      <div className="px-3 text-[#494949] md:text-[14px] xl:text-[18px] 2xl:text-[22px] text-[10px] font-poppins font-medium w-full line-clamp-4 lg:line-clamp-6 ">
                         {
                           "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters."
                         }
@@ -101,7 +124,7 @@ const SliderV = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide className="">
-              <div className="w-[100%] h-full flex justify-center py-3 xl:py-5 mb-7 lg:mb-20 2xl:mb-24 ">
+              <div className="w-[100%] h-full flex justify-center py-3 xl:py-5 mb-5 md:mb-8 lg:mb-12 xl:mb-20 2xl:mb-24 px-[2px] md:px-[4px] lg:px-[6px] xl:px-[8px]">
                 <div
                   className="w-full h-[300px] md:h-[420px] lg:h-[460px] xl:h-[580px] 2xl:h-[725px] flex justify-center items-center bg-white rounded-[10px] shadow-lg dark:bg-[#1E1E1E] xl:rounded-[25px]"
                   style={{
@@ -115,7 +138,7 @@ const SliderV = () => {
                         {"Système de branchement Clic-On"}
                       </div>
 
-                      <div className="px-3 md:text-[15px] xl:text-[18px] 2xl:text-[24px] text-[10px] font-poppins font-medium w-full line-clamp-4 lg:line-clamp-6 ">
+                      <div className="px-3 text-[#494949] md:text-[14px] xl:text-[18px] 2xl:text-[22px] text-[10px] font-poppins font-medium w-full line-clamp-4 lg:line-clamp-6 ">
                         {
                           "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum."
                         }
