@@ -24,12 +24,12 @@ const animate = isInView
   : { opacity: 0, x: 40 };
 
   const images = [
-    ["/groupe/image-0.png", "/groupe/image-1.png", "/groupe/image-2.png"],
-    ["/groupe/image-3.png", "/groupe/image-4.png", "/groupe/image-5.png"],
-    ["/groupe/image-12.png", "/groupe/image-13.png", "/groupe/image-14.png"],
-    ["/groupe/image-15.png", "/groupe/image-16.png", "/groupe/image-17.png"],
-    ["/groupe/image-9.png", "/groupe/image-10.png", "/groupe/image-11.png"],
-    ["/groupe/image-6.png", "/groupe/image-7.png", "/groupe/image-8.png"],
+    ["/akwagroup/galery/image-0.png", "/akwagroup/galery/image-1.png", "/akwagroup/galery/image-2.png"],
+    ["/akwagroup/galery/image-3.png", "/akwagroup/galery/image-4.png", "/akwagroup/galery/image-5.png"],
+    ["/akwagroup/galery/image-12.png", "/akwagroup/galery/image-13.png", "/akwagroup/galery/image-14.png"],
+    ["/akwagroup/galery/image-15.png", "/akwagroup/galery/image-16.png", "/akwagroup/galery/image-17.png"],
+    ["/akwagroup/galery/image-9.png", "/akwagroup/galery/image-10.png", "/akwagroup/galery/image-11.png"],
+    ["/akwagroup/galery/image-6.png", "/akwagroup/galery/image-7.png", "/akwagroup/galery/image-8.png"],
   ];
 
   return (
