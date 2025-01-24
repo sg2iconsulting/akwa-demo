@@ -127,7 +127,7 @@ const animate = isInView
           }}
           className={`absolute ${navigationBg} flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
-          <FaChevronLeft className={`${navigationClr} text-[40px] xl:text-[60px] 2xl:text-[80px] font-bold`} />
+          <FaChevronLeft className={`${navigationClr} text-[40px] xl:text-[60px] 2xl:text-[60px] p-2 2xl:p-4 font-bold`} />
         </div>
         <div
           onClick={(e) => {
@@ -136,7 +136,7 @@ const animate = isInView
           }}
           className={`absolute ${navigationBg} flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
-          <FaChevronRight className={`${navigationClr} text-[40px] xl:text-[60px] 2xl:text-[80px] font-bold`} />
+          <FaChevronRight className={`${navigationClr} text-[40px] xl:text-[60px] 2xl:text-[60px] p-2 2xl:p-4 font-bold`} />
         </div>
       </div>
     </section>

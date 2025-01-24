@@ -65,7 +65,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -76,7 +76,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -88,7 +88,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -99,7 +99,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -112,7 +112,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -125,7 +125,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -136,7 +136,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>
@@ -147,7 +147,7 @@ const Solutions = () => {
             <div className="flex items-center gap-2 lg:gap-4">
               <div>
                 <IoCheckmarkCircle
-                  color="#D1FF33"
+                  color="#8CA640"
                   className="md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12"
                 />
               </div>

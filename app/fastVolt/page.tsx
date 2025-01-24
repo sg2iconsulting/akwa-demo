@@ -60,8 +60,8 @@ const Home = () => {
           clrTitle="text-black"
           descripTitles="text-[#A2C24C]"
           slidesStyle="rounded-lg md:rounded-xl lg:rounded-2xl"
-          navigationClr="bg-[#D1FF33] p-3 rounded-full"
-          navigationBg="text-black"
+          navigationClr="bg-[#8CA640] p-3 rounded-full"
+          navigationBg="text-white"
           hiddenTitle={false}
         />
       </div>
