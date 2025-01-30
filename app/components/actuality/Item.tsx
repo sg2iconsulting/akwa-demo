@@ -6,22 +6,14 @@ export interface ItemsProp {
   title: string;
   date: string;
   url?: string;
-  containerBackgroundColor: string;
-  containerBorderStyle: string;
-  textColor: string;
 }
 
-const Item = ({ imgSrc, title, date, containerBackgroundColor, containerBorderStyle, textColor }: ItemsProp) => {
+const Item = ({ imgSrc, title, date }: ItemsProp) => {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
       className="w-full h-[90px] md:h-[126px] cursor-pointer rounded-[12px] bg-white border dark:bg-[#1E1E1E] dark:border-[#1E1E1E] border-[#F1F1F1] shadow-slider-shadow  "
-      style={{
-        backgroundColor: containerBackgroundColor || undefined,
-        border: containerBorderStyle || undefined,
-        color: textColor || undefined,
-      }}
     >
       <div className="p-4 flex items-center justify-evenly w-full h-full gap-2">
         <div className="flex flex-col gap-2 w-[80%] h-auto">

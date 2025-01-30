@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useState, useEffect, FC } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { GrMenu } from "react-icons/gr";
-import { IoCloseCircle } from "react-icons/io5";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import "swiper/css";
@@ -15,7 +12,6 @@ import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
 import useInView from "../../hook/useView";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
-import VideoSwiper from "../VideoSwiper/VideoSwiper";
 
 interface MenuItem {
   label: string;
@@ -177,7 +173,7 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
               ]
             }
             itemBackgroundHoverColor="red"
-            itemTextColor="white"
+            languageItemsTextColor="white"
             iconColor="white"
             chevronColor="white"
             />

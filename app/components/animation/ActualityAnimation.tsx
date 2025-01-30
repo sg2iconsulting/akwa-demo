@@ -3,7 +3,7 @@ import useInView from "@/app/hook/useView";
 import { motion } from "framer-motion";
 import Actuality, { ActProps } from "../actuality/Actuality";
 
-const ActualityAnimation = ({backgroundButtonColor, backgroundItemColor, titleTextColor, buttonTextColor, label, items}: ActProps) => {
+const ActualityAnimation = ({color, btnColor, ttlColor, items}: ActProps) => {
   const { ref, isInView } = useInView();
 
   return (
@@ -15,11 +15,9 @@ const ActualityAnimation = ({backgroundButtonColor, backgroundItemColor, titleTe
     >
       <Actuality
         items={items}
-        backgroundButtonColor={backgroundButtonColor}
-        backgroundItemColor={backgroundItemColor}
-        titleTextColor={titleTextColor}
-        buttonTextColor={buttonTextColor}
-        label={label}
+        btnColor={btnColor}
+        color={color}
+        ttlColor={ttlColor}
       />
     </motion.div>
   );

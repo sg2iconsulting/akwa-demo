@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { ImLinkedin } from "react-icons/im";
 import DropdownButton from "../DropButton";
 import Link from "next/link";
 import IconComponent from "../IconComponent/IconComponent";

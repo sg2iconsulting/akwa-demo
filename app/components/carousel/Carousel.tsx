@@ -16,17 +16,6 @@ interface Slide {
   image: string;
 }
 
-// export interface TrendingSliderProps {
-//   slides: Slide[];
-//   title: string;
-//   description: string;
-//   titleTextColor: string;
-//   descriptionTextColor: string;
-//   slidesStyle: string;
-//   navigationIconColor: string;
-//   navigationStyle: string;
-//   hiddenTitle: boolean;
-// }
 export interface TrendingSliderProps {
   slides: Slide[];
   title: string;
