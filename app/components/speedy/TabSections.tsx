@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import TrendingSlider from "../carousel/Carousel";
+import TrendingSlider from "../Carousel";
 
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -120,14 +120,10 @@ const Tabs = () => {
                 image: "/speedy/carousel/batterie.png",
               },
             ]}
+            speedy={true}
+            fvolt={false}
             title=""
             descrip=""
-            clrTitle="text-[#0E1B25]"
-            descripTitles="text-[#334C60]"
-            slidesStyle=""
-            navigationClr="bg-black bg-opacity-50 p-3 rounded-full"
-            navigationBg="text-white"
-            hiddenTitle={true}
           />
         )}
         {activeTab === "tab2" && (

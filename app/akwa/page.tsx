@@ -4,11 +4,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import GroupAnimation from "../components/animation/GroupAnimation";
 import ChiffreAnimation from "../components/animation/ChiffreAnimation";
-import CarouselAnimation from "../components/animation/CarouselAnimation";
 import SectionAnimation from "../components/animation/SectionAnimation";
 import ActualityAnimation from "../components/animation/ActualityAnimation";
 import { TbArrowBarToUp } from "react-icons/tb";
 import CarteModal from "../components/CarteModal";
+import TrendingSliderAnimation from "../components/animation/TrendingSliderAnimation";
 
 const Home = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -40,13 +40,13 @@ const Home = () => {
       </section>
       <button
         onClick={scrollToNavbar}
-        className={`${isModalVisible ? "hidden" : "fixed"} bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50`}
+        className={`${isModalVisible ? "hodden" : "fixed"} bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50`}
       >
         <TbArrowBarToUp className="md:text-[20px] lg:text-[24px] xl:text-[28px] font-black" />
       </button>
       <GroupAnimation />
       <ChiffreAnimation />
-      <CarouselAnimation
+      <TrendingSliderAnimation
         slides={[
           {
             image: "/akwagroup/images/carburant.png",
@@ -85,14 +85,10 @@ const Home = () => {
             image: "/akwagroup/images/immobilier.png",
           },
         ]}
+        speedy={false}
+        fvolt={false}
         title="6 Pôles"
         descrip="diversifiés pour apporter des réponses globales"
-        clrTitle="text-[#0E1B25]"
-        descripTitles="text-[#334C60]"
-        slidesStyle="rounded-lg md:rounded-xl lg:rounded-2xl"
-        navigationClr="bg-black bg-opacity-50 p-3 rounded-full"
-        navigationBg="text-white"
-        hiddenTitle={false}
       />
       <div className="mt-5 flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
         <SectionAnimation

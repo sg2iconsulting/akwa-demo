@@ -4,7 +4,16 @@ import { motion } from "framer-motion";
 import TrendingSlider, { TrendingSliderProps } from "../carousel/Carousel";
 
 
-const CarouselAnimation = ({slides, title, descrip, clrTitle, descripTitles, slidesStyle, navigationClr, navigationBg, hiddenTitle}: TrendingSliderProps) => {
+const CarouselAnimation = ({
+  slides,
+  title,
+  description,
+  titleTextColor,
+  descriptionTextColor,
+  slidesStyle,
+  navigationIconColor,
+  navigationStyle,
+  hiddenTitle,}: TrendingSliderProps) => {
   const { ref, isInView } = useInView();
 
   return (
@@ -17,12 +26,12 @@ const CarouselAnimation = ({slides, title, descrip, clrTitle, descripTitles, sli
       <TrendingSlider
         slides={slides}
         title={title}
-        descrip={descrip}
-        clrTitle={clrTitle}
-        descripTitles={descripTitles}
+        description={description}
+        titleTextColor={titleTextColor}
+        descriptionTextColor={descriptionTextColor}
         slidesStyle={slidesStyle}
-        navigationClr={navigationClr}
-        navigationBg={navigationBg}
+        navigationIconColor={navigationIconColor}
+        navigationStyle={navigationStyle}
         hiddenTitle={hiddenTitle}
       />
     </motion.div>
