@@ -250,9 +250,10 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
             <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
-              <div className="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[100px] font-bold leading-tight">
-                <p className="">À vous l’expérience</p>
-                <p className="">unique de l’électrique !</p>
+              <div className="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16">
+                <p className="">Le plus grand réseau</p>
+                <p className=""> marocain des bornes </p>
+                <p className=""> électriques!</p>
               </div>
               <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
                 <p className="w-[80%] md:w-[75%]">
