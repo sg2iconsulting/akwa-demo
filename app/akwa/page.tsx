@@ -40,7 +40,7 @@ const Home = () => {
       </section>
       <button
         onClick={scrollToNavbar}
-        className={`${isModalVisible ? "hodden" : "fixed"} bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50`}
+        className={`${isModalVisible ? "hidden" : "fixed"} bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50`}
       >
         <TbArrowBarToUp className="md:text-[20px] lg:text-[24px] xl:text-[28px] font-black" />
       </button>
