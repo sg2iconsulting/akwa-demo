@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useState, useEffect, FC } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { GrMenu } from "react-icons/gr";
+import { IoCloseCircle } from "react-icons/io5";
 import { HiSun } from "react-icons/hi";
 import { FaMoon } from "react-icons/fa";
 import "swiper/css";
@@ -11,7 +14,11 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
 import useInView from "../../hook/useView";
-import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
+import LanguageSwitcher, {
+  LanguageOptions,
+} from "../LanguageSwitcher/LanguageSwitcher";
+import VideoSwiper from "../VideoSwiper/VideoSwiper";
+import Button from "../Button/Button";
 
 interface MenuItem {
   label: string;
@@ -27,11 +34,46 @@ interface NavbarProps {
   buttonTextColor?: string;
   buttonBackgroundColor?: string;
   logoSrcUrl: string;
-  logoSizeStyle?:React.CSSProperties;
+  logoSizeStyle?: React.CSSProperties;
+  classeName?: string;
+  languageItems: LanguageOptions[];
+  itemBackgroundHoverColor?: string;
+  languageItemsTextColor?: string;
+  iconColor?: string;
+  chevronColor?: string;
+  buttonLabel: string;
+  roundedButton?: string;
+  borderButton?: string;
+  borderButtonColor?: string;
 }
 
-const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, menuItemsTextColor, buttonBackgroundColor, buttonTextColor, logoSrcUrl, logoSizeStyle }: NavbarProps) => {
+const Navbar = ({
+  link = "",
+  menuItems,
+  SupComponent,
+  navbarBackgroundColor,
+  menuItemsTextColor,
+  buttonBackgroundColor,
+  buttonTextColor,
+  logoSrcUrl,
+  logoSizeStyle,
+  buttonLabel,
+  roundedButton,
+  borderButton,
+  borderButtonColor,
+  languageItems = [
+    { value: "en", label: "En" },
+    { value: "fr", label: "Fr" },
+    { value: "ar", label: "Ar" },
+  ],
+  itemBackgroundHoverColor,
+  languageItemsTextColor,
+  iconColor,
+  chevronColor,
+  classeName = "w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]",
+}: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const MotionButton = motion(Button);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -76,27 +118,28 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
   return (
     <div
       style={{
-        backgroundColor: navbarBackgroundColor
+        backgroundColor: navbarBackgroundColor,
       }}
       className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212] z-40"
     >
       {/* Navbar */}
-      <div 
-      style={{
-        backgroundColor: navbarBackgroundColor
-      }}
-      className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
+      <div
+        style={{
+          backgroundColor: navbarBackgroundColor,
+        }}
+        className="w-full h-[50px] md:h-[70px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center"
+      >
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
           className="cursor-pointer"
         >
           <img
-            // src="/logo/akwaLogo.png"
             src={logoSrcUrl}
+            // src={logoSrcUrl}
             alt="Logo"
-            // className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
-            style={logoSizeStyle}
+            className={classeName}
+            // style={logoSizeStyle}
           />
         </motion.div>
 
@@ -144,11 +187,12 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
 
         {/* Desktop Menu */}
         <div className="hidden xl:flex gap-5">
-          <ul 
-          style={{
-            color: menuItemsTextColor
-          }}
-          className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold">
+          <ul
+            style={{
+              color: menuItemsTextColor,
+            }}
+            className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold"
+          >
             {menuItems.map((item, index) => (
               <motion.li
                 key={index}
@@ -164,18 +208,12 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
 
         <div className="xl:flex 2xl:gap-4 hidden">
           <div className="flex items-center">
-            <LanguageSwitcher 
-            languageItems={
-              [
-                { value: "en", label: "En" },
-                { value: "fr", label: "Fr" },
-                { value: "ar", label: "Ar" },
-              ]
-            }
-            itemBackgroundHoverColor="red"
-            languageItemsTextColor="white"
-            iconColor="white"
-            chevronColor="white"
+            <LanguageSwitcher
+              languageItems={languageItems}
+              itemBackgroundHoverColor={itemBackgroundHoverColor || ""}
+              languageItemsTextColor={languageItemsTextColor || "white"}
+              iconColor={iconColor || "white"}
+              chevronColor={chevronColor || "white"}
             />
           </div>
           <div className="flex items-center gap-2 mt-1 justify-around w-[90px] mr-3">
@@ -208,17 +246,16 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
           </div>
           {/* Desktop Buttons */}
           <div className="hidden xl:block">
-            <motion.button
-            style={{
-              color: buttonTextColor,
-              backgroundColor: buttonBackgroundColor
-            }}
-              className={`xl:w-[200px] 2xl:w-[220px] w-[18px] h-[40px] md:h-[50px] xl:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full font-bold`}
+            <MotionButton
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-            >
-              <Link href={link || "#"}>Espace Media</Link>
-            </motion.button>
+              backgroundColor={buttonBackgroundColor}
+              textColor={buttonTextColor}
+              roundedButton={roundedButton}
+              label={buttonLabel}
+              border={borderButton}
+              borderColor={borderButtonColor}
+            />
           </div>
         </div>
       </div>
@@ -229,23 +266,23 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
           isOpen ? "max-h-[300px]" : "max-h-0"
         }`}
       >
-        <ul 
-        style={{
-          color: menuItemsTextColor
-        }}
-        className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 ">
+        <ul
+          style={{
+            color: menuItemsTextColor,
+          }}
+          className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-6 md:mt-11 "
+        >
           <li className="">
-            <motion.button
-            style={{
-              backgroundColor: buttonBackgroundColor,
-              color: buttonTextColor
-            }}
-              className={`lg:w-[220px]  w-[140px] md:w-[180px] h-[40px] md:h-[50px] rounded-full font-bold`}
+            <MotionButton
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-            >
-              <Link href={link || "#"}>Espace Media</Link>
-            </motion.button>
+              backgroundColor={buttonBackgroundColor}
+              textColor={buttonTextColor}
+              roundedButton={roundedButton}
+              label={buttonLabel}
+              border={borderButton}
+              borderColor={borderButtonColor}
+            />
           </li>
           {menuItems.map((item, index) => (
             <motion.li

@@ -1,6 +1,7 @@
 "use client";
-import React from "react";
+import React, { FC } from "react";
 import { motion } from "framer-motion";
+import { ImLinkedin } from "react-icons/im";
 import DropdownButton from "../DropButton";
 import Link from "next/link";
 import IconComponent from "../IconComponent/IconComponent";
@@ -10,19 +11,25 @@ interface FooterItem {
   href: string;
 }
 
-export interface FooterPropos {
+export interface FooterProps {
   footerItemsTextColor: string;
   footerBackgroundColor: string;
   footerItems: FooterItem[];
   socialMediaItems?: React.ReactNode[];
+  SupComponent?: FC<{ backgroundColor: string; textColor: string }>;
+  classeName?: string;
+  footerLogoSource: string;
 }
 
 const Footer = ({
   footerBackgroundColor,
   footerItemsTextColor,
   footerItems,
-  socialMediaItems
-}: FooterPropos) => {
+  socialMediaItems, 
+  SupComponent,
+  classeName = "w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]",
+  footerLogoSource
+}: FooterProps) => {
   return (
     <section
       style={{
@@ -38,12 +45,13 @@ const Footer = ({
           className="cursor-pointer"
         >
           <img
-            src="logo/akwaLogo.png"
+            // src={"logo/akwaLogo.png"}
+            src={footerLogoSource}
             alt="Akwa Group Logo"
             className="w-[60px] md:w-[80px] lg:w-[100px] 2xl:w-[150px]"
           />
         </motion.div>
-        <ul className="flex flex-wrap w-[60%] lg:w-auto lg:flex-nowrap xl:flex-row text-center justify-center gap-6 lg:gap-10 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px]">
+        <ul className="flex flex-wrap w-[60%] xl:w-auto xl:flex-nowrap xl:flex-row text-center justify-center gap-6 lg:gap-10 font-bold text-[10px] md:text-[12px] xl:text-[15px] 2xl:text-[18px]">
           {footerItems.map((item, index) => (
             <motion.li
               key={index}
@@ -55,7 +63,9 @@ const Footer = ({
             </motion.li>
           ))}
           <li>
-            <DropdownButton />
+            {/* <DropdownButton backgroundColor={footerBackgroundColor} textColor={footerItemsTextColor} /> */}
+            {SupComponent && <SupComponent backgroundColor={footerBackgroundColor} textColor={footerItemsTextColor} />}
+
           </li>
         </ul>
         <div className="flex gap-4 lg:gap-6 xl:gap-10 py-4 xl:py-0">
