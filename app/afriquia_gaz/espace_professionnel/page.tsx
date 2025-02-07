@@ -11,7 +11,7 @@ import ActualityAnimation from "@/app/components/animation/ActualityAnimation";
 import PostsAnimation from "@/app/components/animation/PostsAnimation";
 import ServiceAnimation from "@/app/components/animation/ServiceAnimations";
 
-const espace_professionel = () => {
+const espace_professionnel = () => {
   return (
     <section className="flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
       <div className="flex flex-col gap-4 md:gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
@@ -28,7 +28,7 @@ const espace_professionel = () => {
               transition={{ duration: 2 }}
               className={`flex flex-col text-[#212121] text-[20px] md:text-[32px] lg:text-[45px] xl:text-[65px] 2xl:text-[100px] font-poppins font-extrabold leading-5 md:leading-7 lg:leading-[40px] xl:leading-[60px] 2xl:leading-[90px] `}
             >
-              Espace <span className={` text-[#3FABDF]`}>Professionel</span>
+              Espace <span className={` text-[#3FABDF]`}>Professionnel</span>
             </motion.h1>
           </div>
           <div className="flex flex-col gap-3 md:gap-6 xl:gap-[30px] 2xl:gap-[50px]">
@@ -106,4 +106,4 @@ const espace_professionel = () => {
   );
 };
 
-export default espace_professionel;
+export default espace_professionnel;

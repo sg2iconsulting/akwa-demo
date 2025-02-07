@@ -17,9 +17,9 @@ const espace_particulier = () => {
     <section className="flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
       <div className="flex flex-col gap-4 md:gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
         <Navbar
-          space={"Espace Professionel"}
+          space={"Espace Professionnel"}
           btnColor={"bg-[#3FABDF]"}
-          link={"/afriquia_gaz/espace_professionel"}
+          link={"/afriquia_gaz/espace_professionnel"}
         />
 
         <div className="flex flex-col md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-6">
