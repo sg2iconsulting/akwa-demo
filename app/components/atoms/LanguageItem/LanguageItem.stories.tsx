@@ -1,15 +1,15 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import LanguageItems from "./LanguageItems";
+import LanguageItem from "./LanguageItem";
 
-const meta: Meta<typeof LanguageItems> = {
-  title: "molecules/LanguageItems",
-  component: LanguageItems,
+const meta: Meta<typeof LanguageItem> = {
+  title: "molecules/LanguageItem",
+  component: LanguageItem,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof LanguageItems>;
+type Story = StoryObj<typeof LanguageItem>;
 
 export const Default: Story = {
   args: {

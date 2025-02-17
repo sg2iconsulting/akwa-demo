@@ -3,13 +3,13 @@ import React from 'react'
 export interface ButtonProps {
     buttonClassename?: string;
     buttonStyle?: React.CSSProperties;
-    buttonLabel: string;
+    children: React.ReactNode;
 }
 
-const Button = ({buttonClassename="px-6 py-4 bg-red-400 text-grey-800", buttonStyle, buttonLabel}: ButtonProps) => {
+const Button = ({buttonClassename="px-6 py-2 bg-red-400 text-grey-800", buttonStyle, children}: ButtonProps) => {
   return (
     <button className={buttonClassename || ""} style={buttonStyle || {}}>
-        {buttonLabel}
+        {children}
     </button>
   )
 }

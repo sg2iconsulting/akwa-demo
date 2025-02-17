@@ -2,7 +2,8 @@ import React from "react";
 import { IconType } from "react-icons";
 import { FaSun, FaMoon } from "react-icons/fa";
 import Icon from "../../atoms/Icon/Icon";
-import ToggleSwitch from "../../atoms/ToggleSwitch/ToggleSwitch";
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+// import ToggleSwitch from "../../atoms/ToggleSwitch/ToggleSwitch";
 
 interface ToggleWithIconProps {
   checked: boolean;
@@ -15,8 +16,8 @@ interface ToggleWithIconProps {
   moonIconStyle?: React.CSSProperties;
   inputClassname?: string;
   inputStyle?: React.CSSProperties;
-  cercleDivClassname?: string;
-  cercleDivStyle?: React.CSSProperties;
+  trackClassname?: string;
+  trackStyle?: React.CSSProperties;
   containerClassname?: string;
   containerStyle?: React.CSSProperties;
 }
@@ -32,8 +33,8 @@ const ToggleWithIcon: React.FC<ToggleWithIconProps> = ({
   moonIconStyle,
   inputClassname,
   inputStyle,
-  cercleDivClassname,
-  cercleDivStyle,
+  trackClassname,
+  trackStyle,
   containerClassname = "flex items-center space-x-2",
   containerStyle,
 }) => {
@@ -46,13 +47,21 @@ const ToggleWithIcon: React.FC<ToggleWithIconProps> = ({
         iconColor={checked ? "purple" : "red"}
         iconSize={16}
       />
-      <ToggleSwitch
+      {/* <ToggleSwitch
         checked={checked}
         onChange={onChange}
         inputClassname={inputClassname}
         inputStyle={inputStyle}
         cercleDivClassname={cercleDivClassname}
         cercleDivStyle={cercleDivStyle}
+      /> */}
+      <ToggleSwitch 
+      checked={checked}
+      onChange={onChange}
+      inputClassname={inputClassname}
+      inputStyle={inputStyle}
+      trackClassname={trackClassname}
+      trackStyle={trackStyle}
       />
     </div>
   );

@@ -26,10 +26,10 @@ const meta: Meta<typeof ToggleSwitchWithIcon> = {
     moonIconStyle: {
       control: "object",
     },
-    cercleDivClassname: {
+    trackClassname: {
       control: "text",
     },
-    cercleDivStyle: {
+    trackStyle: {
       control: "object",
     },
   },

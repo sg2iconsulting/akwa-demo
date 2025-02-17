@@ -1,13 +1,13 @@
 import React from "react";
 
-interface LanguageItemsProps {
+interface LanguageItemProps {
   label: string;
   isSelected: boolean;
   onClick: () => void;
   itemBackgroundHoverColor: string;
 }
 
-const LanguageItems: React.FC<LanguageItemsProps> = ({
+const LanguageItem: React.FC<LanguageItemProps> = ({
   label,
   isSelected,
   onClick,
@@ -27,4 +27,4 @@ const LanguageItems: React.FC<LanguageItemsProps> = ({
   );
 };
 
-export default LanguageItems;
+export default LanguageItem;
