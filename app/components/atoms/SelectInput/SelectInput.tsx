@@ -24,7 +24,7 @@
 import React from "react";
 
 export interface SelectInputProps {
-  options: { value: string; label: string }[];
+  options: { value: string; label: React.ReactNode }[];
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   className?: string;
@@ -33,8 +33,8 @@ export interface SelectInputProps {
 const SelectInput = ({ options, value, onChange, className }: SelectInputProps) => {
   return (
     <select value={value} onChange={onChange} className={className}>
-      {options.map((option) => (
-        <option key={option.value} value={option.value}>
+      {options.map((option, index) => (
+        <option key={index} value={option.value}>
           {option.label}
         </option>
       ))}

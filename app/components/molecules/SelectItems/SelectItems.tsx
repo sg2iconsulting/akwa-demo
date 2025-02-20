@@ -82,7 +82,7 @@ import SelectInput from "../../atoms/SelectInput/SelectInput";
 
 export interface LanguageOptions {
   value: string;
-  label: string;
+  label: React.ReactNode;
 }
 
 export interface SelectItemsProps {
