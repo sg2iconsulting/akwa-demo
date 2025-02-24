@@ -1,20 +1,21 @@
+import clsx from "clsx";
 import React from "react";
 
-export interface SelectOptionsProps {
+export interface SelectOptionsProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: Record<string, any>[];
   labelKey: string;
   valueKey: string;
   value?: string;
-  onChange?: (value: string) => void;
   className?: string;
 }
 
-const SelectOptions = ({ options, labelKey, valueKey, value, onChange, className }: SelectOptionsProps) => {
+const SelectOptions = ({ options, labelKey, valueKey, value, onChange, className, ...props }: SelectOptionsProps) => {
   return (
     <select
       value={value}
-      onChange={(e) => onChange?.(e.target.value)}
-      className={className}
+      onChange={() => {}}
+      className={clsx("bg-re-500", className)}
+      {...props}
     >
       {options.map((option, index) => (
         <option key={index} value={option[valueKey]}>
