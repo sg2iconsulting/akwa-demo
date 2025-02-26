@@ -1,17 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-export interface ButtonTextProps {
-    buttonTextClassename?: string;
-    buttonTextStyle?: React.CSSProperties;
-    buttonTextLabel: string;
+export interface ButtonTextProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonTextClassename?: string;
+  buttonTextStyle?: React.CSSProperties;
+  buttonTextLabel: string;
 }
 
-const ButtonText = ({buttonTextClassename="px-6 py-2 bg-red-400 text-grey-800", buttonTextStyle, buttonTextLabel}: ButtonTextProps) => {
+const ButtonText: React.FC<ButtonTextProps> = ({
+  buttonTextClassename = "px-6 py-2 bg-red-400 text-grey-800",
+  buttonTextStyle,
+  buttonTextLabel,
+  ...props
+}) => {
   return (
-    <button className={buttonTextClassename || ""} style={buttonTextStyle || {}}>
-        {buttonTextLabel}
+    <button className={buttonTextClassename} style={buttonTextStyle} {...props}>
+      {buttonTextLabel}
     </button>
-  )
-}
+  );
+};
 
-export default ButtonText
+export default ButtonText;

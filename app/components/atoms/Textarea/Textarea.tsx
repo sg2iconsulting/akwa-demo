@@ -1,23 +1,12 @@
 import React from 'react';
 
-export interface TextareaProps {
-  placeholder?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Textarea = ({ placeholder, value, onChange, className, style }: TextareaProps) => {
-  return (
-    <textarea
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-      className={className}
-      style={style || {}}
-    />
-  );
+const Textarea: React.FC<TextareaProps> = ({ className, style, ...props }) => {
+  return <textarea className={className} style={style} {...props} />;
 };
 
 export default Textarea;

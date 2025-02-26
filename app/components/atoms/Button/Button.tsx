@@ -1,17 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-export interface ButtonProps {
-    buttonClassename?: string;
-    buttonStyle?: React.CSSProperties;
-    children: React.ReactNode;
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonClassname?: string;
+  buttonStyle?: React.CSSProperties;
 }
 
-const Button = ({buttonClassename="px-6 py-2 bg-red-400 text-grey-800 rounded-full", buttonStyle, children}: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({
+  buttonClassname = "px-6 py-2 bg-red-400 text-grey-800 rounded-full",
+  buttonStyle,
+  children,
+  ...props
+}) => {
   return (
-    <button className={buttonClassename || ""} style={buttonStyle || {}}>
-        {children}
+    <button className={buttonClassname} style={buttonStyle} {...props}>
+      {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

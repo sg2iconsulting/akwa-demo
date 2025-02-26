@@ -27,12 +27,13 @@ const PostCard = ({
 }: PostCardProps) => {
   return (
     <div className="w-full xl:w-[63%] xl:h-[695px] flex flex-col rounded-[20px] overflow-hidden">
-      <Image
-        containerClassname="w-full rounded-t-[20px] overflow-hidden"
-        imageClassename="object-cover w-full h-full"
-        imageSource={imgSrc}
-        imageAlt={title}
-      />
+      <div className="w-full rounded-t-[20px] overflow-hidden">
+        <Image
+          imageClassename="object-cover w-full h-full"
+          src={imgSrc}
+          alt={title}
+        />
+      </div>
 
       <div
         className="w-full rounded-b-[20px] flex flex-col justify-center gap-2 md:gap-4 p-6 md:px-10 lg:px-16"

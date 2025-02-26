@@ -9,12 +9,11 @@ export interface SelectOptionsProps extends React.SelectHTMLAttributes<HTMLSelec
   className?: string;
 }
 
-const SelectOptions = ({ options, labelKey, valueKey, value, onChange, className, ...props }: SelectOptionsProps) => {
+const SelectOptions = ({ options, labelKey, valueKey, value, className, ...props }: SelectOptionsProps) => {
   return (
     <select
       value={value}
-      onChange={() => {}}
-      className={clsx("bg-re-500", className)}
+      className={clsx("bg-red-500", className)}
       {...props}
     >
       {options.map((option, index) => (

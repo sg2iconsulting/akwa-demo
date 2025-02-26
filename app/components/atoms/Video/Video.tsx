@@ -1,16 +1,16 @@
 import React from 'react';
 
-export interface VideoProps {
+export interface VideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
   className?: string;
   style?: React.CSSProperties;
 }
 
-const Video = ({ src, className, style }: VideoProps) => {
+const Video = ({ src, className, style, ...props }: VideoProps) => {
   return (
-    <video controls className={className} style={style || {}}>
+    <video controls className={className} style={style || {}} {...props} >
       <source src={src} type="video/mp4" />
-      Your browser does not support the video tag.
+      video component 
     </video>
   );
 };

@@ -1,22 +1,22 @@
-import React from 'react'
+import React from "react";
 
-export interface ImageProps {
-    imageSource: string;
-    imageAlt?: string;
-    imageWidth?: number;
-    imagehight?: number;
-    imageClassename?: string;
-    imageStyle?: React.CSSProperties;
-    containerClassname?: string;
-    containerStyle?: React.CSSProperties;
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  imageClassename?: string;
+  imageStyle?: React.CSSProperties;
 }
 
-const Image = ({imageSource, imageAlt, imageWidth, imagehight, imageClassename, imageStyle, containerClassname, containerStyle}: ImageProps) => {
+const Image = ({
+  imageClassename,
+  imageStyle,
+  ...props
+}: ImageProps) => {
   return (
-    <div className={containerClassname || ""} style={containerStyle || {}}>
-        <img src={imageSource || ""} alt={imageAlt || ""} style={imageStyle || {}} className={imageClassename || ""}/>
-    </div>
-  )
-}
+      <img
+        style={imageStyle || {}}
+        className={`${imageClassename || ""}`}
+        {...props}
+      />
+  );
+};
 
-export default Image
+export default Image;

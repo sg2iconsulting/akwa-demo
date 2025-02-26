@@ -78,7 +78,7 @@
 import React, { useState } from "react";
 import { HiMiniChevronDown } from "react-icons/hi2";
 import SvgIcon from "../../atoms/SvgIcon/SvgIcon";
-import SelectInput from "../../atoms/SelectInput/SelectInput";
+import SelectOptions from "../../atoms/SelectOptions/SelectOptions";
 
 export interface LanguageOptions {
   value: string;
@@ -93,6 +93,8 @@ export interface SelectItemsProps {
   chevronColor: string;
   iconPath: string;
   iconSize: number;
+  labelItem : string;
+  valueItem: string;
 }
 
 const SelectItems: React.FC<SelectItemsProps> = ({
@@ -102,6 +104,8 @@ const SelectItems: React.FC<SelectItemsProps> = ({
   chevronColor,
   iconPath,
   iconSize,
+  labelItem,
+  valueItem
 }) => {
   const [selectedValue, setSelectedValue] = useState("fr");
 
@@ -118,8 +122,10 @@ const SelectItems: React.FC<SelectItemsProps> = ({
         }}
         className="relative inline-block items-center"
       >
-        <SelectInput
+        <SelectOptions
           options={languageItems}
+          labelKey={labelItem}
+          valueKey={valueItem}
           value={selectedValue}
           onChange={handleChange}
           className="flex items-center gap-2 rounded-lg bg-transparent h-7 px-2 cursor-pointer"
