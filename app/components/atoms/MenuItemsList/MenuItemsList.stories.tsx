@@ -19,7 +19,24 @@ const meta: Meta<typeof MenuItemsList> = {
     },
   },
   args: {
-    menuItems: ["Home", "About", "Services", "Contact"],
+    menuItems: [
+      {
+        menuItem: "Home",
+        link: "#",
+      },
+      {
+        menuItem: "Profile",
+        link: "#",
+      },
+      {
+        menuItem: "About",
+        link: "#",
+      },
+      {
+        menuItem: "Contact",
+        link: "#",
+      },
+    ],
     menuItemsListContainerClassename: "flex p-4 bg-gray-100",
     menuItemClassename: "p-2 cursor-pointer hover:bg-gray-200",
   },

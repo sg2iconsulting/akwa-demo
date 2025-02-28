@@ -13,7 +13,7 @@ const SelectOptions = ({ options, labelKey, valueKey, value, className, ...props
   return (
     <select
       value={value}
-      className={clsx("bg-red-500", className)}
+      className={clsx("", className)}
       {...props}
     >
       {options.map((option, index) => (

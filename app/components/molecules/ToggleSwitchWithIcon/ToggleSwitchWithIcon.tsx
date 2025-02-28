@@ -2,8 +2,8 @@ import React from "react";
 import { IconType } from "react-icons";
 import { FaSun, FaMoon } from "react-icons/fa";
 import Icon from "../../atoms/Icon/Icon";
-import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
-// import ToggleSwitch from "../../atoms/ToggleSwitch/ToggleSwitch";
+// import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import ToggleSwitch from "../../atoms/ToggleSwitch/ToggleSwitch";
 
 interface ToggleWithIconProps {
   checked: boolean;
@@ -35,34 +35,34 @@ const ToggleWithIcon: React.FC<ToggleWithIconProps> = ({
   inputStyle,
   trackClassname,
   trackStyle,
-  containerClassname = "flex items-center space-x-2",
+  containerClassname = "lg:flex items-center hidden",
   containerStyle,
 }) => {
   return (
     <div className={containerClassname} style={containerStyle || {}}>
-      <Icon
-        icon={checked ? sunIcon : moonIcon}
-        iconClassename={checked ? sunIconClassname : moonIconClassname}
-        iconStyle={checked ? sunIconStyle : moonIconStyle}
-        iconColor={checked ? "purple" : "red"}
-        iconSize={16}
-      />
-      {/* <ToggleSwitch
-        checked={checked}
-        onChange={onChange}
-        inputClassname={inputClassname}
-        inputStyle={inputStyle}
-        cercleDivClassname={cercleDivClassname}
-        cercleDivStyle={cercleDivStyle}
-      /> */}
-      <ToggleSwitch 
+      <div className="w-full h-full flex items-center space-x-2 mt-1.5">
+        <Icon
+          icon={checked ? sunIcon : moonIcon}
+          iconClassename={checked ? sunIconClassname : moonIconClassname}
+          iconStyle={checked ? sunIconStyle : moonIconStyle}
+          iconColor={checked ? "white" : "red"}
+          iconSize={16}
+        />
+        <ToggleSwitch
+          checked={checked}
+          onChange={onChange}
+          inputClassname={inputClassname}
+          inputStyle={inputStyle}
+        />
+      </div>
+      {/* <ToggleSwitch 
       checked={checked}
       onChange={onChange}
       inputClassname={inputClassname}
       inputStyle={inputStyle}
       trackClassname={trackClassname}
       trackStyle={trackStyle}
-      />
+      /> */}
     </div>
   );
 };

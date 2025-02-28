@@ -89,8 +89,7 @@ export interface SelectItemsProps {
   languageItems: LanguageOptions[];
   languageItemsTextColor: string;
   itemBackgroundHoverColor?: string;
-  iconColor: string;
-  chevronColor: string;
+  iconColor?: string;
   iconPath: string;
   iconSize: number;
   labelItem : string;
@@ -101,7 +100,6 @@ const SelectItems: React.FC<SelectItemsProps> = ({
   languageItems,
   languageItemsTextColor,
   iconColor,
-  chevronColor,
   iconPath,
   iconSize,
   labelItem,
@@ -115,7 +113,7 @@ const SelectItems: React.FC<SelectItemsProps> = ({
 
   return (
     <div className="flex items-center">
-      <SvgIcon icon={iconPath} color={iconColor} size={iconSize} />
+      <SvgIcon icon={iconPath} color={iconColor || "#000000"} size={iconSize} />
       <div
         style={{
           color: languageItemsTextColor,
@@ -128,7 +126,7 @@ const SelectItems: React.FC<SelectItemsProps> = ({
           valueKey={valueItem}
           value={selectedValue}
           onChange={handleChange}
-          className="flex items-center gap-2 rounded-lg bg-transparent h-7 px-2 cursor-pointer"
+          className="flex items-center gap-2 rounded-lg bg-transparent h-7 px-2 cursor-pointer focus:outline-none"
         />
       </div>
     </div>
