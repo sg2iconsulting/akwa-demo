@@ -44,9 +44,9 @@ const animate = isInView
               transition={{ duration: 0.8 }}
               className="flex font-bold"
             >
-              <span className="lg:text-[28px] xl:text-[48px]">+</span>
+              <span className="lg:text-[28px] 2xl:text-[48px]">+</span>
               <span>
-                <AnimatedCounter modale={false} value={20000} duration={3} />
+                <AnimatedCounter value={20000} duration={3} />
               </span>
             </motion.div>
             <hr className="w-10 bg-white" />
@@ -69,7 +69,7 @@ const animate = isInView
               className="flex font-bold"
             >
               <span>
-                <AnimatedCounter modale={false} value={2} duration={3} />
+                <AnimatedCounter value={2} duration={3} />
               </span>
             </motion.div>
             <hr className="w-10 bg-white" />
@@ -91,7 +91,7 @@ const animate = isInView
               className="flex font-bold"
             >
               <span>
-                <AnimatedCounter modale={false} value={70} duration={5} />
+                <AnimatedCounter value={70} duration={5} />
               </span>
             </motion.div>
             <hr className="w-10 bg-white" />
@@ -107,9 +107,9 @@ const animate = isInView
               transition={{ duration: 0.8 }}
               className="flex font-bold"
             >
-              <span className="lg:text-[28px] xl:text-[48px]">+</span>
+              <span className="lg:text-[28px] 2xl:text-[48px]">+</span>
               <span>
-                <AnimatedCounter modale={false} value={40} duration={5} />
+                <AnimatedCounter value={40} duration={5} />
               </span>
             </motion.div>
             <hr className="w-10 bg-white" />

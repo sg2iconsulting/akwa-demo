@@ -1,0 +1,138 @@
+
+// import React, { useState } from "react";
+// import { HiMiniChevronDown } from "react-icons/hi2";
+// import LanguageItem from "../../atoms/selectItems/LanguageItem";
+// import SvgIcon from "../../atoms/SvgIcon/SvgIcon";
+
+// export interface LanguageOptions {
+//   value: string;
+//   label: string;
+// }
+
+// export interface LanguageSelectProps {
+//   selectItems: LanguageOptions[];
+//   selectItemsTextColor: string;
+//   itemBackgroundHoverColor: string;
+//   iconColor: string;
+//   chevronColor: string;
+//   iconPath: string;
+//   iconSize: number;
+// }
+
+// const LanguageSelect: React.FC<LanguageSelectProps> = ({
+//   selectItems,
+//   selectItemsTextColor,
+//   iconColor,
+//   chevronColor,
+//   itemBackgroundHoverColor,
+//   iconPath,
+//   iconSize,
+// }) => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [selectedValue, setSelectedValue] = useState("fr");
+
+//   const handleOptionClick = (value: string) => {
+//     setSelectedValue(value);
+//     setIsOpen(false);
+//   };
+
+//   return (
+//     <div className="flex items-center">
+//       <SvgIcon icon={iconPath} color={iconColor} size={iconSize} />
+//       <div
+//         style={{
+//           color: selectItemsTextColor,
+//         }}
+//         className="relative inline-block items-center"
+//       >
+//         {/* Trigger Button */}
+//         <div
+//           className="flex items-center gap-2 rounded-lg bg-transparent h-7 px-2 cursor-pointer"
+//           onClick={() => setIsOpen(!isOpen)}
+//         >
+//           <span>
+//             {selectItems.find((opt) => opt.value === selectedValue)?.label}
+//           </span>
+//           <HiMiniChevronDown color={chevronColor} />
+//         </div>
+//         {isOpen && (
+//           <div className="absolute left-0 mt-2 w-full border border-gray-300 rounded-lg shadow-lg">
+//             {selectItems.map((option) => (
+//               <LanguageItem
+//                 key={option.value}
+//                 label={option.label}
+//                 isSelected={option.value === selectedValue}
+//                 onClick={() => handleOptionClick(option.value)}
+//                 itemBackgroundHoverColor={itemBackgroundHoverColor}
+//               />
+//             ))}
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default LanguageSelect;
+
+import React, { useState } from "react";
+import { HiMiniChevronDown } from "react-icons/hi2";
+import SvgIcon from "../../atoms/SvgIcon/SvgIcon";
+import SelectOptions from "../../atoms/SelectOptions/SelectOptions";
+
+export interface LanguageOptions {
+  value: string;
+  label: React.ReactNode;
+}
+
+export interface SelectItemsProps {
+  selectItems: LanguageOptions[];
+  selectItemClassename?: string;
+  selectItemsTextColor: string;
+  itemBackgroundHoverColor?: string;
+  iconColor?: string;
+  iconPath: string;
+  iconSize: number;
+  labelItem : string;
+  valueItem: string;
+}
+
+const SelectItems: React.FC<SelectItemsProps> = ({
+  selectItems,
+  selectItemClassename,
+  selectItemsTextColor,
+  iconColor,
+  iconPath,
+  iconSize,
+  labelItem,
+  valueItem
+}) => {
+  const [selectedValue, setSelectedValue] = useState("fr");
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(e.target.value);
+  };
+
+  return (
+    <div className="flex items-center">
+      <SvgIcon icon={iconPath} color={iconColor || "#000000"} size={iconSize} />
+      <div
+        style={{
+          color: selectItemsTextColor,
+        }}
+        className="relative inline-block items-center"
+      >
+        <SelectOptions
+          options={selectItems}
+          labelKey={labelItem}
+          valueKey={valueItem}
+          value={selectedValue}
+          onChange={handleChange}
+          className={selectItemClassename}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default SelectItems;

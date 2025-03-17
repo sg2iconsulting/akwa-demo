@@ -67,15 +67,17 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           transition={{ duration: 0.3 }}
           className="cursor-pointer"
         >
-          <img
-            src="/fastVolt/fastVoltLogo.png"
-            alt="fastVolt Logo"
-            className="w-[100px] md:w-[130px] lg:w-[160px] 2xl:w-[200px]"
-          />
+          <a href="#">
+            <img
+              src="/fastVolt/fastVoltLogo.png"
+              alt="fastVolt Logo"
+              className="w-[100px] md:w-[130px] lg:w-[160px] 2xl:w-[200px]"
+            />
+          </a>
         </motion.div>
 
         {/* Menu Button for Mobile */}
-        <div className="1xl:hidden flex gap-3">
+        <div className="xl:hidden flex gap-3">
           <div className="xl:flex gap-5 text-[12px] md:text-[14px]">
             <div className="flex items-center gap-1 mt-1 justify-around">
               {resolvedTheme === "dark" ? (
@@ -127,15 +129,8 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden 1xl:flex gap-5">
-          <ul className="flex xl:gap-8 2xl:gap-10 text-[10px] md:text-[12px] xl:text-[16px] 3xl:text-[22px] font-bold text-white">
-            <motion.li
-              className="cursor-pointer text-[#D1FF33] "
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Accueil
-            </motion.li>
+        <div className="hidden xl:flex gap-5">
+          <ul className="flex xl:gap-7 1xl:gap-9 2xl:gap-10 text-[10px] md:text-[12px] xl:text-[16px] 3xl:text-[22px] font-bold text-white">
             <motion.li
               className="cursor-pointer"
               whileHover={{ scale: 1.05 }}
@@ -160,11 +155,11 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           </ul>
         </div>
 
-        <div className="1xl:flex 2xl:gap-4 hidden">
+        <div className="xl:flex 2xl:gap-4 hidden">
           <div className="flex items-center">
             <LanguageSwitcher />
           </div>
-          <div className="flex items-center gap-2 mt-1 justify-around w-[90px] mr-3">
+          <div className="flex items-center gap-2 mt-1 justify-around w-[90px] 1xl:mr-3">
             {resolvedTheme === "dark" ? (
               <HiSun className="text-white text-[13px] md:text-[28px] mb-1 dark:text-white" />
             ) : (
@@ -193,7 +188,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             </form>
           </div>
           {/* Desktop Buttons */}
-          <div className="hidden 1xl:block">
+          <div className="hidden xl:block">
             <motion.button
               className={`lg:w-[200px] xl:w-[220px] w-[18px] h-[40px] md:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-black font-bold bg-[#D1FF33]`}
               whileHover={{ scale: 1.05 }}
@@ -207,7 +202,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
       {/* Mobile Dropdown Menu */}
       <div
-        className={`1xl:hidden w-full bg-white dark:bg-black shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
+        className={`xl:hidden w-full bg-white dark:bg-black shadow-md overflow-hidden transition-[max-height] duration-1000 ease-in-out ${
           isOpen ? "max-h-[400px]" : "max-h-0"
         }`}
       >
@@ -221,13 +216,6 @@ const Navbar = ({ link = "" }: { link?: string }) => {
               <Link href={link || "#"}>Nous appeler</Link>
             </motion.button>
           </li>
-          <motion.li
-            className=" cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            Accueil
-          </motion.li>
           <motion.li
             className=" cursor-pointer"
             whileHover={{ scale: 1.05 }}
@@ -262,9 +250,11 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         <div className="w-full h-full absolute inset-0 flex items-center px-5 md:px-10 lg:px-20 2xl:px-24">
           <div className="flex flex-col gap-4 md:gap-6 lg:gap-8 xl:gap-10 2xl:gap-12 text-white">
             <div className="flex flex-col gap-2 md:gap-3 lg:gap-4 xl:gap-5 2xl:gap-6">
-              <div className="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[100px] font-bold leading-tight">
-                <p className="">À vous l’expérience</p>
-                <p className="">unique de l’électrique !</p>
+              <div className="w-[90%] md:w-[70%] text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16">
+                {/* <p className="">Le plus grand réseau</p>
+                <p className=""> marocain des bornes </p>
+                <p className=""> électriques!</p> */}
+                <p className="">Le plus grand réseau marocain des bornes électriques!</p>
               </div>
               <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
                 <p className="w-[80%] md:w-[75%]">
@@ -307,7 +297,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
       <div className="flex flex-col md:flex-row md:gap-x-10 lg:justify-between mt-10 w-full px-5 md:px-10 lg:px-20 gap-y-4">
         <div className="flex gap-1 lg:gap-2 2xl:gap-4 items-center">
           <FiMapPin
-            color="#D1FF33"
+            color="#8CA640"
             className="md:w-8 md:h-8 2xl:w-[40px] 2xl:h-[40px]"
           />
           <h2 className="text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold">
@@ -316,7 +306,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         </div>
         <div className="flex gap-1 lg:gap-2 2xl:gap-4 items-center">
           <MdAccessTimeFilled
-            color="#D1FF33"
+            color="#8CA640"
             className="md:w-8 md:h-8 2xl:w-[50px] 2xl:h-[50px]"
           />
           <h2 className="text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold">
@@ -325,7 +315,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         </div>
         <div className="flex gap-1 lg:gap-2 2xl:gap-4 items-center">
           <BsLightning
-            color="#D1FF33"
+            color="#8CA640"
             className="md:w-8 md:h-8  2xl:w-[50px] 2xl:h-[50px]"
           />
           <h2 className="text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold">

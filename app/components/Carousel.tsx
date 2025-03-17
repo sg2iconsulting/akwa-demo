@@ -121,18 +121,18 @@ const animate = isInView
             e.preventDefault();
             handlePrev();
           }}
-          className={`absolute ${fvolt ? "bg-[#D1FF33]" : "bg-black bg-opacity-50"} p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
+          className={`absolute ${fvolt ? "bg-[#8CA640]" : "bg-black bg-opacity-50"} p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
-          <FaChevronLeft className={`${fvolt ? "text-black " : "text-white"} text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold`} />
+          <FaChevronLeft className={`text-white text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold`} />
         </div>
         <div
           onClick={(e) => {
             e.preventDefault();
             handleNext();
           }}
-          className={`absolute ${fvolt ? "bg-[#D1FF33]" : "bg-black bg-opacity-50"} p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
+          className={`absolute ${fvolt ? "bg-[#8CA640]" : "bg-black bg-opacity-50"} p-3 rounded-full flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
-          <FaChevronRight className={`${fvolt ? "text-black " : "text-white"} text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold`} />
+          <FaChevronRight className={`text-white text-[20px] xl:text-[28px] 2xl:text-[40px] font-bold`} />
         </div>
       </div>
     </section>

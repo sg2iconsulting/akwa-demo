@@ -22,7 +22,7 @@ const home = () => {
               className={`w-[220px] 3xl:w-[250px] h-[50px]  2xl:h-[67px] md:text-[12px] xl:text-[16px] 2xl:text-[18px] 3xl:text-[22px] rounded-full text-white font-bold bg-[#3FABDF]`}
              
             >
-              <Link href={"/afriquia_gaz/espace_professionel"}>Espace Professionel</Link>
+              <Link href={"/afriquia_gaz/espace_professionnel"}>Espace Professionnel</Link>
             </button>
 
       </div>
