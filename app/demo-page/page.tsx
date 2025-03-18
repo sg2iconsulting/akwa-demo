@@ -9,6 +9,7 @@ import Footer from "../components/organisms/Footer/Footer";
 import Carousel from "../components/organisms/Carousel/Carousel";
 import DropdownButton from "../components/organisms/DropdownButton/DropdownButton";
 import Navbar from "../components/organisms/Navbar/Navbar";
+import { useArticles } from "../hook/useArticles";
 
 const dropdownItems = [
   {
@@ -27,14 +28,32 @@ const dropdownItems = [
     menuItem: "Contact",
     link: "#",
   },
-]
+];
 
 const DemoPage = () => {
+  const { loading, error, articles } = useArticles();
+
+  console.log("articles : ", articles);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading articles: {error.message}</div>;
+
+  if (articles.length === 0) return <div>No articles found</div>;
 
   return (
     <div className="flex flex-col gap-16 md:gap-24 xl:gap-32">
+      <div className="flex flex-col gap-16 md:gap-24 xl:gap-32">
+        <PostCardItem
+          title="Actualités"
+          items={articles}
+          titleTextColor="#052337"
+          backgroundButtonColor="#19A0BF"
+          buttonTextColor="white"
+          label="Lire plus"
+          backgroundItemColor="#052337"
+        />
+      </div>
       {/* <Navbar /> */}
-      <Navbar />
 
       {/* <AboutUs
         images={[
