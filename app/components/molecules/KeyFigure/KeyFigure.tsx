@@ -10,6 +10,10 @@ export interface KeyFigureProps {
   className?: string;
   style?: React.CSSProperties;
   sign?: string;
+  signClassename?: string;
+  valueClassename?: string;
+  paragraphClassename?: string;
+  deviderClassename?: string;
 }
 
 const KeyFigure = ({
@@ -19,15 +23,19 @@ const KeyFigure = ({
   className = "flex flex-col items-center gap-2",
   style,
   sign = "+",
+  signClassename,
+  valueClassename,
+  paragraphClassename,
+  deviderClassename
 }: KeyFigureProps) => {
   return (
     <div className={className} style={style || {}}>
-      <SignCounter value={value} duration={duration} sign={sign} />
-      <Divider className="w-10 bg-white" />
+      <SignCounter value={value} duration={duration} sign={sign} signClassName={signClassename} counterClassName={valueClassename} />
+      <Divider className={deviderClassename}/>
       {paragraphs.map((line, index) => (
         <Paragraph
           key={index}
-          className="text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]"
+          className={paragraphClassename}
         >
           {line}
         </Paragraph>

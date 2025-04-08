@@ -59,7 +59,7 @@ const Section = ({
           paragraphClassename={cn("text-white", paragraphClassename)}
           paragraphStyle={paragraphStyle}
           paragraphs={paragraphs}
-          buttonClassename={cn("px-6 py-2 lg:py-4 text-white bg-[#8BBA25] text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl w-[170px] md:w-[200px] lg:w-[240px] rounded-full", buttonClassename)}
+          buttonClassename={cn("px-6 py-2 text-white bg-[#8BBA25] text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl w-[170px] md:w-[200px] lg:w-[240px] rounded-full", buttonClassename)}
           buttonStyle={buttonStyle}
           buttonChildren={buttonChildren}
         />

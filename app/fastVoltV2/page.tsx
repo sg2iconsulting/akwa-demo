@@ -19,6 +19,7 @@ import { FiMapPin } from "react-icons/fi";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { BsLightning } from "react-icons/bs";
 import { IoCheckmarkCircle } from "react-icons/io5";
+import HeroSlider from "../components/organisms/HeroSlider/HeroSlider";
 
 const Page = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -72,8 +73,8 @@ const Page = () => {
             buttonLable: "Nous appeler",
           }}
         />
-        <FastVoltHeader
-          images={[
+        {/* <FastVoltHeader
+          slides={[
             { type: "image", src: "/fastVolt/navBackFv.png" },
             { type: "video", src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4" },
             { type: "image", src: "/maghreb/maghrebNavBack.png" },
@@ -88,6 +89,123 @@ const Page = () => {
           heroTitleClassename="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16"
           heroSubTitleClassename="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold"
           appButtonClassename="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto"
+        /> */}
+        {/* <HeroSlider
+          slides={[
+            {
+              type: "image",
+              src: "/fastVolt/navBackFv.png",
+              title: "Le plus grand réseau marocain des bornes électriques!",
+              subtitle: "Le temps d'une pause café, rechargez vos batteries et prenez la route vers une mobilité durable...",
+              appDownloadSection: {
+                title: "Télécharger l'application FastVolt",
+                googlePlayImageSrc: "/fastVolt/googlePlay.png",
+                appStoreImageSrc: "/fastVolt/appStore.png",
+              }
+            },
+            {
+              type: "video",
+              src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4",
+              title: "Mobilité durable et innovation",
+              subtitle: "Des bornes de recharge rapide pour tous vos besoins",
+              cta: {
+                label: "En savoir plus",
+                url: "/#",
+                className: "px-6 py-2 bg-[#D1FF33] text-black font-bold rounded-full"
+              }
+            },
+            {
+              type: "image",
+              src: "/maghreb/maghrebNavBack.png",
+              title: "Couverture nationale",
+              subtitle: "Des bornes disponibles sur tous les principaux axes routiers"
+            }
+          ]}
+          titleClassName="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16"
+          subtitleClassName="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold"
+          appDownloadTitleClassName="text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold"
+          appButtonClassName="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto"
+          slideClassName="w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover"
+          effect="slide"
+          showPagination={true}
+          containerClassName="mt-10 lg:mt-0"
+        /> */}
+        <HeroSlider
+          slides={[
+            {
+              type: "image",
+              src: "/fastVolt/navBackFv.png",
+              title: "Le plus grand réseau marocain des bornes électriques!",
+              subtitle:
+                "Le temps d'une pause café, rechargez vos batteries et prenez la route vers une mobilité durable...",
+              appDownloadSection: {
+                title: "Télécharger l'application FastVolt",
+                googlePlayImageSrc: "/fastVolt/googlePlay.png",
+                appStoreImageSrc: "/fastVolt/appStore.png",
+              },
+            },
+            {
+              type: "video",
+              src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4",
+              title: "Mobilité durable et innovation",
+              subtitle: "Des bornes de recharge rapide pour tous vos besoins",
+              cta: {
+                label: "En savoir plus",
+                url: "/#",
+                className:
+                  "px-6 py-2 bg-[#D1FF33] text-black font-bold rounded-full",
+              },
+            },
+            {
+              type: "image",
+              src: "/maghreb/maghrebNavBack.png",
+              title: "Couverture nationale",
+              subtitle:
+                "Des bornes disponibles sur tous les principaux axes routiers",
+            },
+            {
+              type: "video",
+              src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4",
+              title: "Mobilité durable et innovation",
+              subtitle: "Des bornes de recharge rapide pour tous vos besoins",
+              cta: {
+                label: "Voir la vidéo",
+                className: "px-6 py-2 bg-[#D1FF33] text-black font-bold rounded-full",
+              },
+            },
+          ]}
+          paginationStyles={`
+            .swiper-pagination {
+              position: absolute;
+              bottom: 20px !important;
+              z-index: 50 !important;
+            }
+
+            .swiper-pagination-bullet {
+              width: 12px;
+              height: 12px;
+              background: white;
+              opacity: 0.6;
+            }
+
+            .swiper-pagination-bullet-active {
+              opacity: 1;
+              background: #8BBA25;
+            }
+
+            .swiper-button-next, .swiper-button-prev {
+              color: white;
+            }
+          `}
+          titleClassName="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16"
+          subtitleClassName="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold"
+          appDownloadTitleClassName="text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold"
+          appButtonClassName="w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto"
+          slideClassName="w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover"
+          effect="slide"
+          showPagination={true}
+          containerClassName="mt-10 lg:mt-0"
+          enableVideoModal={true}
         />
       </section>
       <FeaturesSection

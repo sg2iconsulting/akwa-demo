@@ -55,6 +55,7 @@
 import React from "react";
 import Heading from "../../atoms/Heading/Heading";
 import KeyFigure from "../../molecules/KeyFigure/KeyFigure";
+import { cn } from "@/app/utils/cn";
 
 export interface KeyFigureProps {
   value: number;
@@ -63,6 +64,10 @@ export interface KeyFigureProps {
   paragraphs: string[];
   className?: string;
   style?: React.CSSProperties;
+  deviderClassename?: string;
+  paragraphClassename?: string;
+  valueClassename?: string;
+  signClassename?: string;
 }
 
 export interface ChiffreCounterProps {
@@ -94,7 +99,7 @@ const ChiffreCounter = ({
       >
         <Heading
           tag="h2"
-          className={titleClassName}
+          className={cn("text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[50px] font-black", titleClassName)}
           style={titleStyle}
         >
           {title}
@@ -108,7 +113,11 @@ const ChiffreCounter = ({
               sign={figure.sign}
               duration={figure.duration}
               paragraphs={figure.paragraphs}
-              className={figure.className}
+              className={cn("font-bold lg:text-[28px] 2xl:text-[48px]", figure.className)}
+              signClassename={cn("", figure.signClassename)}
+              deviderClassename={cn("w-10 bg-white", figure.deviderClassename)}
+              valueClassename={cn("font-bold lg:text-[28px] 2xl:text-[48px]", figure.valueClassename)}
+              paragraphClassename={cn("text-center font-semibold md:text-[10px] lg:text-[16px] xl:text-[20px] 2xl:text-[24px]", figure.paragraphClassename)}
               style={figure.style}
             />
           ))}

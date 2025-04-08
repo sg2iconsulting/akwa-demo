@@ -9,6 +9,9 @@ export interface ItemCardsProp {
   title: string;
   date: string;
   url?: string;
+  imageClassename?: string;
+  titleClassename?: string;
+  dateClassename?: string;
   containerBackgroundColor: string;
   containerBorderStyle: string;
   textColor: string;
@@ -18,6 +21,9 @@ const ItemCard = ({
   imgSrc,
   title,
   date,
+  imageClassename,
+  titleClassename,
+  dateClassename,
   containerBackgroundColor,
   containerBorderStyle,
   textColor,
@@ -26,7 +32,7 @@ const ItemCard = ({
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className="w-full h-[90px] md:h-[126px] cursor-pointer rounded-[12px] bg-white border dark:bg-[#1E1E1E] dark:border-[#1E1E1E] border-[#F1F1F1] shadow-slider-shadow"
+      className="w-full h-[90px] md:h-[126px] cursor-pointer rounded-[12px]  border dark:bg-[#1E1E1E] dark:border-[#1E1E1E] border-[#F1F1F1] shadow-slider-shadow"
       style={{
         backgroundColor: containerBackgroundColor || undefined,
         border: containerBorderStyle || undefined,
@@ -35,12 +41,12 @@ const ItemCard = ({
     >
       <div className="p-4 flex items-center justify-evenly w-full h-full gap-2">
         <div className="flex flex-col gap-2 w-[80%] h-auto">
-          <Paragraph className="text-[8px] md:text-[12px] xl:text-[13px]">
+          <Paragraph className={dateClassename}>
             {date}
           </Paragraph>
           <Heading
             tag="h3"
-            className="text-[10px] md:text-[14px] xl:text-[15px] font-bold"
+            className={titleClassename}
           >
             {title}
           </Heading>
@@ -49,7 +55,7 @@ const ItemCard = ({
           <Image
             src={imgSrc}
             alt={title}
-            imageClassename="w-full h-full rounded-[8px] object-cover"
+            imageClassename={imageClassename}
           />
         </div>
       </div>

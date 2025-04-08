@@ -1,10 +1,10 @@
 import React from "react";
-import HeroSection from "../HeroSection/HeroSection";
+import HeroSection, { SlideContent } from "../HeroSection/HeroSection";
 import FeaturesSection from "../FeaturesSection/FeaturesSection";
 import { cn } from "@/app/utils/cn";
 
 interface FastVoltHeaderProps {
-  images: { type: string; src: string }[];
+  slides?: SlideContent [];
   backgroundImageClassename?: string;
   title?: string;
   subtitle?: string;
@@ -18,7 +18,7 @@ interface FastVoltHeaderProps {
 }
 
 const FastVoltHeader: React.FC<FastVoltHeaderProps> = ({
-  images,
+  slides,
   backgroundImageClassename,
   title,
   subtitle,
@@ -32,8 +32,8 @@ const FastVoltHeader: React.FC<FastVoltHeaderProps> = ({
 }) => {
   return (
     <div className="mt-10 lg:mt-0">
-      <HeroSection
-        images={images}
+      {/* <HeroSection
+        slides={slides}
         backgroundImageClassename={backgroundImageClassename}
         title={title || ""}
         subtitle={subtitle || ""}
@@ -56,7 +56,7 @@ const FastVoltHeader: React.FC<FastVoltHeaderProps> = ({
           appButtonClassename,
           "w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto"
         )}
-      />
+      /> */}
     </div>
   );
 };

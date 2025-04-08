@@ -2,7 +2,7 @@ import React from "react";
 import Icon from "../../atoms/Icon/Icon";
 import { IconType } from "react-icons";
 
-interface SocialMediaIconItem {
+interface SocialMediaItems {
   icon: IconType;
   iconSize?: number;
   iconColor?: string;
@@ -12,7 +12,7 @@ interface SocialMediaIconItem {
 }
 
 interface SocialMediaIconsProps {
-  items: SocialMediaIconItem[];
+  items: SocialMediaItems[];
 }
 
 const SocialMediaIcons: React.FC<SocialMediaIconsProps> = ({ items }) => {

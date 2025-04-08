@@ -13,6 +13,7 @@ const GET_ARTICLES = gql`
           }
           description
           content
+          date
           title
         }
       }
@@ -29,6 +30,7 @@ export interface Article {
   description: string;
   content: string;
   title: string;
+  date: string;
 }
 
 interface ArticlesData {
@@ -39,13 +41,22 @@ interface ArticlesData {
   };
 }
 
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = new Intl.DateTimeFormat('fr-FR', { month: 'long' }).format(date);
+  const capitalizedMonth = month.charAt(0).toUpperCase() + month.slice(1);
+  const year = date.getFullYear();
+  return `${day} ${capitalizedMonth} ${year}`;
+}
+
 export function useArticles() {
   const { loading, error, data } = useQuery<ArticlesData>(GET_ARTICLES);
   
   const transformedArticles = data?.articles.nodes.map(node => ({
     imgSrc: node.articles.imageArticle.node.link,
     title: node.articles.title,
-    date: "", 
+    date: formatDate(node.articles.date),
     description: node.articles.description,
     containerBackgroundColor: "white",
     containerBorderStyle: "1px solid #F1F1F1",

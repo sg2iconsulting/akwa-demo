@@ -94,6 +94,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import Image from "../Image/Image";
+import Video from "../Video/Video";
 
 interface HeroBackgroundProps {
   images: { type: string; src: string }[];
@@ -187,7 +188,7 @@ const HeroBackground: React.FC<HeroBackgroundProps> = ({
                 alt={`Hero background ${index + 1}`}
               />
             ) : (
-              <video
+              <Video
                 src={item.src}
                 className={className}
                 autoPlay

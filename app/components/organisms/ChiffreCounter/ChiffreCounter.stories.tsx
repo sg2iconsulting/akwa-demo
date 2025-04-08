@@ -19,7 +19,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { KeyFigureProps } from "../../molecules/KeyFigure/KeyFigure";
 
 const keyFigures: KeyFigureProps[] = [
-  {
+  { 
     value: 20000,
     sign: "+",
     duration: 3,

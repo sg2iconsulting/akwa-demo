@@ -9,10 +9,15 @@ export interface PostCardProps {
   date: string;
   title: string;
   description?: string;
+  imageClassename?: string;
+  dateClassename?: string;
+  titleClassename?: string;
+  descriptionClassename?: string;
+  buttonClassename?: string;
   backgroundItemColor?: string;
   backgroundButtonColor?: string;
   buttonTextColor?: string;
-  label: string;
+  labelButton: string;
 }
 
 const PostCard = ({
@@ -20,16 +25,21 @@ const PostCard = ({
   date,
   title,
   description,
+  imageClassename,
+  titleClassename,
+  dateClassename,
+  descriptionClassename,
+  buttonClassename,
   backgroundItemColor,
   backgroundButtonColor,
   buttonTextColor,
-  label,
+  labelButton,
 }: PostCardProps) => {
   return (
     <div className="w-full xl:w-[63%] xl:h-[695px] flex flex-col rounded-[20px] overflow-hidden">
       <div className="w-full rounded-t-[20px] overflow-hidden">
         <Image
-          imageClassename="object-cover w-full h-full"
+          imageClassename={imageClassename}
           src={imgSrc}
           alt={title}
         />
@@ -42,22 +52,22 @@ const PostCard = ({
           color: buttonTextColor || undefined,
         }}
       >
-        <Paragraph className="text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]">
+        <Paragraph className={dateClassename}>
           {date}
         </Paragraph>
         <Heading
           tag="h3"
-          className="text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold"
+          className={titleClassename}
         >
           {title}
         </Heading>
-        <Paragraph className="text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2">
+        <Paragraph className={descriptionClassename}>
           {description}
         </Paragraph>
 
         <ButtonText
-          buttonTextLabel={label}
-          buttonTextClassename="px-6 py-2 rounded-md"
+          buttonTextLabel={labelButton}
+          buttonTextClassename={buttonClassename}
           buttonTextStyle={{
             backgroundColor: backgroundButtonColor || undefined,
             color: buttonTextColor || undefined,
