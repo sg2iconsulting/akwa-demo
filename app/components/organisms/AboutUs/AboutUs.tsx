@@ -56,7 +56,7 @@ const AboutUs = ({
   return (
     <section className="font-poppins w-full max-w-[2000px] mx-auto h-full">
       <div className="w-full p-5 md:px-10 lg:px-20 h-full">
-        <div className="flex flex-col md:flex-row md:justify-between w-full h-full gap-5 md:gap-8 lg:gap-12">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-center w-full h-full gap-5 md:gap-8 lg:gap-12">
           <TextContent
             headingTag={headingTag}
             title={title}

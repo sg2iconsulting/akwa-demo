@@ -101,6 +101,7 @@ interface HeroSlideProps {
   slideClassName?: string;
   titleClassName?: string;
   subtitleClassName?: string;
+  contentClassName?: string;
   ctaClassName?: string;
   appDownloadTitleClassName?: string;
   appButtonClassName?: string;
@@ -123,6 +124,7 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
   slideClassName = "w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover",
   titleClassName,
   subtitleClassName,
+  contentClassName,
   ctaClassName,
   appDownloadTitleClassName,
   appButtonClassName,
@@ -148,6 +150,7 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
       
       <HeroSlideContent
         content={content}
+        contentClassName={contentClassName}
         title={title}
         subtitle={subtitle}
         cta={cta}

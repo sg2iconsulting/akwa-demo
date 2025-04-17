@@ -19,7 +19,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({
   iconColor = "#8CA640",
   iconClassename,
   iconStyle,
-  headingClassName = "text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-bold",
+  headingClassName = "text-[10px] sm:text-[12px] md:text-[14px] xl:text-[16px] 2xl:text-[22px] font-black",
   headingStyle
 }) => {
   return (

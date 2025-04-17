@@ -354,6 +354,7 @@ interface HeroSliderProps {
   loop?: boolean;
   titleClassName?: string;
   subtitleClassName?: string; 
+  contentClassName?: string;
   ctaClassName?: string;
   appDownloadTitleClassName?: string;
   appButtonClassName?: string;
@@ -376,6 +377,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   loop = true,
   titleClassName,
   subtitleClassName,
+  contentClassName,
   ctaClassName,
   appDownloadTitleClassName,
   appButtonClassName,
@@ -433,6 +435,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         slideClassName={slideClassName}
         titleClassName={titleClassName}
         subtitleClassName={subtitleClassName}
+        contentClassName={contentClassName}
         ctaClassName={ctaClassName}
         appDownloadTitleClassName={appDownloadTitleClassName}
         appButtonClassName={appButtonClassName}
