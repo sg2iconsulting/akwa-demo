@@ -36,6 +36,12 @@ export interface CarouselProps {
   navigationStyle?: React.CSSProperties;
   navigationIconColor?: string;
   hiddenTitle?: "block" | "none";
+  breakpoints?: {
+    [width: number]: {
+      slidesPerView: number;
+      spaceBetween: number;
+    };
+  };
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -55,10 +61,28 @@ const Carousel: React.FC<CarouselProps> = ({
   navigationIconColor,
   navigationStyle,
   hiddenTitle,
+  breakpoints = {
+    319: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
+    426: {
+      slidesPerView: 2.5,
+      spaceBetween: 0,
+    },
+    1024: {
+      slidesPerView: 3.5,
+      spaceBetween: 0,
+    },
+  },
 }) => {
   const swiperRef = useRef<any>(null);
-  const handleNext = () => swiperRef.current?.swiper?.slideNext();
-  const handlePrev = () => swiperRef.current?.swiper?.slidePrev();
+  const handleNext = () => {
+    swiperRef.current?.swiper?.slideNext();
+  };
+  const handlePrev = () => {
+    swiperRef.current?.swiper?.slidePrev();
+  };
 
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -94,14 +118,20 @@ const Carousel: React.FC<CarouselProps> = ({
         >
           <Heading
             tag="h2"
-            className={cn("text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white", titleClassename)}
+            className={cn(
+              "text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white",
+              titleClassename
+            )}
             style={{ color: titleTextColor }}
           >
             {title}
           </Heading>
           <Heading
             tag="h3"
-            className={cn("text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white", descriptionClassename)}
+            className={cn(
+              "text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white",
+              descriptionClassename
+            )}
             style={{ color: descriptionTextColor }}
           >
             {description}
@@ -130,26 +160,16 @@ const Carousel: React.FC<CarouselProps> = ({
             modifier: 2,
           }}
           className="h-full"
-          breakpoints={{
-            319: {
-              slidesPerView: 2,
-              spaceBetween: 0,
-            },
-            426: {
-              slidesPerView: 2.5,
-              spaceBetween: 0,
-            },
-            1024: {
-              slidesPerView: 3.5,
-              spaceBetween: 0,
-            },
-          }}
+          breakpoints={breakpoints}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index} className="w-full h-full">
               <Image
                 src={slide.image}
-                imageClassename={cn("w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]", slideClassename)}
+                imageClassename={cn(
+                  "w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]",
+                  slideClassename
+                )}
                 imageStyle={slidesStyle}
               />
             </SwiperSlide>
@@ -157,10 +177,7 @@ const Carousel: React.FC<CarouselProps> = ({
         </Swiper>
         {/* Navigation Buttons */}
         <div
-          onClick={(e) => {
-            e.preventDefault();
-            handlePrev();
-          }}
+          onClick={handlePrev}
           style={navigationStyle}
           className={`absolute flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
@@ -168,14 +185,14 @@ const Carousel: React.FC<CarouselProps> = ({
             icon={leftChevronIcon || FaChevronLeft}
             iconSize={30}
             iconColor={navigationIconColor}
-            iconClassename={cn("xl:text-[50px] 2xl:text-[70px] font-bold", leftChevronIconClassename)}
+            iconClassename={cn(
+              "xl:text-[50px] 2xl:text-[70px] font-bold",
+              leftChevronIconClassename
+            )}
           />
         </div>
         <div
-          onClick={(e) => {
-            e.preventDefault();
-            handleNext();
-          }}
+          onClick={handleNext}
           style={navigationStyle}
           className={`absolute flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
@@ -183,7 +200,10 @@ const Carousel: React.FC<CarouselProps> = ({
             icon={rightChevronIcon || FaChevronRight}
             iconSize={30}
             iconColor={navigationIconColor}
-            iconClassename={cn("xl:text-[50px] 2xl:text-[70px] font-bold", rightChevronIconClassename)}
+            iconClassename={cn(
+              "xl:text-[50px] 2xl:text-[70px] font-bold",
+              rightChevronIconClassename
+            )}
           />
         </div>
       </div>

@@ -18,16 +18,27 @@ const Icon = ({
   iconColor = "black",
   link,
 }: IconProps) => {
-  return (
-    <Link href={link || "#"}>
+  if (link) {
+    return (
+      <Link href={link || "#"}>
+        <Icon
+          className={iconClassename}
+          size={iconSize}
+          style={iconStyle}
+          color={iconColor}
+        />
+      </Link>
+    );
+  } else {
+    return (
       <Icon
         className={iconClassename}
         size={iconSize}
         style={iconStyle}
         color={iconColor}
       />
-    </Link>
-  );
+    );
+  }
 };
 
 export default Icon;
