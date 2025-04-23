@@ -125,6 +125,7 @@ export default function Timeline({
                 onClick={() => {
                   setDirection(index > activeIndex ? 1 : -1);
                   setActiveIndex(index);
+                  swiperRef.current?.swiper?.slideTo(index + 1);
                 }}
               />
             </SwiperSlide>

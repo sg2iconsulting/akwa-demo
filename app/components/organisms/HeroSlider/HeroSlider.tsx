@@ -1,3 +1,5 @@
+"use client";
+
 // // import React from 'react';
 // // import Slider from '../../molecules/Slider/Slider';
 // // import HeroSlide from '../HeroSlide/HeroSlide';
@@ -51,7 +53,7 @@
 // //   showPagination?: boolean;
 // //   loop?: boolean;
 // //   titleClassName?: string;
-// //   subtitleClassName?: string; 
+// //   subtitleClassName?: string;
 // //   ctaClassName?: string;
 // //   appDownloadTitleClassName?: string;
 // //   appButtonClassName?: string;
@@ -80,15 +82,14 @@
 // // }) => {
 
 // //   const sliderSlides: SliderSlideContent[] = slides.map((slide) => {
-  
+
 // //     if (slide.type === 'custom' && slide.content) {
 // //       return {
 // //         type: 'custom',
 // //         content: slide.content
 // //       };
 // //     }
-    
-  
+
 // //     const slideContent = (
 // //       <HeroSlide
 // //         type={slide.type}
@@ -109,8 +110,7 @@
 // //         overlayOpacity={overlayOpacity}
 // //       />
 // //     );
-    
-  
+
 // //     return {
 // //       type: 'custom',
 // //       content: slideContent
@@ -188,13 +188,13 @@
 //   showPagination?: boolean;
 //   loop?: boolean;
 //   titleClassName?: string;
-//   subtitleClassName?: string; 
+//   subtitleClassName?: string;
 //   ctaClassName?: string;
 //   appDownloadTitleClassName?: string;
 //   appButtonClassName?: string;
 //   darkOverlay?: boolean;
 //   overlayOpacity?: number;
-//   enableVideoModal?: boolean; 
+//   enableVideoModal?: boolean;
 // }
 
 // const HeroSlider: React.FC<HeroSliderProps> = ({
@@ -215,7 +215,7 @@
 //   appButtonClassName,
 //   darkOverlay = true,
 //   overlayOpacity = 40,
-//   enableVideoModal = false, 
+//   enableVideoModal = false,
 // }) => {
 //   const [isModalOpen, setIsModalOpen] = useState(false);
 //   const [modalVideoSrc, setModalVideoSrc] = useState('');
@@ -223,7 +223,7 @@
 
 //   const handleOpenVideoModal = (videoSrc: string, videoTitle?: string) => {
 //     if (!enableVideoModal) return;
-    
+
 //     setModalVideoSrc(videoSrc);
 //     setModalVideoTitle(videoTitle || '');
 //     setIsModalOpen(true);
@@ -240,7 +240,7 @@
 //         content: slide.content
 //       };
 //     }
-    
+
 //     const slideContent = (
 //       <HeroSlide
 //         type={slide.type}
@@ -259,12 +259,12 @@
 //         appButtonClassName={appButtonClassName}
 //         darkOverlay={darkOverlay}
 //         overlayOpacity={overlayOpacity}
-//         onVideoClick={slide.type === 'video' && enableVideoModal ? 
+//         onVideoClick={slide.type === 'video' && enableVideoModal ?
 //           () => handleOpenVideoModal(slide.src, slide.title) : undefined}
 //         modalEnabled={enableVideoModal}
 //       />
 //     );
-    
+
 //     return {
 //       type: 'custom',
 //       content: slideContent
@@ -284,7 +284,7 @@
 //         showPagination={showPagination}
 //         loop={loop}
 //       />
-      
+
 //       {enableVideoModal && (
 //         <VideoModal
 //           isOpen={isModalOpen}
@@ -299,28 +299,28 @@
 
 // export default HeroSlider;
 
-import React, { useState } from 'react';
-import Slider from '../../molecules/Slider/Slider';
-import HeroSlide from '../HeroSlide/HeroSlide';
-import { CTAButton } from '../../molecules/CTAButton/CTAButton';
-import VideoModal from '../VideoModal/VideoModal';
+import React, { useState } from "react";
+import Slider from "../../molecules/Slider/Slider";
+import HeroSlide from "../HeroSlide/HeroSlide";
+import { CTAButton } from "../../molecules/CTAButton/CTAButton";
+import VideoModal from "../VideoModal/VideoModal";
 
 export type ImageSlide = {
-  type: 'image';
+  type: "image";
   src: string;
   alt?: string;
-}
+};
 
 export type VideoSlide = {
-  type: 'video';
+  type: "video";
   src: string;
   posterSrc?: string;
-}
+};
 
 export type CustomSlide = {
-  type: 'custom';
+  type: "custom";
   content: React.ReactNode;
-}
+};
 
 export type SliderSlideContent = ImageSlide | VideoSlide | CustomSlide;
 
@@ -331,7 +331,7 @@ export interface AppDownloadSectionProps {
 }
 
 export interface HeroSlideItem {
-  type: 'image' | 'video' | 'custom';
+  type: "image" | "video" | "custom";
   src: string;
   posterSrc?: string;
   content?: React.ReactNode;
@@ -353,14 +353,14 @@ interface HeroSliderProps {
   showPagination?: boolean;
   loop?: boolean;
   titleClassName?: string;
-  subtitleClassName?: string; 
+  subtitleClassName?: string;
   contentClassName?: string;
   ctaClassName?: string;
   appDownloadTitleClassName?: string;
   appButtonClassName?: string;
   darkOverlay?: boolean;
   overlayOpacity?: number;
-  enableVideoModal?: boolean; 
+  enableVideoModal?: boolean;
   paginationStyles?: string;
 }
 
@@ -383,18 +383,18 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   appButtonClassName,
   darkOverlay = true,
   overlayOpacity = 40,
-  enableVideoModal = false, 
+  enableVideoModal = false,
   paginationStyles,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalVideoSrc, setModalVideoSrc] = useState('');
-  const [modalVideoTitle, setModalVideoTitle] = useState('');
+  const [modalVideoSrc, setModalVideoSrc] = useState("");
+  const [modalVideoTitle, setModalVideoTitle] = useState("");
 
   const handleOpenVideoModal = (videoSrc: string, videoTitle?: string) => {
     if (!enableVideoModal) return;
-    
+
     setModalVideoSrc(videoSrc);
-    setModalVideoTitle(videoTitle || '');
+    setModalVideoTitle(videoTitle || "");
     setIsModalOpen(true);
   };
 
@@ -403,25 +403,26 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   };
 
   const sliderSlides: SliderSlideContent[] = slides.map((slide) => {
-    if (slide.type === 'custom' && slide.content) {
+    if (slide.type === "custom" && slide.content) {
       return {
-        type: 'custom',
-        content: slide.content
+        type: "custom",
+        content: slide.content,
       };
     }
-    
+
     let ctaClickHandler;
-    if (slide.type === 'video' && enableVideoModal) {
-      const hasValidUrl = slide.cta && 
-                         (Array.isArray(slide.cta) 
-                           ? slide.cta.some(btn => btn.url && btn.url !== '#') 
-                           : slide.cta.url && slide.cta.url !== '#');
-      
+    if (slide.type === "video" && enableVideoModal) {
+      const hasValidUrl =
+        slide.cta &&
+        (Array.isArray(slide.cta)
+          ? slide.cta.some((btn) => btn.url && btn.url !== "#")
+          : slide.cta.url && slide.cta.url !== "#");
+
       if (!hasValidUrl) {
         ctaClickHandler = () => handleOpenVideoModal(slide.src, slide.title);
       }
     }
-    
+
     const slideContent = (
       <HeroSlide
         type={slide.type}
@@ -441,16 +442,19 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         appButtonClassName={appButtonClassName}
         darkOverlay={darkOverlay}
         overlayOpacity={overlayOpacity}
-        onVideoClick={slide.type === 'video' && enableVideoModal ? 
-          () => handleOpenVideoModal(slide.src, slide.title) : undefined}
+        onVideoClick={
+          slide.type === "video" && enableVideoModal
+            ? () => handleOpenVideoModal(slide.src, slide.title)
+            : undefined
+        }
         modalEnabled={enableVideoModal}
         onCtaClick={ctaClickHandler}
       />
     );
-    
+
     return {
-      type: 'custom',
-      content: slideContent
+      type: "custom",
+      content: slideContent,
     };
   });
 
@@ -468,7 +472,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         loop={loop}
         paginationStyles={paginationStyles}
       />
-      
+
       {enableVideoModal && (
         <VideoModal
           isOpen={isModalOpen}

@@ -5,12 +5,18 @@ import ImageWithText from "../molecules/ImageWithText";
 import Timeline, { TimelineItem } from "./timeline";
 
 interface HistorySectionProps {
-  timelineItems: TimelineItem[];
+  timelineData: TimelineItem[];
+  historique: {
+    title: string;
+    description: string;
+    image: string;
+  };
   initialActiveIndex?: number;
 }
 
 export default function HistorySection({
-  timelineItems,
+  historique,
+  timelineData,
   initialActiveIndex = 0,
 }: HistorySectionProps) {
   return (
@@ -29,7 +35,7 @@ export default function HistorySection({
       />
 
       {/* Timeline */}
-      <Timeline items={timelineItems} initialActiveIndex={initialActiveIndex} />
+      <Timeline items={timelineData} initialActiveIndex={initialActiveIndex} />
     </section>
   );
 }

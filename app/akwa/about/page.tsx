@@ -1,5 +1,3 @@
-"use client";
-
 import { TbArrowBarToUp } from "react-icons/tb";
 import Navbar from "@/app/components/organisms/Navbar/Navbar";
 import HeroSlider from "@/app/components/organisms/HeroSlider/HeroSlider";
@@ -9,12 +7,6 @@ import Button from "@/app/components/atoms/Button/Button";
 import CompanyAboutPage from "@/app/components/_akwa/pages/company-about-page";
 
 const page = () => {
-  const scrollToNavbar = () => {
-    const navbarElement = document.getElementById("navbar");
-    if (navbarElement) {
-      navbarElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
   return (
     <section className="flex flex-col gap-6 ">
       <section id="navbar">
@@ -102,12 +94,12 @@ const page = () => {
         <CompanyAboutPage />
       </section>
 
-      <Button
+      {/* <Button
         onClick={scrollToNavbar}
         className="fixed bottom-28 right-4 md:right-8 lg:right-[66px] bg-[#19A0BF] text-white p-2 xl:p-3 rounded-lg shadow-md dark:hover:bg-[#45a6bc] hover:bg-[#052337] transition z-50"
       >
         <TbArrowBarToUp className="md:text-[20px] lg:text-[24px] xl:text-[28px] font-black" />
-      </Button>
+      </Button> */}
 
       <Footer
         footerBackgroundColor="#052337"

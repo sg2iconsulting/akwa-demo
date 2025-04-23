@@ -11,39 +11,15 @@ import CompanyKeyNumbers from "../organism/company-key-numbers";
 import Carousel from "../../organisms/Carousel/Carousel";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
-const statsData = [
-  {
-    value: 20000,
-    duration: 3,
-    hasPlus: true,
-    lines: ["Emplois directs et", "indirects"],
-  },
-  {
-    value: 4,
-    duration: 3,
-    hasPlus: true,
-    lines: ["Milliards $", "de chiffres annuel"],
-  },
-  {
-    value: 2,
-    duration: 3,
-    lines: ["Sociétés cotées en", "bourse"],
-  },
-  {
-    value: 72,
-    duration: 5,
-    lines: ["Sociétés"],
-  },
-  {
-    value: 40,
-    duration: 5,
-    hasPlus: true,
-    lines: ["Marques phares"],
-  },
-];
-
 interface CompanyTimelineTemplateProps {
-  timelineItems: TimelineItem[];
+  historiqueContent: {
+    timelineData: TimelineItem[];
+    historique: {
+      title: string;
+      description: string;
+      image: string;
+    };
+  };
   presentationContent: {
     vision: {
       title: string;
@@ -56,13 +32,25 @@ interface CompanyTimelineTemplateProps {
       image: string;
     };
   };
+  chiffreContent: {
+    stats: {
+      value: number;
+      duration: number;
+      hasPlus?: boolean;
+      lines: string[];
+    }[];
+    slides: {
+      image: string;
+    }[];
+  };
 }
 
 export default function CompanyAboutTemplate({
-  timelineItems,
+  historiqueContent,
   presentationContent,
+  chiffreContent,
 }: CompanyTimelineTemplateProps) {
-  const [activeTab, setActiveTab] = useState<TabId>("historique");
+  const [activeTab, setActiveTab] = useState<TabId>("presentation");
 
   const tabs = [
     { id: "presentation" as TabId, label: "Présentation" },
@@ -94,21 +82,6 @@ export default function CompanyAboutTemplate({
         {/* Content */}
         <div className="overflow-hidden">
           <AnimatePresence mode="wait">
-            {activeTab === "historique" && (
-              <motion.div
-                key="historique"
-                variants={tabVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              >
-                <HistorySection
-                  timelineItems={timelineItems}
-                  initialActiveIndex={0}
-                />
-              </motion.div>
-            )}
-
             {activeTab === "presentation" && (
               <motion.div
                 key="presentation"
@@ -121,6 +94,22 @@ export default function CompanyAboutTemplate({
               </motion.div>
             )}
 
+            {activeTab === "historique" && (
+              <motion.div
+                key="historique"
+                variants={tabVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <HistorySection
+                  timelineData={historiqueContent.timelineData}
+                  historique={historiqueContent.historique}
+                  initialActiveIndex={0}
+                />
+              </motion.div>
+            )}
+
             {activeTab === "chiffres" && (
               <motion.div
                 key="chiffres"
@@ -130,20 +119,13 @@ export default function CompanyAboutTemplate({
                 exit="exit"
                 className="space-y-8 py-8"
               >
-                <CompanyKeyNumbers title="Chiffres Clés" stats={statsData} />
+                <CompanyKeyNumbers
+                  title="Chiffres Clés"
+                  stats={chiffreContent.stats}
+                />
 
                 <Carousel
-                  slides={[
-                    { image: "/akwagroup/pole/develop.png" },
-                    { image: "/akwagroup/pole/Fluides.png" },
-                    { image: "/akwagroup/pole/immobilier.png" },
-                    { image: "/akwagroup/pole/develop.png" },
-                    { image: "/akwagroup/pole/Fluides.png" },
-                    { image: "/akwagroup/pole/immobilier.png" },
-                    { image: "/akwagroup/pole/develop.png" },
-                    { image: "/akwagroup/pole/Fluides.png" },
-                    { image: "/akwagroup/pole/immobilier.png" },
-                  ]}
+                  slides={chiffreContent.slides}
                   slideClassename="w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)] aspect-[8/7]"
                   title=""
                   titleClassename="text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white"
