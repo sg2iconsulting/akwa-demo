@@ -36,6 +36,12 @@ export interface CarouselProps {
   navigationStyle?: React.CSSProperties;
   navigationIconColor?: string;
   hiddenTitle?: "block" | "none";
+  breakpoints?: {
+    [width: number]: {
+      slidesPerView: number;
+      spaceBetween: number;
+    };
+  };
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -55,10 +61,28 @@ const Carousel: React.FC<CarouselProps> = ({
   navigationIconColor,
   navigationStyle,
   hiddenTitle,
+  breakpoints = {
+    319: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
+    426: {
+      slidesPerView: 2.5,
+      spaceBetween: 0,
+    },
+    1024: {
+      slidesPerView: 3.5,
+      spaceBetween: 0,
+    },
+  },
 }) => {
   const swiperRef = useRef<any>(null);
-  const handleNext = () => swiperRef.current?.swiper?.slideNext();
-  const handlePrev = () => swiperRef.current?.swiper?.slidePrev();
+  const handleNext = () => {
+    swiperRef.current?.swiper?.slideNext();
+  };
+  const handlePrev = () => {
+    swiperRef.current?.swiper?.slidePrev();
+  };
 
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -136,20 +160,7 @@ const Carousel: React.FC<CarouselProps> = ({
             modifier: 2,
           }}
           className="h-full"
-          breakpoints={{
-            319: {
-              slidesPerView: 2,
-              spaceBetween: 0,
-            },
-            426: {
-              slidesPerView: 2.5,
-              spaceBetween: 0,
-            },
-            1024: {
-              slidesPerView: 3.5,
-              spaceBetween: 0,
-            },
-          }}
+          breakpoints={breakpoints}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index} className="w-full h-full">
@@ -166,10 +177,7 @@ const Carousel: React.FC<CarouselProps> = ({
         </Swiper>
         {/* Navigation Buttons */}
         <div
-          onClick={(e) => {
-            e.preventDefault();
-            handlePrev();
-          }}
+          onClick={handlePrev}
           style={navigationStyle}
           className={`absolute flex items-center justify-center z-40 top-1/2 -translate-y-1/2 left-5 xl:left-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
@@ -184,10 +192,7 @@ const Carousel: React.FC<CarouselProps> = ({
           />
         </div>
         <div
-          onClick={(e) => {
-            e.preventDefault();
-            handleNext();
-          }}
+          onClick={handleNext}
           style={navigationStyle}
           className={`absolute flex items-center justify-center z-40 top-1/2 -translate-y-1/2 right-5 xl:right-10 cursor-pointer select-none max-md:hidden transform transition-transform hover:scale-110 duration-500 hover:ease-in-out`}
         >
