@@ -22,9 +22,9 @@ interface Slide {
 export interface CarouselProps {
   slides: Slide[];
   slideClassename?: string;
-  leftChevronIcon: IconType;
+  leftChevronIcon?: IconType;
   leftChevronIconClassename?: string;
-  rightChevronIcon: IconType;
+  rightChevronIcon?: IconType;
   rightChevronIconClassename?: string;
   title: string;
   titleClassename?: string;
@@ -43,9 +43,9 @@ const Carousel: React.FC<CarouselProps> = ({
   title,
   description,
   slideClassename,
-  leftChevronIcon,
+  leftChevronIcon = FaChevronLeft,
   leftChevronIconClassename,
-  rightChevronIcon,
+  rightChevronIcon = FaChevronRight,
   rightChevronIconClassename,
   titleClassename,
   descriptionClassename,
@@ -94,14 +94,20 @@ const Carousel: React.FC<CarouselProps> = ({
         >
           <Heading
             tag="h2"
-            className={cn("text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white", titleClassename)}
+            className={cn(
+              "text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white",
+              titleClassename
+            )}
             style={{ color: titleTextColor }}
           >
             {title}
           </Heading>
           <Heading
             tag="h3"
-            className={cn("text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white", descriptionClassename)}
+            className={cn(
+              "text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white",
+              descriptionClassename
+            )}
             style={{ color: descriptionTextColor }}
           >
             {description}
@@ -149,7 +155,10 @@ const Carousel: React.FC<CarouselProps> = ({
             <SwiperSlide key={index} className="w-full h-full">
               <Image
                 src={slide.image}
-                imageClassename={cn("w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]", slideClassename)}
+                imageClassename={cn(
+                  "w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)]",
+                  slideClassename
+                )}
                 imageStyle={slidesStyle}
               />
             </SwiperSlide>
@@ -168,7 +177,10 @@ const Carousel: React.FC<CarouselProps> = ({
             icon={leftChevronIcon || FaChevronLeft}
             iconSize={30}
             iconColor={navigationIconColor}
-            iconClassename={cn("xl:text-[50px] 2xl:text-[70px] font-bold", leftChevronIconClassename)}
+            iconClassename={cn(
+              "xl:text-[50px] 2xl:text-[70px] font-bold",
+              leftChevronIconClassename
+            )}
           />
         </div>
         <div
@@ -183,7 +195,10 @@ const Carousel: React.FC<CarouselProps> = ({
             icon={rightChevronIcon || FaChevronRight}
             iconSize={30}
             iconColor={navigationIconColor}
-            iconClassename={cn("xl:text-[50px] 2xl:text-[70px] font-bold", rightChevronIconClassename)}
+            iconClassename={cn(
+              "xl:text-[50px] 2xl:text-[70px] font-bold",
+              rightChevronIconClassename
+            )}
           />
         </div>
       </div>

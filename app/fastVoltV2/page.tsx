@@ -1,42 +1,80 @@
-"use client";
-import React, { useEffect, useState } from "react";
+"use server";
 import Section from "../components/organisms/Section/Section";
 import Footer from "../components/organisms/Footer/Footer";
 import BannerInscription from "../components/organisms/BannerInscription/BannerInscription";
 import Carousel from "../components/organisms/Carousel/Carousel";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaChevronLeft,
-  FaChevronRight,
-  FaCheck,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Solutions from "../components/organisms/Solutions/Solutions";
-import FastVoltHeader from "../components/organisms/FastVoltHeader/FastVoltHeader";
-import Navbar, { NavbarProps } from "../components/organisms/Navbar/Navbar";
+import Navbar from "../components/organisms/Navbar/Navbar";
 import FeaturesSection from "../components/organisms/FeaturesSection/FeaturesSection";
-import PricingSection from "../components/organisms/PricingSection/PricingSection";
-import SubscriptionPlans from "../components/organisms/SubscriptionPlans/SubscriptionPlans";
 import { FiMapPin } from "react-icons/fi";
 import { MdAccessTimeFilled } from "react-icons/md";
-import { BsLightning, BsShieldCheck } from "react-icons/bs";
-import { IoCheckmarkCircle } from "react-icons/io5";
+import { BsLightning } from "react-icons/bs";
 import HeroSlider from "../components/organisms/HeroSlider/HeroSlider";
+import { createApolloClient } from "../lib/apolloServerClient";
+import { gql } from "@apollo/client";
 
-const Page = () => {
-  const [isMobile, setIsMobile] = useState(false);
+const query = gql`
+  query NewQuery {
+    fastvoltsections {
+      nodes {
+        slide {
+          slides {
+            cta {
+              classname
+              label
+            }
+            type
+            titre
+            subTitle
+            videourl
+            image {
+              node {
+                sourceUrl
+              }
+            }
+            downloadbutton
+          }
+        }
+      }
+    }
+  }
+`;
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 639);
-    handleResize();
-    window.addEventListener("resize", handleResize);
+export default async function FastVoltPage() {
+  const client = createApolloClient();
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const { data } = await client.query({ query });
+
+  const fetchedSlides = data?.fastvoltsections?.nodes[0]?.slide?.slides ?? [];
+
+  const formattedSlides = fetchedSlides.map((slide: any) => {
+    return {
+      type: slide?.type[0] ?? "image",
+      src:
+        slide?.type[0] === "video"
+          ? slide?.videourl
+          : slide?.image?.node?.sourceUrl,
+      title: slide?.titre ?? "",
+      subtitle: slide?.subTitle ?? "",
+      cta: slide?.cta?.label
+        ? {
+            label: slide.cta.label,
+            url: "#",
+          }
+        : undefined,
+      ...(slide.downloadbutton && {
+        appDownloadSection: {
+          title: "Télécharger l'application FastVolt",
+          googlePlayImageSrc: "/fastVolt/googlePlay.png",
+          appStoreImageSrc: "/fastVolt/appStore.png",
+        },
+      }),
+    };
+  });
 
   return (
-    <main className="flex flex-col w-full gap-y-10 lg:gap-y-24">
+    <main className="flex flex-col w-full gap-y-10 lg:gap-y-24 ">
       <section className="w-full">
         <Navbar
           mobileLogoSrcImage="/fastVolt/fastVoltLogo.png"
@@ -77,49 +115,7 @@ const Page = () => {
           }}
         />
         <HeroSlider
-          slides={[
-            {
-              type: "image",
-              src: "/fastVolt/navBackFv.png",
-              title: "Le plus grand réseau marocain des bornes électriques!",
-              subtitle:
-                "Le temps d'une pause café, rechargez vos batteries et prenez la route vers une mobilité durable...",
-              appDownloadSection: {
-                title: "Télécharger l'application FastVolt",
-                googlePlayImageSrc: "/fastVolt/googlePlay.png",
-                appStoreImageSrc: "/fastVolt/appStore.png",
-              },
-            },
-            {
-              type: "video",
-              src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4",
-              title: "Mobilité durable et innovation",
-              subtitle: "Des bornes de recharge rapide pour tous vos besoins",
-              cta: {
-                label: "En savoir plus",
-                url: "/#",
-                className:
-                  "px-6 py-2 bg-[#D1FF33] text-black font-bold rounded-full",
-              },
-            },
-            {
-              type: "image",
-              src: "/maghreb/maghrebNavBack.png",
-              title: "Couverture nationale",
-              subtitle:
-                "Des bornes disponibles sur tous les principaux axes routiers",
-            },
-            {
-              type: "video",
-              src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4",
-              title: "Mobilité durable et innovation",
-              subtitle: "Des bornes de recharge rapide pour tous vos besoins",
-              cta: {
-                label: "Voir la vidéo",
-                className: "px-6 py-2 bg-[#D1FF33] text-black font-bold rounded-full",
-              },
-            },
-          ]}
+          slides={formattedSlides}
           paginationStyles={`
             .swiper-pagination {
               position: absolute;
@@ -179,8 +175,6 @@ const Page = () => {
           <Solutions
             firstTitle="Une solution rapide et proche de chez vous"
             secondTitle="Découvrez nos avantages"
-            rightSectionIcon={IoCheckmarkCircle}
-            leftSectionIcon={IoCheckmarkCircle}
             firstTitleClassename="leading-tight w-full md:w-[60%] xl:w-[80%] text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white mb-3 md:mb-4"
             secondTitleClassename="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white"
             paragraphClassename="text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold"
@@ -216,9 +210,7 @@ const Page = () => {
             description="Découvrez nos services Fastvolt"
             descriptionClassename="text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white"
             titleTextColor="#052337"
-            leftChevronIcon={FaChevronLeft}
             leftChevronIconClassename="xl:text-[50px] 2xl:text-[70px] font-bold"
-            rightChevronIcon={FaChevronRight}
             rightChevronIconClassename="xl:text-[50px] 2xl:text-[70px] font-bold"
             descriptionTextColor="#666666"
             navigationIconColor="#8BBA25"
@@ -281,6 +273,4 @@ const Page = () => {
       </section>
     </main>
   );
-};
-
-export default Page;
+}

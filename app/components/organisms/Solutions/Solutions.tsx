@@ -95,12 +95,12 @@ interface SolutionsProps {
   iconTextColor?: string;
   withAnimation?: boolean;
   firstTitleClassename?: string;
-  secondTitleClassename?: string; 
-  rightSectionIcon: IconType;
-  leftSectionIcon: IconType;
+  secondTitleClassename?: string;
+  rightSectionIcon?: IconType;
+  leftSectionIcon?: IconType;
   leftSectionIconClassename?: string;
   rightSectionIconClassename?: string;
-  paragraphClassename?: string
+  paragraphClassename?: string;
 }
 
 const Solutions: React.FC<SolutionsProps> = ({
@@ -112,13 +112,13 @@ const Solutions: React.FC<SolutionsProps> = ({
   paragraphTextColor = "black",
   iconTextColor = "#8BBA25",
   withAnimation = true,
-  firstTitleClassename, 
+  firstTitleClassename,
   secondTitleClassename,
   rightSectionIcon = IoCheckmarkCircle,
   leftSectionIcon = IoCheckmarkCircle,
   paragraphClassename,
   leftSectionIconClassename,
-  rightSectionIconClassename
+  rightSectionIconClassename,
 }) => {
   // Split the paragraphs array into two halves
   const halfLength = Math.ceil(paragraphs.length / 2);
@@ -132,15 +132,21 @@ const Solutions: React.FC<SolutionsProps> = ({
         <div className="max-w-4xl">
           <Heading
             tag="h2"
-            className={cn("leading-tight w-[60%] text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white mb-3 md:mb-4", firstTitleClassename)}
+            className={cn(
+              "leading-tight w-[60%] text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white mb-3 md:mb-4",
+              firstTitleClassename
+            )}
             style={{ color: firstTitleTextColor }}
           >
             {firstTitle}
           </Heading>
-          
+
           <Heading
             tag="h3"
-            className={cn("text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white", secondTitleClassename)}
+            className={cn(
+              "text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white",
+              secondTitleClassename
+            )}
             style={{ color: secondTitleTextColor }}
           >
             {secondTitle}
@@ -158,7 +164,10 @@ const Solutions: React.FC<SolutionsProps> = ({
               icon={leftSectionIcon}
               iconColor={iconTextColor}
               paragraphTextColor={paragraphTextColor}
-              textClassName={cn('text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold', paragraphClassename)}
+              textClassName={cn(
+                "text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold",
+                paragraphClassename
+              )}
               containerClassName="w-full flex flex-col gap-5 md:gap-6 lg:gap-8"
               iconClassename={leftSectionIconClassename}
             />
@@ -171,7 +180,10 @@ const Solutions: React.FC<SolutionsProps> = ({
               icon={rightSectionIcon}
               iconColor={iconTextColor}
               paragraphTextColor={paragraphTextColor}
-              textClassName={cn('text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold', paragraphClassename)}
+              textClassName={cn(
+                "text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold",
+                paragraphClassename
+              )}
               containerClassName="w-full flex flex-col gap-5 md:gap-6 lg:gap-8"
               iconClassename={rightSectionIconClassename}
             />
