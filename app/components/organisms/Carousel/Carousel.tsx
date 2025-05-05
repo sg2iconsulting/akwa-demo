@@ -6,14 +6,14 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-import useInView from "../../../hook/useView";
+import useInView from "../../../../hook/useView";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
 import Heading from "../../atoms/Heading/Heading";
 import Image from "../../atoms/Image/Image";
 import Icon from "../../atoms/Icon/Icon";
 import { IconType } from "react-icons";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/utils/cn";
 
 interface Slide {
   image: string;

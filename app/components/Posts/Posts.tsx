@@ -7,7 +7,7 @@ import "@/app/styles/afriquiaswiperBullets.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 export interface PostProp {

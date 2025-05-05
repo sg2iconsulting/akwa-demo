@@ -9,7 +9,7 @@ import Footer from "../components/organisms/Footer/Footer";
 import Carousel from "../components/organisms/Carousel/Carousel";
 import DropdownButton from "../components/organisms/DropdownButton/DropdownButton";
 import Navbar from "../components/organisms/Navbar/Navbar";
-import { useArticles } from "../hook/useArticles";
+import { useArticles } from "../../hook/useArticles";
 
 const dropdownItems = [
   {
@@ -48,7 +48,7 @@ const DemoPage = () => {
             buttonTextColor="white"
             labelButton="Lire plus"
             backgroundItemColor="#052337"
-            isLoading={true} 
+            isLoading={true}
           />
         </div>
       </div>

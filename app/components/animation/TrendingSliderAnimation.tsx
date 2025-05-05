@@ -1,5 +1,5 @@
 "use client";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { motion } from "framer-motion";
 import TrendingSlider from "../Carousel";
 
@@ -15,7 +15,13 @@ interface TrendingSliderProps {
   descrip: string;
 }
 
-const TrendingSliderAnimation = ({slides, speedy, fvolt, title, descrip}: TrendingSliderProps) => {
+const TrendingSliderAnimation = ({
+  slides,
+  speedy,
+  fvolt,
+  title,
+  descrip,
+}: TrendingSliderProps) => {
   const { ref, isInView } = useInView();
 
   return (

@@ -10,7 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { BsLightning } from "react-icons/bs";
 import { MdAccessTimeFilled } from "react-icons/md";
@@ -254,7 +254,9 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                 {/* <p className="">Le plus grand réseau</p>
                 <p className=""> marocain des bornes </p>
                 <p className=""> électriques!</p> */}
-                <p className="">Le plus grand réseau marocain des bornes électriques!</p>
+                <p className="">
+                  Le plus grand réseau marocain des bornes électriques!
+                </p>
               </div>
               <div className="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold">
                 <p className="w-[80%] md:w-[75%]">

@@ -1,0 +1,90 @@
+import React, { ReactNode } from "react";
+import { CTAButton } from "../molecule/CTAButton";
+import HeroSlideMedia from "../molecule/HeroSlideMedia";
+import DarkOverlay from "../molecule/DarkOverlay";
+import HeroSlideContent from "../molecule/HeroSlideContent";
+
+interface AppDownloadSectionProps {
+  title?: string;
+  googlePlayImageSrc?: string;
+  appStoreImageSrc?: string;
+}
+
+interface HeroSlideProps {
+  type: "image" | "video" | "custom";
+  src: string;
+  posterSrc?: string;
+  content?: ReactNode;
+  title?: string;
+  subtitle?: string;
+  cta?: CTAButton | CTAButton[];
+  appDownloadSection?: AppDownloadSectionProps;
+  slideClassName?: string;
+  titleClassName?: string;
+  subtitleClassName?: string;
+  contentClassName?: string;
+  ctaClassName?: string;
+  appDownloadTitleClassName?: string;
+  appButtonClassName?: string;
+  darkOverlay?: boolean;
+  overlayOpacity?: number;
+  onVideoClick?: () => void;
+  modalEnabled?: boolean;
+  onCtaClick?: () => void;
+}
+
+const HeroSlide: React.FC<HeroSlideProps> = ({
+  type,
+  src,
+  posterSrc,
+  content,
+  title,
+  subtitle,
+  cta,
+  appDownloadSection,
+  slideClassName = "w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover",
+  titleClassName,
+  subtitleClassName,
+  contentClassName,
+  ctaClassName,
+  appDownloadTitleClassName,
+  appButtonClassName,
+  darkOverlay = true,
+  overlayOpacity = 40,
+  onVideoClick,
+  modalEnabled = false,
+  onCtaClick,
+}) => {
+  return (
+    <div className="relative w-full h-full">
+      <HeroSlideMedia
+        type={type}
+        src={src}
+        posterSrc={posterSrc}
+        className={slideClassName}
+        alt={title || "Hero slide"}
+        onVideoClick={onVideoClick}
+        modalEnabled={modalEnabled}
+      />
+
+      <DarkOverlay enabled={darkOverlay} opacity={overlayOpacity} />
+
+      <HeroSlideContent
+        content={content}
+        contentClassName={contentClassName}
+        title={title}
+        subtitle={subtitle}
+        cta={cta}
+        appDownloadSection={appDownloadSection}
+        titleClassName={titleClassName}
+        subtitleClassName={subtitleClassName}
+        ctaClassName={ctaClassName}
+        appDownloadTitleClassName={appDownloadTitleClassName}
+        appButtonClassName={appButtonClassName}
+        onCtaClick={onCtaClick}
+      />
+    </div>
+  );
+};
+
+export default HeroSlide;

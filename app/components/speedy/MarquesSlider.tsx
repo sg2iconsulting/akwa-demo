@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 const marques = [
@@ -91,33 +91,36 @@ const MarquesSlider = () => {
             delay: 0,
             disableOnInteraction: false,
           }}
-          speed={2000} 
+          speed={2000}
           className="w-full"
           breakpoints={{
             320: {
-              slidesPerView:2,
+              slidesPerView: 2,
               spaceBetween: 0,
             },
             426: {
-              slidesPerView:3,
+              slidesPerView: 3,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView:4,
+              slidesPerView: 4,
               spaceBetween: 40,
             },
             1124: {
-              slidesPerView:5,
+              slidesPerView: 5,
               spaceBetween: 60,
             },
             1214: {
-              slidesPerView:5,
+              slidesPerView: 5,
               spaceBetween: 80,
             },
           }}
         >
           {marques.map((promo) => (
-            <SwiperSlide key={promo.id} className="flex h-full my-auto items-center justify-center w-full">
+            <SwiperSlide
+              key={promo.id}
+              className="flex h-full my-auto items-center justify-center w-full"
+            >
               <div className="flex items-center justify-center w-32 md:w-48 lg:w-full lg:h-24 xl:h-36 2xl:h-48 px-3 md:px-3 lg:px-O xl:py-2 xl:p-0">
                 <img
                   src={promo.image}

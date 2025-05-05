@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "../../../../utils/cn";
 import DropdownButton from "../../organisms/DropdownButton/DropdownButton";
 import { itemProps } from "../MenuItemsList/MenuItemsList";
 

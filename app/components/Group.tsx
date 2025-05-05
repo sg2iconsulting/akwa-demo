@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import useInView from "../hook/useView";
+import useInView from "../../hook/useView";
 import ImagesFadeShow from "./ImagesFadeShow";
 import { useMediaQuery } from "react-responsive";
 
@@ -10,26 +10,50 @@ const Group = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const initial = isInView
-  ? isMobile
-    ? { opacity: 0, y: 25 }
-    : { opacity: 0, x: 40 }
-  : {};
+    ? isMobile
+      ? { opacity: 0, y: 25 }
+      : { opacity: 0, x: 40 }
+    : {};
 
-const animate = isInView
-  ? isMobile
-    ? { opacity: 1, y: 0 }
-    : { opacity: 1, x: 0 }
-  : isMobile
-  ? { opacity: 0, y: 25 }
-  : { opacity: 0, x: 40 };
+  const animate = isInView
+    ? isMobile
+      ? { opacity: 1, y: 0 }
+      : { opacity: 1, x: 0 }
+    : isMobile
+    ? { opacity: 0, y: 25 }
+    : { opacity: 0, x: 40 };
 
   const images = [
-    ["/akwagroup/galery/image-0.png", "/akwagroup/galery/image-1.png", "/akwagroup/galery/image-2.png"],
-    ["/akwagroup/galery/image-3.png", "/akwagroup/galery/image-4.png", "/akwagroup/galery/image-5.png"],
-    ["/akwagroup/galery/image-12.png", "/akwagroup/galery/image-13.png", "/akwagroup/galery/image-14.png"],
-    ["/akwagroup/galery/image-15.png", "/akwagroup/galery/image-16.png", "/akwagroup/galery/image-17.png"],
-    ["/akwagroup/galery/image-9.png", "/akwagroup/galery/image-10.png", "/akwagroup/galery/image-11.png"],
-    ["/akwagroup/galery/image-6.png", "/akwagroup/galery/image-7.png", "/akwagroup/galery/image-8.png"],
+    [
+      "/akwagroup/galery/image-0.png",
+      "/akwagroup/galery/image-1.png",
+      "/akwagroup/galery/image-2.png",
+    ],
+    [
+      "/akwagroup/galery/image-3.png",
+      "/akwagroup/galery/image-4.png",
+      "/akwagroup/galery/image-5.png",
+    ],
+    [
+      "/akwagroup/galery/image-12.png",
+      "/akwagroup/galery/image-13.png",
+      "/akwagroup/galery/image-14.png",
+    ],
+    [
+      "/akwagroup/galery/image-15.png",
+      "/akwagroup/galery/image-16.png",
+      "/akwagroup/galery/image-17.png",
+    ],
+    [
+      "/akwagroup/galery/image-9.png",
+      "/akwagroup/galery/image-10.png",
+      "/akwagroup/galery/image-11.png",
+    ],
+    [
+      "/akwagroup/galery/image-6.png",
+      "/akwagroup/galery/image-7.png",
+      "/akwagroup/galery/image-8.png",
+    ],
   ];
 
   return (

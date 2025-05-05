@@ -1,9 +1,9 @@
 "use client";
-import Footer from "@/app/components/organisms/Footer/Footer";
-import MapComponent from "@/app/components/organisms/GoogleMap/GoogleMap";
-import HeroSlider from "@/app/components/organisms/HeroSlider/HeroSlider";
-import Navbar from "@/app/components/organisms/Navbar/Navbar";
-import PricingSection from "@/app/components/organisms/PricingSection/PricingSection";
+
+import Footer from "@/components/common/template/Footer";
+import MapComponent from "@/components/common/template/GoogleMap";
+import HeroSlider from "@/components/common/template/HeroSlider";
+import Navbar from "@/components/common/template/Navbar";
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 

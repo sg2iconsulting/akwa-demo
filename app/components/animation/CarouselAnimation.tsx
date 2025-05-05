@@ -1,8 +1,7 @@
 "use client";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { motion } from "framer-motion";
 import TrendingSlider, { TrendingSliderProps } from "../carousel/Carousel";
-
 
 const CarouselAnimation = ({
   slides,
@@ -13,7 +12,8 @@ const CarouselAnimation = ({
   slidesStyle,
   navigationIconColor,
   navigationStyle,
-  hiddenTitle,}: TrendingSliderProps) => {
+  hiddenTitle,
+}: TrendingSliderProps) => {
   const { ref, isInView } = useInView();
 
   return (

@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/maghrebBullets.css";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -267,7 +267,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
       <div className="relative w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px]">
         <video
-          src="/maghreb/MaghrebOxygene.mp4" 
+          src="/maghreb/MaghrebOxygene.mp4"
           autoPlay
           loop
           muted

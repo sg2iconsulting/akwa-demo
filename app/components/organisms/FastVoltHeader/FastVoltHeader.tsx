@@ -1,10 +1,10 @@
 import React from "react";
 import HeroSection, { SlideContent } from "../HeroSection/HeroSection";
 import FeaturesSection from "../FeaturesSection/FeaturesSection";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/utils/cn";
 
 interface FastVoltHeaderProps {
-  slides?: SlideContent [];
+  slides?: SlideContent[];
   backgroundImageClassename?: string;
   title?: string;
   subtitle?: string;

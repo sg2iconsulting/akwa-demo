@@ -67,13 +67,14 @@
 
 // export default Footer;
 
-
 // app/components/organisms/Footer/Footer.tsx
 import React from "react";
-import { cn } from "../../../utils/cn";
+import { cn } from "../../../../utils/cn";
 import Image from "../../atoms/Image/Image";
 import SocialMediaIcons from "../../molecules/SocialMediaIcons/SocialMediaIcons";
-import FooterItemsList, { FooterItem } from "../../molecules/FooterItemsList/FooterItemsList";
+import FooterItemsList, {
+  FooterItem,
+} from "../../molecules/FooterItemsList/FooterItemsList";
 import { IconType } from "react-icons"; // Import IconType from react-icons
 
 // Update to use the same type as SocialMediaIcons component
@@ -88,7 +89,7 @@ interface SocialMediaItem {
 
 interface FooterProps {
   footerItems: FooterItem[];
-  socialMediaItems?: SocialMediaItem[]; 
+  socialMediaItems?: SocialMediaItem[];
   footerLogoSource: string;
   imageClassename?: string;
   footerContainerClassename?: string;
@@ -111,7 +112,10 @@ const Footer: React.FC<FooterProps> = ({
 }) => {
   return (
     <footer
-      style={{ color: footerItemsTextColor, backgroundColor: footerBackgroundColor }}
+      style={{
+        color: footerItemsTextColor,
+        backgroundColor: footerBackgroundColor,
+      }}
       className={cn(
         "font-poppins w-full xl:h-auto p-5 md:px-10 lg:px-20 flex items-center mt-10 transition-all duration-300",
         footerContainerClassename
@@ -123,7 +127,7 @@ const Footer: React.FC<FooterProps> = ({
           alt="Footer Logo"
           imageClassename={cn("w-[100px] 2xl:w-[150px]", imageClassename)}
         />
-        
+
         <FooterItemsList
           menuItems={footerItems}
           menuItemLinkClassename={cn(
@@ -136,7 +140,7 @@ const Footer: React.FC<FooterProps> = ({
           )}
           backgroundColor={footerBackgroundColor}
         />
-        
+
         {socialMediaItems && <SocialMediaIcons items={socialMediaItems} />}
       </div>
     </footer>

@@ -7,11 +7,11 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import PromoCard, { PromoCardProps } from "../PromoCard/PromoCard";
 import "@/app/styles/promosBullets.css";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 export interface PromosSliderProps {
-    promoCards?: PromoCardProps [];
+  promoCards?: PromoCardProps[];
 }
 
 const promoCardss = [
@@ -107,7 +107,7 @@ const promoCardss = [
   },
 ];
 
-const PromosSlider = ({promoCards}: PromosSliderProps) => {
+const PromosSlider = ({ promoCards }: PromosSliderProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -184,30 +184,31 @@ const PromosSlider = ({promoCards}: PromosSliderProps) => {
             },
           }}
         >
-          {!promoCards && promoCardss.map((promo, index) => (
-            <SwiperSlide key={index} className="mb-6 md:mb-10 lg:mb-16">
-              <div className="p-1">
-                <PromoCard 
-                productName={promo.productName}
-                productImageSrc={promo.productImageSrc}
-                serie={promo.serie}
-                reference={promo.reference}
-                priceValue={promo.priceValue}
-                priceLabelTextColor={promo.priceLabelTextColor}
-                oldPrice={promo.oldPrice}
-                promoContainerBackground={promo.promoContainerBackground}
-                productNameTextColor={promo.productNameTextColor}
-                serieTextColor={promo.serieTextColor}
-                referenceTextColor={promo.referenceTextColor}
-                oldPriceTextColor={promo.oldPriceTextColor}
-                priceTextColor={promo.priceTextColor}
-                oldPriceBackgroundColor={promo.oldPriceBackgroundColor}
-                buttonTextColor={promo.buttonTextColor}
-                buttonBackgroundColor={promo.buttonBackgroundColor}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
+          {!promoCards &&
+            promoCardss.map((promo, index) => (
+              <SwiperSlide key={index} className="mb-6 md:mb-10 lg:mb-16">
+                <div className="p-1">
+                  <PromoCard
+                    productName={promo.productName}
+                    productImageSrc={promo.productImageSrc}
+                    serie={promo.serie}
+                    reference={promo.reference}
+                    priceValue={promo.priceValue}
+                    priceLabelTextColor={promo.priceLabelTextColor}
+                    oldPrice={promo.oldPrice}
+                    promoContainerBackground={promo.promoContainerBackground}
+                    productNameTextColor={promo.productNameTextColor}
+                    serieTextColor={promo.serieTextColor}
+                    referenceTextColor={promo.referenceTextColor}
+                    oldPriceTextColor={promo.oldPriceTextColor}
+                    priceTextColor={promo.priceTextColor}
+                    oldPriceBackgroundColor={promo.oldPriceBackgroundColor}
+                    buttonTextColor={promo.buttonTextColor}
+                    buttonBackgroundColor={promo.buttonBackgroundColor}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 import { motion } from "framer-motion";
 
@@ -71,7 +71,7 @@ const InfosBanner = ({
                 {description}
               </p>
             </div>
-            {children} 
+            {children}
           </div>
           <div className="w-[50%] hidden h-[50%] sm:h-full sm:flex items-end">
             <img

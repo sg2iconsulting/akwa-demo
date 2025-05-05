@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import { useMediaQuery } from "react-responsive";
 import Button from "../Button/Button";
 
@@ -28,7 +28,7 @@ const Section = ({
   backgroundImagePosition,
   buttonTextColor,
   backgroundStyle,
-  buttonLabel
+  buttonLabel,
 }: SectionProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });

@@ -1,9 +1,9 @@
 "use client";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { motion } from "framer-motion";
 import Actuality, { ActProps } from "../actuality/Actuality";
 
-const ActualityAnimation = ({color, btnColor, ttlColor, items}: ActProps) => {
+const ActualityAnimation = ({ color, btnColor, ttlColor, items }: ActProps) => {
   const { ref, isInView } = useInView();
 
   return (

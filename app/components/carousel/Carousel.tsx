@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import { EffectCoverflow, Navigation, Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import "@/app/styles/carousel.css";
@@ -25,7 +25,7 @@ export interface TrendingSliderProps {
   slidesStyle?: React.CSSProperties;
   navigationStyle?: React.CSSProperties;
   navigationIconColor?: string;
-  hiddenTitle?: "block" | "none"
+  hiddenTitle?: "block" | "none";
 }
 
 const TrendingSlider: React.FC<TrendingSliderProps> = ({

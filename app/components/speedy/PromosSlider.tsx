@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import PromoCard from "./PromoCard";
 import "@/app/styles/promosBullets.css";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 const promoCards = [
@@ -81,10 +81,10 @@ const PromosSlider = () => {
           modules={[Pagination]}
           breakpoints={{
             320: {
-              slidesPerView:1,
+              slidesPerView: 1,
             },
             890: {
-              slidesPerView:1.1,
+              slidesPerView: 1.1,
             },
             1024: {
               slidesPerView: 1.2,

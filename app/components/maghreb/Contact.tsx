@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { IoCallSharp } from "react-icons/io5";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 const Contact = () => {

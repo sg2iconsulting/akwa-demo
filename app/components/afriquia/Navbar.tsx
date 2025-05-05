@@ -10,13 +10,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/maghrebBullets.css";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import LanguageSelect from "./LanguageSwitcher";
 
 export interface NavProp {
   space: string;
   btnColor: string;
-  link: string
+  link: string;
 }
 
 const Navbar = ({ btnColor, space, link }: NavProp) => {
@@ -152,7 +152,7 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              Efficacité Énergétique 
+              Efficacité Énergétique
             </motion.li>
             <motion.li
               className="cursor-pointer"
@@ -251,7 +251,7 @@ const Navbar = ({ btnColor, space, link }: NavProp) => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            Efficacité Énergétique 
+            Efficacité Énergétique
           </motion.li>
           <motion.li
             className="cursor-pointer"

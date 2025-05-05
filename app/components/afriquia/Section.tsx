@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 export interface SectionProps {
@@ -35,12 +35,14 @@ const Section = ({ title, descrip, imgSrc }: SectionProps) => {
           className={`w-full h-[200px] sm:h-[300px] md:h-[350px] xl:h-[500px] 2xl:h-[675px] flex items-center text-white rounded-[15px] lg:rounded-[24px] xl:rounded-[35px] 2xl:rounded-[50px] `}
           style={{
             backgroundImage: `url(${imgSrc})`,
-            backgroundSize: "cover", 
-            backgroundPosition: "center", 
-            backgroundRepeat: "no-repeat"
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
           }}
         >
-          <div className={`flex flex-col w-full h-full gap-8 md:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 justify-center px-6 md:px-10 xl:px-14 2xl:px-20`}>
+          <div
+            className={`flex flex-col w-full h-full gap-8 md:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 justify-center px-6 md:px-10 xl:px-14 2xl:px-20`}
+          >
             <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 xl:gap-4 2xl:gap-5">
               <motion.h2
                 ref={ref}

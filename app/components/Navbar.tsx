@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "@/app/styles/swiperBullets.css";
-import useInView from "../hook/useView";
+import useInView from "../../hook/useView";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = ({ link = "" }: { link?: string }) => {

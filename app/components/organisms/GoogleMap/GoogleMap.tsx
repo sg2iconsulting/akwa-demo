@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import Heading from "../../atoms/Heading/Heading";
-import L from "leaflet"
+import L from "leaflet";
 
 // Fix for default icons
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import Heading from "@/components/common/atoms/Heading";
 
 let DefaultIcon = L.icon({
   iconUrl: icon.src,
@@ -19,13 +19,13 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 interface MapMarker {
-  position: [number, number]; // [latitude, longitude]
+  position: [number, number];
   title?: string;
   info?: string;
 }
 
 interface MapComponentProps {
-  center: [number, number]; // [latitude, longitude]
+  center: [number, number];
   markers?: MapMarker[];
   zoom?: number;
   title?: string;
@@ -55,21 +55,25 @@ const MapComponent: React.FC<MapComponentProps> = ({
         </Heading>
       )}
       <div className={mapClassName} style={{ height }}>
-        <MapContainer 
-          center={center} 
-          zoom={zoom} 
+        <MapContainer
+          center={center}
+          zoom={zoom}
           style={{ height: "100%", width: "100%" }}
         >
-          <TileLayer
+          {/* <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          /> */}
           {markers.map((marker, index) => (
             <Marker key={index} position={marker.position}>
               {marker.title || marker.info ? (
                 <Popup>
-                  {marker.title && <h3 className="font-bold">{marker.title}</h3>}
-                  {marker.info && <div dangerouslySetInnerHTML={{ __html: marker.info }} />}
+                  {marker.title && (
+                    <h3 className="font-bold">{marker.title}</h3>
+                  )}
+                  {marker.info && (
+                    <div dangerouslySetInnerHTML={{ __html: marker.info }} />
+                  )}
                 </Popup>
               ) : null}
             </Marker>

@@ -1,18 +1,19 @@
 "use server";
-import Section from "../components/organisms/Section/Section";
-import Footer from "../components/organisms/Footer/Footer";
-import BannerInscription from "../components/organisms/BannerInscription/BannerInscription";
-import Carousel from "../components/organisms/Carousel/Carousel";
+
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import Solutions from "../components/organisms/Solutions/Solutions";
-import Navbar from "../components/organisms/Navbar/Navbar";
-import FeaturesSection from "../components/organisms/FeaturesSection/FeaturesSection";
 import { FiMapPin } from "react-icons/fi";
 import { MdAccessTimeFilled } from "react-icons/md";
 import { BsLightning } from "react-icons/bs";
-import HeroSlider from "../components/organisms/HeroSlider/HeroSlider";
-import { createApolloClient } from "../lib/apolloServerClient";
+import { createApolloClient } from "@/lib/apolloServerClient";
 import { gql } from "@apollo/client";
+import Navbar from "@/components/common/template/Navbar";
+import HeroSlider from "@/components/common/template/HeroSlider";
+import FeaturesSection from "@/components/common/template/FeaturesSection";
+import Solutions from "@/components/common/template/Solutions";
+import Carousel from "@/components/common/template/Carousel";
+import Section from "@/components/common/template/Section";
+import BannerInscription from "@/components/common/template/BannerInscription";
+import Footer from "@/components/common/template/Footer";
 
 const query = gql`
   query NewQuery {

@@ -1,6 +1,6 @@
 import React from "react";
 import TextContent from "../../molecules/TextContent/TextContent";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/utils/cn";
 
 export interface SectionProps {
   title: string;
@@ -52,14 +52,23 @@ const Section = ({
         <TextContent
           headingTag={headingTag}
           title={title}
-          headingClassename={cn("text-[20px] md:text-[30px] xl:text-[40px] 2xl:text-[50px] font-bold text-white", headingClassename)}
+          headingClassename={cn(
+            "text-[20px] md:text-[30px] xl:text-[40px] 2xl:text-[50px] font-bold text-white",
+            headingClassename
+          )}
           headingStyle={headingStyle}
-          paragraphsClassename={cn("text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] flex flex-col gap-2 lg:gap-4 xl:gap-6 dark:text-white", paragraphsClassename)}
+          paragraphsClassename={cn(
+            "text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] flex flex-col gap-2 lg:gap-4 xl:gap-6 dark:text-white",
+            paragraphsClassename
+          )}
           paragraphsStyle={paragraphsStyle}
           paragraphClassename={cn("text-white", paragraphClassename)}
           paragraphStyle={paragraphStyle}
           paragraphs={paragraphs}
-          buttonClassename={cn("px-6 py-2 text-white bg-[#8BBA25] text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl w-[170px] md:w-[200px] lg:w-[240px] rounded-full", buttonClassename)}
+          buttonClassename={cn(
+            "px-6 py-2 text-white bg-[#8BBA25] text-sm md:text-md lg:text-lg xl:text-xl 2xl:text-2xl w-[170px] md:w-[200px] lg:w-[240px] rounded-full",
+            buttonClassename
+          )}
           buttonStyle={buttonStyle}
           buttonChildren={buttonChildren}
         />

@@ -2,7 +2,7 @@
 import React from "react";
 import Item from "../Item/Item";
 import { motion } from "framer-motion";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 import Button from "../Button/Button";
 
@@ -132,7 +132,7 @@ const Actuality = ({
               imgSrc={items[4].imgSrc}
               title={items[4].title}
               date={items[4].date}
-              url={items[4].url} 
+              url={items[4].url}
               containerBackgroundColor="white"
               containerBorderStyle="1px solid #F1F1F1"
               textColor="black"

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import AnimatedCounter from "../animation/AnimatedCounter";
 import { useMediaQuery } from "react-responsive";
 

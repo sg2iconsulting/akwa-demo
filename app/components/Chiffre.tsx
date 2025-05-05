@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import useInView from "../hook/useView";
+import useInView from "../../hook/useView";
 import AnimatedCounter from "./animation/AnimatedCounter";
 import { useMediaQuery } from "react-responsive";
 
@@ -9,18 +9,18 @@ const Chiffre = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const initial = isInView
-  ? isMobile
-    ? { opacity: 0, y: 25 }
-    : { opacity: 0, x: 40 }
-  : {};
+    ? isMobile
+      ? { opacity: 0, y: 25 }
+      : { opacity: 0, x: 40 }
+    : {};
 
-const animate = isInView
-  ? isMobile
-    ? { opacity: 1, y: 0 }
-    : { opacity: 1, x: 0 }
-  : isMobile
-  ? { opacity: 0, y: 25 }
-  : { opacity: 0, x: 40 };
+  const animate = isInView
+    ? isMobile
+      ? { opacity: 1, y: 0 }
+      : { opacity: 1, x: 0 }
+    : isMobile
+    ? { opacity: 0, y: 25 }
+    : { opacity: 0, x: 40 };
 
   return (
     <section className="font-poppins w-full max-w-[2000px] mx-auto h-full">

@@ -7,14 +7,14 @@ import "@/app/styles/afriquiaswiperBullets.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 export interface PostProp {
   pro: boolean;
 }
 
-const Posts = ({pro}: PostProp) => {
+const Posts = ({ pro }: PostProp) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
@@ -32,7 +32,7 @@ const Posts = ({pro}: PostProp) => {
     ? { opacity: 0, y: 25 }
     : { opacity: 0, x: 40 };
 
-  return ( 
+  return (
     <section className="w-full h-full max-w-[2000px] mx-auto">
       <div className="flex flex-col w-full h-full px-5 md:px-10 lg:px-20">
         <div className="">

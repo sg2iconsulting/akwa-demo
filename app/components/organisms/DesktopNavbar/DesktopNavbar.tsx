@@ -1,7 +1,4 @@
 import React from "react";
-import Logo from "../../atoms/Logo/Logo";
-import NavLinks from "../../molecules/NavLinks/NavLinks";
-import LanguageSwitcher from "../../molecules/LanguageSwitcher/LanguageSwitcher";
 import Button from "../../atoms/Button/Button";
 import MenuItemsList, {
   itemProps,
@@ -66,7 +63,6 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
         menuItems={menuItemsList}
         menuItemClassename={menuItemClassename}
         menuItemStyle={menuItemStyle}
-
       />
       <div className="flex items-center space-x-8">
         <div className="flex items-center space-x-4">
@@ -87,10 +83,7 @@ const DesktopNavbar: React.FC<DesktopNavbarProps> = ({
             selectItemsTextColor={selectItemsTextColor || "black"}
           />
 
-          <Button
-            className={buttonClassename}
-            style={buttonStyle || {}}
-          >
+          <Button className={buttonClassename} style={buttonStyle || {}}>
             {buttonLable}
           </Button>
         </div>

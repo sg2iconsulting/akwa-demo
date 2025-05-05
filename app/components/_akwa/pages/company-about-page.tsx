@@ -3,7 +3,7 @@
 import CompanyAboutTemplate from "../templates/company-about-template";
 import { Metadata } from "next";
 import { gql } from "@apollo/client";
-import { createApolloClient } from "@/app/lib/apolloServerClient";
+import { createApolloClient } from "@/lib/apolloServerClient";
 
 // const query = gql`
 //   query Sections {

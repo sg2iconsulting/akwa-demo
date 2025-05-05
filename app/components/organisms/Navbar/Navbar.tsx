@@ -5,15 +5,9 @@ import DesktopNavbar, {
 } from "../DesktopNavbar/DesktopNavbar";
 import MobileNavbar from "../MobileNavbar/MobileNavbar";
 import MobileMenuButton from "../../molecules/MobileMenuButton/MobileMenuButton";
-import Logo from "../../atoms/Logo/Logo";
-import useInView from "../../../hook/useView";
-import FastVoltHeader from "../FastVoltHeader/FastVoltHeader";
-import Button from "../../atoms/Button/Button";
+import useInView from "../../../../hook/useView";
 import Image from "../../atoms/Image/Image";
-import { MenuItemsListProps } from "../../molecules/MenuItemsList/MenuItemsList";
-import { LanguageOptions } from "../../molecules/SelectItems/SelectItems";
-import clsx from "clsx";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/utils/cn";
 
 export interface NavbarProps {
   mobileLogoSrcImage: string;

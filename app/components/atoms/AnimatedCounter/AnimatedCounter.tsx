@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 
 export interface AnimatedCounterProps {
   value: number;

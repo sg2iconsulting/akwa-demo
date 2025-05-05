@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "@/app/styles/carousel.css";
 import { useMediaQuery } from "react-responsive";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { IoCheckmarkCircle } from "react-icons/io5";
 
 const Solutions = () => {

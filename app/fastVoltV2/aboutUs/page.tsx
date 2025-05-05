@@ -1,12 +1,14 @@
 "use client";
-import AboutUs from "@/app/components/organisms/AboutUs/AboutUs";
-import AboutUsSection from "@/app/components/organisms/AboutUsSection/AboutUsSection";
-import Footer from "@/app/components/organisms/Footer/Footer";
-import HeroSlider from "@/app/components/organisms/HeroSlider/HeroSlider";
-import Navbar from "@/app/components/organisms/Navbar/Navbar";
-import PartnerSlider from "@/app/components/organisms/PartnerSlider/PartnerSlider";
+
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+
+import Navbar from "@/components/common/template/Navbar";
+import HeroSlider from "@/components/common/template/HeroSlider";
+import AboutUs from "@/components/common/template/AboutUs";
+import AboutUsSection from "@/components/common/template/AboutUsSection";
+import PartnerSlider from "@/components/common/template/PartnerSlider";
+import Footer from "@/components/common/template/Footer";
 
 const page = () => {
   return (
@@ -191,7 +193,7 @@ const page = () => {
         autoplay={true}
         loop={true}
       />
-      
+
       <section>
         <Footer
           footerItemsTextColor="white"

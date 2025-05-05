@@ -4,7 +4,7 @@ import Heading from "../../atoms/Heading/Heading";
 import PostCard from "../../molecules/PostCard/PostCard";
 import ItemCardList from "../../molecules/ItemCardList/ItemCardList";
 import Skeleton from "../../atoms/Skeleton/Skeleton";
-import { cn } from "@/app/utils/cn";
+import { cn } from "@/utils/cn";
 
 export interface PostItem {
   imgSrc: string;
@@ -31,7 +31,7 @@ export interface PostCardItemProps {
   backgroundButtonColor?: string;
   buttonTextColor?: string;
   labelButton: string;
-  isLoading?: boolean; 
+  isLoading?: boolean;
 }
 
 const PostCardSkeleton = () => (
@@ -72,7 +72,7 @@ const PostCardItem = ({
   backgroundButtonColor,
   buttonTextColor,
   labelButton,
-  isLoading = false, 
+  isLoading = false,
 }: PostCardItemProps) => {
   return (
     <div className="w-full h-full max-w-[2000px] mx-auto flex flex-col gap-4 lg:gap-7 px-5 md:px-10 lg:px-20">
@@ -86,7 +86,10 @@ const PostCardItem = ({
         ) : (
           <Heading
             tag="h2"
-            className={cn("font-black w-full text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-poppins dark:text-white", titleClassename)}
+            className={cn(
+              "font-black w-full text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-poppins dark:text-white",
+              titleClassename
+            )}
             style={{ color: titleTextColor || undefined }}
           >
             {title}
@@ -107,24 +110,48 @@ const PostCardItem = ({
               date={items[0].date}
               title={items[0].title}
               description={items[0].description}
-              imageClassename={cn("object-cover w-full h-full", items[0].imageClassename)}
-              dateClassename={cn("text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]",items[0].dateClassename)}
-              titleClassename={cn("text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold",items[0].titleClassename)}
-              descriptionClassename={cn("text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2",items[0].descriptionClassename)}
-              buttonClassename={cn("px-6 py-2 w-[200px] rounded-full",items[0].buttonClassename)}
+              imageClassename={cn(
+                "object-cover w-full h-full",
+                items[0].imageClassename
+              )}
+              dateClassename={cn(
+                "text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]",
+                items[0].dateClassename
+              )}
+              titleClassename={cn(
+                "text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold",
+                items[0].titleClassename
+              )}
+              descriptionClassename={cn(
+                "text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2",
+                items[0].descriptionClassename
+              )}
+              buttonClassename={cn(
+                "px-6 py-2 w-[200px] rounded-full",
+                items[0].buttonClassename
+              )}
               backgroundItemColor={backgroundItemColor}
               backgroundButtonColor={backgroundButtonColor}
               buttonTextColor={buttonTextColor}
               labelButton={labelButton}
             />
             <ItemCardList
-              items={items.slice(1).map(item => ({
+              items={items.slice(1).map((item) => ({
                 imgSrc: item.imgSrc,
                 title: item.title,
                 date: item.date,
-                imageClassename: cn("w-full h-full rounded-[8px] object-cover", item.imageClassename),
-                dateClassename: cn("text-[8px] md:text-[12px] xl:text-[13px]",item.dateClassename),
-                titleClassename: cn("text-[10px] md:text-[14px] xl:text-[15px] font-bold line-clamp-2", item.titleClassename),
+                imageClassename: cn(
+                  "w-full h-full rounded-[8px] object-cover",
+                  item.imageClassename
+                ),
+                dateClassename: cn(
+                  "text-[8px] md:text-[12px] xl:text-[13px]",
+                  item.dateClassename
+                ),
+                titleClassename: cn(
+                  "text-[10px] md:text-[14px] xl:text-[15px] font-bold line-clamp-2",
+                  item.titleClassename
+                ),
                 containerBackgroundColor: "white",
                 containerBorderStyle: "1px solid #F1F1F1",
                 textColor: "black",

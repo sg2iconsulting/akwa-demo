@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import useInView from "../../hook/useView";
+import useInView from "../../../hook/useView";
 import { useMediaQuery } from "react-responsive";
 import Button from "../Button/Button";
 

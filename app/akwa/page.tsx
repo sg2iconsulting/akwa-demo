@@ -18,7 +18,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import Section from "../components/organisms/Section/Section";
-import { useArticles } from "../hook/useArticles";
+import { useArticles } from "../../hook/useArticles";
 import PostCardItem from "../components/organisms/PostCardItem.tsx/PostCardItem";
 import AboutUs from "../components/organisms/AboutUs/AboutUs";
 import ChiffreCounter from "../components/organisms/ChiffreCounter/ChiffreCounter";

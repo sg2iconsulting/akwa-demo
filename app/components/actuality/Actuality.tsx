@@ -2,7 +2,7 @@
 import React from "react";
 import Item from "./Item";
 import { motion } from "framer-motion";
-import useInView from "@/app/hook/useView";
+import useInView from "@/hook/useView";
 import { useMediaQuery } from "react-responsive";
 
 interface ItemsProps {
@@ -14,29 +14,29 @@ interface ItemsProps {
 }
 
 export interface ActProps {
-  items: ItemsProps [],
+  items: ItemsProps[];
   color: string;
   btnColor: string;
   ttlColor: string;
 }
 
-const Actuality = ({color, btnColor, ttlColor, items}: ActProps) => {
+const Actuality = ({ color, btnColor, ttlColor, items }: ActProps) => {
   const { ref, isInView } = useInView();
   const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const initial = isInView
-  ? isMobile
-    ? { opacity: 0, y: 25 }
-    : { opacity: 0, x: 40 }
-  : {};
+    ? isMobile
+      ? { opacity: 0, y: 25 }
+      : { opacity: 0, x: 40 }
+    : {};
 
-const animate = isInView
-  ? isMobile
-    ? { opacity: 1, y: 0 }
-    : { opacity: 1, x: 0 }
-  : isMobile
-  ? { opacity: 0, y: 25 }
-  : { opacity: 0, x: 40 };
+  const animate = isInView
+    ? isMobile
+      ? { opacity: 1, y: 0 }
+      : { opacity: 1, x: 0 }
+    : isMobile
+    ? { opacity: 0, y: 25 }
+    : { opacity: 0, x: 40 };
 
   return (
     <section className="w-full ">
@@ -59,7 +59,9 @@ const animate = isInView
                 className="object-cover w-full h-full"
               />
             </div>
-            <div className={`w-full ${color} rounded-b-[20px] text-white flex flex-col justify-center gap-2 md:gap-4 p-6 md:px-10 lg:px-16`}>
+            <div
+              className={`w-full ${color} rounded-b-[20px] text-white flex flex-col justify-center gap-2 md:gap-4 p-6 md:px-10 lg:px-16`}
+            >
               <p className="text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]">
                 {items[0].date}
               </p>
@@ -80,11 +82,36 @@ const animate = isInView
             </div>
           </div>
           <div className="w-full xl:w-[35%] flex flex-col justify-between gap-2 xl:gap-4">
-            <Item imgSrc={items[1].imgSrc} title={items[1].title} date={items[1].date} url={items[1].url}/>
-            <Item imgSrc={items[2].imgSrc} title={items[2].title} date={items[2].date} url={items[2].url}/>
-            <Item imgSrc={items[3].imgSrc} title={items[3].title} date={items[3].date} url={items[3].url}/>
-            <Item imgSrc={items[4].imgSrc} title={items[4].title} date={items[4].date} url={items[4].url}/>
-            <Item imgSrc={items[5].imgSrc} title={items[5].title} date={items[5].date} url={items[5].url}/>
+            <Item
+              imgSrc={items[1].imgSrc}
+              title={items[1].title}
+              date={items[1].date}
+              url={items[1].url}
+            />
+            <Item
+              imgSrc={items[2].imgSrc}
+              title={items[2].title}
+              date={items[2].date}
+              url={items[2].url}
+            />
+            <Item
+              imgSrc={items[3].imgSrc}
+              title={items[3].title}
+              date={items[3].date}
+              url={items[3].url}
+            />
+            <Item
+              imgSrc={items[4].imgSrc}
+              title={items[4].title}
+              date={items[4].date}
+              url={items[4].url}
+            />
+            <Item
+              imgSrc={items[5].imgSrc}
+              title={items[5].title}
+              date={items[5].date}
+              url={items[5].url}
+            />
           </div>
         </div>
       </div>
