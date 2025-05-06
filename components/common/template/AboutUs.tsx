@@ -85,7 +85,7 @@ const AboutUs = ({
             buttonStyle={buttonStyle}
             buttonChildren={buttonChildren}
           />
-          <ImagesFadeShowSection images={images} />
+          <ImagesFadeShowSection images={images || [[]]} />
         </div>
       </div>
     </section>

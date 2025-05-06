@@ -28,7 +28,7 @@ const Home = () => {
     },
     {
       id: 3,
-      href: "/fastVolt",
+      href: "/fastVoltV2",
       imageSrc: "/fastVolt/navBackFv.png",
       title: "FastVolt",
     },
@@ -65,7 +65,9 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-black opacity-70"></div>
           <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-white text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-bold">{link.title}</h1>
+            <h1 className="text-white text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-bold">
+              {link.title}
+            </h1>
           </div>
         </Link>
       ))}

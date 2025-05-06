@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import useInView from "@/hook/useView";
-import AnimatedCounter from "../../animation/AnimatedCounter";
+import AnimatedCounter from "@/components/animations/AnimatedCounter";
 
 type StatItem = {
   value: number;

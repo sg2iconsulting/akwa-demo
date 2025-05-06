@@ -1,9 +1,10 @@
 "use client";
-import Footer from "@/app/components/organisms/Footer/Footer";
-import HeroSlider from "@/app/components/organisms/HeroSlider/HeroSlider";
-import Navbar from "@/app/components/organisms/Navbar/Navbar";
-import PricingSection from "@/app/components/organisms/PricingSection/PricingSection";
-import SubscriptionPlans from "@/app/components/organisms/SubscriptionPlans/SubscriptionPlans";
+import Navbar from "@/components/common/template/Navbar";
+import HeroSlider from "@/components/common/template/HeroSlider";
+import SubscriptionPlans from "@/components/common/template/SubscriptionPlans";
+import PricingSection from "@/components/common/template/PricingSection";
+import Footer from "@/components/common/template/Footer";
+
 import React from "react";
 import { FaFacebook, FaInstagram, FaLinkedin, FaCheck } from "react-icons/fa";
 
@@ -99,8 +100,14 @@ const page = () => {
       <section>
         <PricingSection
           features={[
-            { icon: FaCheck, text: "Parking avec recharge rapide (DC) : 2,50 dhs" },
-            { icon: FaCheck, text: "Parking avec recharge semi-rapide (AC) : 0.5 dhs" },
+            {
+              icon: FaCheck,
+              text: "Parking avec recharge rapide (DC) : 2,50 dhs",
+            },
+            {
+              icon: FaCheck,
+              text: "Parking avec recharge semi-rapide (AC) : 0.5 dhs",
+            },
           ]}
         />
       </section>
@@ -112,57 +119,57 @@ const page = () => {
               description: "5 recharges rapides par jour",
               features: [
                 { icon: FaCheck, text: "Pendant 7 jours à 250 dhs" },
-                { icon: FaCheck, text: "Pendant 30 jours à 800 dhs" }
-              ]
+                { icon: FaCheck, text: "Pendant 30 jours à 800 dhs" },
+              ],
             },
             {
               title: "Abonnement Privilège",
               description: "5 recharges rapides par jour",
               features: [
                 { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
-                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" }
-              ]
+                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" },
+              ],
             },
             {
-                title: "Abonnement Privilège",
-                description: "5 recharges rapides par jour",
-                features: [
-                  { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
-                  { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" }
-                ]
-              },
-              {
-                title: "Abonnement Privilège",
-                description: "5 recharges rapides par jour",
-                features: [
-                  { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
-                  { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" }
-                ]
-              },
-              {
-                title: "Abonnement Privilège",
-                description: "5 recharges rapides par jour",
-                features: [
-                  { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
-                  { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" }
-                ]
-              },
-              {
-                title: "Abonnement Privilège",
-                description: "5 recharges rapides par jour",
-                features: [
-                  { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
-                  { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" }
-                ]
-              },
-              {
-                title: "Abonnement Privilège",
-                description: "5 recharges rapides par jour",
-                features: [
-                  { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
-                  { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" }
-                ]
-              }
+              title: "Abonnement Privilège",
+              description: "5 recharges rapides par jour",
+              features: [
+                { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
+                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" },
+              ],
+            },
+            {
+              title: "Abonnement Privilège",
+              description: "5 recharges rapides par jour",
+              features: [
+                { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
+                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" },
+              ],
+            },
+            {
+              title: "Abonnement Privilège",
+              description: "5 recharges rapides par jour",
+              features: [
+                { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
+                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" },
+              ],
+            },
+            {
+              title: "Abonnement Privilège",
+              description: "5 recharges rapides par jour",
+              features: [
+                { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
+                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" },
+              ],
+            },
+            {
+              title: "Abonnement Privilège",
+              description: "5 recharges rapides par jour",
+              features: [
+                { icon: FaCheck, text: "Pendant 7 jours à 300 dhs" },
+                { icon: FaCheck, text: "Pendant 30 jours à 1000 dhs" },
+              ],
+            },
           ]}
         />
       </section>

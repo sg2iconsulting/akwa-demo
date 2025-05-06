@@ -1,6 +1,6 @@
 import React from "react";
 import SignChar from "../atoms/SignChar";
-import AnimatedCounter from "../atoms/AnimatedCounter";
+import AnimatedCounter from "@/components/animations/AnimatedCounter";
 
 export interface SignCounterProps {
   value: number;

@@ -5,11 +5,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import TabGroup, { TabId } from "../molecule/tab-group";
-import { TimelineItem } from "../organisme/timeline";
-import PresentationSection from "../organisme/presentation-section";
-import HistorySection from "../organisme/history-section";
-import CompanyKeyNumbers from "../organisme/company-key-numbers";
+import TabGroup, { TabId } from "@/components/akwa/molecule/tab-group";
+import { TimelineItem } from "@/components/akwa/organisme/timeline";
+import PresentationSection from "@/components/akwa/organisme/presentation-section";
+import HistorySection from "@/components/akwa/organisme/history-section";
+import CompanyKeyNumbers from "@/components/akwa/organisme/company-key-numbers";
 import Carousel from "@/components/common/template/Carousel";
 
 interface CompanyTimelineTemplateProps {

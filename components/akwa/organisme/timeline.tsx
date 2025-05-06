@@ -4,11 +4,11 @@ import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import TimelineNavigation from "../molecules/timeline-navigation";
-import TimelineNode from "../atoms/timeline-node";
-import ContentCard from "../molecules/content-card";
-
 import { Navigation } from "swiper/modules";
+import TimelineNavigation from "@/components/akwa/molecule/timeline-navigation";
+import ContentCard from "@/components/akwa/molecule/content-card";
+import TimelineNode from "@/components/akwa/atoms/timeline-node";
+
 import "swiper/css";
 import "swiper/css/navigation";
 

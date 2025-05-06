@@ -1,4 +1,4 @@
-import ImageWithText from "../molecules/ImageWithText";
+import ImageWithText from "@/components/akwa/molecule/ImageWithText";
 
 interface PresentationContent {
   vision: {

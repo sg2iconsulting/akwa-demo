@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "../atoms/Image";
-import Heading from "../atoms/Heading";
+import Image from "@/components/common/atoms/Image";
+import Heading from "@/components/common/atoms/Heading";
 
 interface AboutUsSectionProps {
   imgSrc: string;

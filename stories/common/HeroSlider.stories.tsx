@@ -5,7 +5,7 @@ import HeroSlider, {
 import { CTAButton } from "@/components/common/molecule/CTAButton";
 
 const meta: Meta<typeof HeroSlider> = {
-  title: "Organisms/HeroSlider",
+  title: "Sections/HeroSlider",
   component: HeroSlider,
 };
 
@@ -31,12 +31,24 @@ const exampleSlides: HeroSlideItem[] = [
   {
     type: "video",
     src: "https://sg2i.com/wp-content/uploads/2024/12/transitionenergetique.mp4",
-    posterSrc: "https://via.placeholder.com/1200x600?text=Video+Poster",
+    posterSrc: "https://picsum.photos/600/400",
     title: "Mobilité durable et innovation",
     subtitle:
       "Le temps d'une pause café, rechargez vos batteries et prenez la route vers une mobilité durable...",
   },
 ];
+
+const commonClasses = {
+  title:
+    "text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16",
+  subtitle:
+    "text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold",
+  appDownloadTitle:
+    "text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold",
+  appButton: "w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto",
+  slide:
+    "w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover",
+};
 
 export const Default: Story = {
   args: {
@@ -44,38 +56,12 @@ export const Default: Story = {
     effect: "slide",
     enableVideoModal: true,
     showPagination: true,
-    paginationStyles: `
-      .swiper-pagination {
-        position: absolute;
-        bottom: 20px !important;
-        z-index: 50 !important;
-      }
-
-      .swiper-pagination-bullet {
-        width: 12px;
-        height: 12px;
-        background: white;
-        opacity: 0.6;
-      }
-
-      .swiper-pagination-bullet-active {
-        opacity: 1;
-        background: #8BBA25;
-      }
-
-      .swiper-button-next, .swiper-button-prev {
-        color: white;
-      }
-    `,
-    titleClassName:
-      "text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16",
-    subtitleClassName:
-      "text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold",
-    appDownloadTitleClassName:
-      "text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold",
-    appButtonClassName: "w-16 sm:w-24 md:w-28 lg:w-32 xl:w-44 2xl:w-auto",
-    slideClassName:
-      "w-full h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] 2xl:min-h-[900px] object-cover",
+    paginationColor: "#8BBA25",
+    titleClassName: commonClasses.title,
+    subtitleClassName: commonClasses.subtitle,
+    appDownloadTitleClassName: commonClasses.appDownloadTitle,
+    appButtonClassName: commonClasses.appButton,
+    slideClassName: commonClasses.slide,
   },
 };
 
@@ -112,8 +98,7 @@ export const TestStory: Story = {
     effect: "fade",
     enableVideoModal: false,
     showPagination: false,
-    paginationStyles:
-      "\n      .swiper-pagination {\n        position: absolute;\n        bottom: 20px !important;\n        z-index: 50 !important;\n      }\n\n      .swiper-pagination-bullet {\n        width: 12px;\n        height: 12px;\n        background: white;\n        opacity: 0.6;\n      }\n\n      .swiper-pagination-bullet-active {\n        opacity: 1;\n        background: #8BBA25;\n      }\n\n      .swiper-button-next, .swiper-button-prev {\n        color: white;\n      }\n    ",
+    paginationColor: "#8CA640",
     titleClassName:
       "text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16",
     subtitleClassName:

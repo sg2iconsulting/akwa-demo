@@ -1,15 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-// import Footer from "../components/Footer";
-import GroupAnimation from "../components/animation/GroupAnimation";
-import ChiffreAnimation from "../components/animation/ChiffreAnimation";
-import SectionAnimation from "../components/animation/SectionAnimation";
-import ActualityAnimation from "../components/animation/ActualityAnimation";
 import { TbArrowBarToUp } from "react-icons/tb";
-import TrendingSliderAnimation from "../components/animation/TrendingSliderAnimation";
-import Navbar from "../components/organisms/Navbar/Navbar";
-import HeroSlider from "../components/organisms/HeroSlider/HeroSlider";
-import Carousel from "../components/organisms/Carousel/Carousel";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -17,15 +8,18 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import Section from "../components/organisms/Section/Section";
 import { useArticles } from "../../hook/useArticles";
+
+import Navbar from "../components/organisms/Navbar/Navbar";
+import Carousel from "../components/organisms/Carousel/Carousel";
+import Section from "../components/organisms/Section/Section";
 import PostCardItem from "../components/organisms/PostCardItem.tsx/PostCardItem";
 import AboutUs from "../components/organisms/AboutUs/AboutUs";
 import ChiffreCounter from "../components/organisms/ChiffreCounter/ChiffreCounter";
 import Footer from "../components/organisms/Footer/Footer";
-import DropdownButton from "../components/organisms/DropdownButton/DropdownButton";
 import CarteModal from "../components/organisms/CarteModal/CarteModal";
 import Button from "../components/atoms/Button/Button";
+import HeroSlider from "@/components/common/template/HeroSlider";
 
 const Home = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -163,29 +157,6 @@ const Home = () => {
               },
             },
           ]}
-          paginationStyles={`
-            .swiper-pagination {
-              position: absolute;
-              bottom: 20px !important;
-              z-index: 50 !important;
-            }
-
-            .swiper-pagination-bullet {
-              width: 12px;
-              height: 12px;
-              background: white;
-              opacity: 0.6;
-            }
-
-            .swiper-pagination-bullet-active {
-              opacity: 1;
-              background: #19A0BF;
-            }
-
-            .swiper-button-next, .swiper-button-prev {
-              color: white;
-            }
-          `}
           titleClassName="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16"
           subtitleClassName="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold"
           appDownloadTitleClassName="text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold"

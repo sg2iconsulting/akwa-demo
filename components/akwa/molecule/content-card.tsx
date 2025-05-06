@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Heading from "../../atoms/Heading/Heading";
-import Paragraph from "../../atoms/Paragraph/Paragraph";
+import Heading from "@/components/common/atoms/Heading";
+import Paragraph from "@/components/common/atoms/Paragraph";
 
 interface ContentCardProps {
   title: string;

@@ -1,9 +1,9 @@
 import React from "react";
-import Heading from "../../atoms/Heading/Heading";
-import Paragraph from "../../atoms/Paragraph/Paragraph";
-import FeatureItem from "../../molecules/FeatureItem/FeatureItem";
 import { IconType } from "react-icons";
 import { FaCheck } from "react-icons/fa";
+import Heading from "@/components/common/atoms/Heading";
+import FeatureItem from "@/components/common/molecule/FeatureItem";
+import Paragraph from "@/components/common/atoms/Paragraph";
 
 interface FeatureItemData {
   icon: IconType;

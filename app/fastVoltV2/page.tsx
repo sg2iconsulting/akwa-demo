@@ -117,29 +117,7 @@ export default async function FastVoltPage() {
         />
         <HeroSlider
           slides={formattedSlides}
-          paginationStyles={`
-            .swiper-pagination {
-              position: absolute;
-              bottom: 20px !important;
-              z-index: 50 !important;
-            }
-
-            .swiper-pagination-bullet {
-              width: 12px;
-              height: 12px;
-              background: white;
-              opacity: 0.6;
-            }
-
-            .swiper-pagination-bullet-active {
-              opacity: 1;
-              background: #8BBA25;
-            }
-
-            .swiper-button-next, .swiper-button-prev {
-              color: white;
-            }
-          `}
+          paginationColor="#8CA640"
           titleClassName="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16"
           subtitleClassName="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[16px] xl:text-[20px] 2xl:text-[22px] font-semibold"
           appDownloadTitleClassName="text-[14px] sm:text-[20px] lg:text-[26px] xl:text-[30px] 2xl:text-[36px] font-extrabold"

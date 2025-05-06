@@ -39,11 +39,11 @@ const BannerInscription = ({
         <Image
           src={imageBackgroundSource}
           imageClassename={cn(
-            "object-cover w-full h-full bg-center rounded-[15px]",
+            "object-cover w-full h-full bg-center rounded-[15px] aspect-[4/1] bg-gray-700",
             imageClassName
           )}
         />
-        <div className="absolute inset-0 flex flex-col sm:flex-row justify-center gap-y-4 sm:justify-between sm:items-center px-5 md:px-10 2xl:px-20 text-white">
+        <div className="absolute  inset-0 flex flex-col sm:flex-row justify-center gap-y-4 sm:justify-between sm:items-center px-5 md:px-10 2xl:px-20 text-white">
           <div className="leading-tight px-5 md:pl-10 lg:pr-5 lg:px-20 xl:pl-28 flex flex-col gap-2">
             <div className="w-2/3">
               <Heading

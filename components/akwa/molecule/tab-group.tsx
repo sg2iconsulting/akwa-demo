@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TabButton from "../atoms/tab-button";
+import TabButton from "@/components/akwa/atoms/tab-button";
 
 export type TabId = "presentation" | "historique" | "chiffres";
 

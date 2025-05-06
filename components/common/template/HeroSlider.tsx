@@ -64,6 +64,7 @@ interface HeroSliderProps {
   overlayOpacity?: number;
   enableVideoModal?: boolean;
   paginationStyles?: string;
+  paginationColor?: string;
 }
 
 const HeroSlider: React.FC<HeroSliderProps> = ({
@@ -86,11 +87,34 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   darkOverlay = true,
   overlayOpacity = 40,
   enableVideoModal = false,
-  paginationStyles,
+  paginationColor = "#FFFFFF",
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalVideoSrc, setModalVideoSrc] = useState("");
   const [modalVideoTitle, setModalVideoTitle] = useState("");
+
+  const paginationStyles = ` 
+            .swiper-pagination {
+              position: absolute;
+              bottom: 20px !important;
+              z-index: 50 !important;
+            }
+
+            .swiper-pagination-bullet {
+              width: 12px;
+              height: 12px;
+              background: white;
+              opacity: 0.6;
+            }
+
+            .swiper-pagination-bullet-active {
+              opacity: 1;
+              background: ${paginationColor};
+            }
+
+            .swiper-button-next, .swiper-button-prev {
+              color: white;
+            }`;
 
   const handleOpenVideoModal = (videoSrc: string, videoTitle?: string) => {
     if (!enableVideoModal) return;

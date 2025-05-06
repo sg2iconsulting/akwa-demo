@@ -1,7 +1,4 @@
-import Heading from "../../atoms/Heading/Heading";
-import Paragraph from "../../atoms/Paragraph/Paragraph";
-import ResponsiveImage from "../atoms/responsive-image";
-import ImageWithText from "../molecules/ImageWithText";
+import ImageWithText from "@/components/akwa/molecule/ImageWithText";
 import Timeline, { TimelineItem } from "./timeline";
 
 interface HistorySectionProps {
