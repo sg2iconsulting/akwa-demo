@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../atoms/Button";
 
 export type CTAButton = {
+  handlerKey?: string;
   label: string;
   url?: string;
   onClick?: () => void;

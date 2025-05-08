@@ -53,7 +53,6 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
   overlayOpacity = 40,
   onVideoClick,
   modalEnabled = false,
-  onCtaClick,
 }) => {
   return (
     <div className="relative w-full h-full">
@@ -81,7 +80,6 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
         ctaClassName={ctaClassName}
         appDownloadTitleClassName={appDownloadTitleClassName}
         appButtonClassName={appButtonClassName}
-        onCtaClick={onCtaClick}
       />
     </div>
   );

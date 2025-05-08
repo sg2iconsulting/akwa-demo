@@ -34,23 +34,19 @@ const HeroSlideContent: React.FC<HeroSlideContentProps> = ({
   ctaClassName = "px-6 py-2 mt-4 rounded-full bg-white text-black font-bold inline-block",
   appDownloadTitleClassName = "text-[14px] sm:text-[20px] lg:text-[26px] font-bold",
   appButtonClassName = "w-auto",
-  onCtaClick,
 }) => {
-  // Handle rendering a single CTA button
   const renderSingleCta = (button: CTAButton) => {
-    // If no URL and onCtaClick is provided, use the click handler
-    if (!button.url && onCtaClick) {
+    if (!button.url && button.onClick) {
       return (
         <button
           className={`${ctaClassName || ""} ${button.className || ""}`}
-          onClick={onCtaClick}
+          onClick={button.onClick}
         >
           {button.label}
         </button>
       );
     }
 
-    // Otherwise, render regular link
     return (
       <a
         href={button.url || "#"}
@@ -62,7 +58,6 @@ const HeroSlideContent: React.FC<HeroSlideContentProps> = ({
     );
   };
 
-  // When rendering CTA buttons
   const renderCta = () => {
     if (!cta) return null;
 
@@ -79,7 +74,6 @@ const HeroSlideContent: React.FC<HeroSlideContentProps> = ({
     return <div className="mt-4">{renderSingleCta(cta)}</div>;
   };
 
-  // Render app download section
   const renderAppDownloadSection = () => {
     if (!appDownloadSection) return null;
 

@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import Heading from "../../atoms/Heading/Heading";
-import KeyFigure from "../../molecules/KeyFigure/KeyFigure";
+
 import { cn } from "@/utils/cn";
+import Heading from "../atoms/Heading";
+import KeyFigure from "../molecule/KeyFigure";
 
 export interface KeyFigureProps {
   value: number;

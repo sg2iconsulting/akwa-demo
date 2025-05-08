@@ -6,6 +6,7 @@ import Slider from "../molecule/Slider";
 import { CTAButton } from "../molecule/CTAButton";
 import HeroSlide from "../organisme/HeroSlide";
 import VideoModal from "../organisme/VideoModal";
+import { ctaHandlers } from "@/Handlers";
 
 export type ImageSlide = {
   type: "image";
@@ -45,6 +46,7 @@ export interface HeroSlideItem {
 
 interface HeroSliderProps {
   slides: HeroSlideItem[];
+  ctaHandlers?: Record<string, () => void>;
   className?: string;
   slideClassName?: string;
   containerClassName?: string;
@@ -128,6 +130,22 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
     setIsModalOpen(false);
   };
 
+  const injectCtaHandlers = (
+    cta: CTAButton | CTAButton[] | undefined
+  ): CTAButton | CTAButton[] | undefined => {
+    if (!cta) return undefined;
+
+    const ctaArray = Array.isArray(cta) ? cta : [cta];
+
+    return ctaArray.map((item) => ({
+      ...item,
+      onClick:
+        item.onClick ||
+        (item.handlerKey && ctaHandlers && ctaHandlers[item.handlerKey]) ||
+        (() => console.warn(`No handler for CTA key: ${item.handlerKey}`)),
+    }));
+  };
+
   const sliderSlides: SliderSlideContent[] = slides.map((slide) => {
     if (slide.type === "custom" && slide.content) {
       return {
@@ -157,7 +175,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         content={slide.content}
         title={slide.title}
         subtitle={slide.subtitle}
-        cta={slide.cta}
+        cta={injectCtaHandlers(slide.cta)}
         appDownloadSection={slide.appDownloadSection}
         slideClassName={slideClassName}
         titleClassName={titleClassName}

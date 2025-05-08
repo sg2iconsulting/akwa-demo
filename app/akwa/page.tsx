@@ -8,18 +8,19 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import { useArticles } from "../../hook/useArticles";
+import { useArticles } from "@/hook/useArticles";
 
-import Navbar from "../components/organisms/Navbar/Navbar";
-import Carousel from "../components/organisms/Carousel/Carousel";
-import Section from "../components/organisms/Section/Section";
-import PostCardItem from "../components/organisms/PostCardItem.tsx/PostCardItem";
-import AboutUs from "../components/organisms/AboutUs/AboutUs";
-import ChiffreCounter from "../components/organisms/ChiffreCounter/ChiffreCounter";
-import Footer from "../components/organisms/Footer/Footer";
-import CarteModal from "../components/organisms/CarteModal/CarteModal";
-import Button from "../components/atoms/Button/Button";
+import Navbar from "@/components/common/template/Navbar";
 import HeroSlider from "@/components/common/template/HeroSlider";
+
+import Button from "@/components/common/atoms/Button";
+import AboutUs from "@/components/common/template/AboutUs";
+import Carousel from "@/components/common/template/Carousel";
+import Section from "@/components/common/template/Section";
+import ChiffreCounter from "@/components/common/organisme/ChiffreCounter";
+import PostCardItem from "@/components/common/template/PostCardItem";
+import CarteModal from "@/components/common/template/CarteModal";
+import Footer from "@/components/common/template/Footer";
 
 const Home = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -43,28 +44,6 @@ const Home = () => {
       navbarElement.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  if (loading) {
-    return (
-      <div className="flex flex-col gap-16 md:gap-24 xl:gap-32">
-        <div className="flex flex-col gap-16 md:gap-24 xl:gap-32">
-          <PostCardItem
-            title="Actualités"
-            items={[]}
-            titleTextColor="#052337"
-            backgroundButtonColor="#19A0BF"
-            buttonTextColor="white"
-            labelButton="Lire plus"
-            backgroundItemColor="#052337"
-            isLoading={true}
-          />
-        </div>
-      </div>
-    );
-  }
-  if (error) return <div>Error loading articles: {error.message}</div>;
-
-  if (articles.length === 0) return <div>No articles found</div>;
 
   return (
     <section className="flex flex-col gap-6 md:gap-10 lg:gap-14 xl:gap-[100px] 2xl:gap-[160px]">
@@ -350,39 +329,17 @@ const Home = () => {
           paragraphClassename="text-white"
         />
       </div>
+
       <PostCardItem
         title="Actualités"
         titleClassename=""
-        items={articles.map((article, index) => ({
-          ...article,
-          imageClassename:
-            index === 0
-              ? "object-cover w-full h-full"
-              : "w-full h-full rounded-[8px] object-cover",
-          dateClassename:
-            index === 0
-              ? "text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]"
-              : "text-[8px] md:text-[12px] xl:text-[13px]",
-          titleClassename:
-            index === 0
-              ? "text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold"
-              : "text-[10px] md:text-[14px] xl:text-[15px] font-bold line-clamp-2",
-          descriptionClassename:
-            index === 0
-              ? "text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2"
-              : "",
-          buttonClassename:
-            index === 0 ? "px-6 py-2 w-[200px] rounded-full" : "",
-          containerBackgroundColor: "white",
-          containerBorderStyle: "1px solid #F1F1F1",
-          textColor: "#052337",
-        }))}
+        items={[]}
         titleTextColor="#052337"
         backgroundButtonColor="#19A0BF"
         buttonTextColor="white"
         labelButton="Lire plus"
         backgroundItemColor="#052337"
-        isLoading={false}
+        isLoading={loading}
       />
 
       <Footer

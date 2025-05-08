@@ -61,9 +61,11 @@ export default async function FastVoltPage() {
       cta: slide?.cta?.label
         ? {
             label: slide.cta.label,
-            url: "#",
+            url: undefined,
+            handlerKey: "signup",
           }
         : undefined,
+
       ...(slide.downloadbutton && {
         appDownloadSection: {
           title: "Télécharger l'application FastVolt",
