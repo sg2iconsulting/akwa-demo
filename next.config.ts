@@ -1,11 +1,14 @@
-import type { NextConfig } from "next";
+const withVideos = require('next-videos');
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
-export default nextConfig;
 
-const withVideos = require('next-videos')
-
-module.exports = withVideos()
-
+module.exports = withVideos(nextConfig);

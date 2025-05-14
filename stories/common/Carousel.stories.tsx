@@ -35,6 +35,21 @@ const sampleSlides2 = [
   { image: "https://picsum.photos/600/900" },
 ];
 
+const sampleSlides3 = [
+  { image: "/akwagroup/images/carburant.png" },
+  { image: "/akwagroup/images/dev.png" },
+  { image: "/akwagroup/images/transition.png" },
+  { image: "/akwagroup/images/fluides.png" },
+  { image: "/akwagroup/images/gaz.png" },
+  { image: "/akwagroup/images/carburant.png" },
+  { image: "/akwagroup/images/immobilier.png" },
+  { image: "/akwagroup/images/dev.png" },
+  { image: "/akwagroup/images/transition.png" },
+  { image: "/akwagroup/images/fluides.png" },
+  { image: "/akwagroup/images/gaz.png" },
+  { image: "/akwagroup/images/immobilier.png" },
+];
+
 export const Default: Story = {
   args: {
     slides: sampleSlides,
@@ -53,6 +68,26 @@ export const vertical: Story = {
     descriptionTextColor: "#555555",
   },
 };
+export const AkwaStyle: Story = {
+  args: {
+    slides: sampleSlides3,
+    title: "6 Pôles",
+    description: "diversifiés pour apporter des réponses globales",
+    slideClassename:
+      "w-full h-full object-cover shadow-[0_0_20px_0_rgba(0,0,0,0.2)] aspect-[585.62/761.28]",
+    titleClassename:
+      "text-[20px] md:text-[24px] xl:text-[40px] 2xl:text-[60px] font-black dark:text-white",
+    descriptionClassename:
+      "text-[12px] md:text-[14px] xl:text-[18px] 2xl:text-[24px] font-medium dark:text-white",
+    titleTextColor: "#052337",
+    leftChevronIconClassename: "xl:text-[50px] 2xl:text-[70px] font-bold",
+    rightChevronIconClassename: "xl:text-[50px] 2xl:text-[70px] font-bold",
+    descriptionTextColor: "#666666",
+    navigationIconColor: "#FFFFFF",
+    leftChevronIcon: FaChevronLeft,
+    rightChevronIcon: FaChevronRight,
+  },
+};
 
 export const CustomNavigationIcons: Story = {
   args: {
@@ -64,31 +99,5 @@ export const CustomNavigationIcons: Story = {
     navigationIconColor: "#FF5722",
     leftChevronIcon: FaArrowLeft,
     rightChevronIcon: FaArrowRight,
-  },
-};
-
-export const HiddenTitle: Story = {
-  args: {
-    slides: sampleSlides,
-    title: "Hidden Title",
-    description: "This title should not display",
-    titleTextColor: "#000",
-    descriptionTextColor: "#000",
-    hiddenTitle: "none",
-  },
-};
-
-export const CustomBreakpoints: Story = {
-  args: {
-    slides: sampleSlides,
-    title: "Responsive Carousel",
-    description: "Watch it adapt to screen size",
-    titleTextColor: "#000",
-    descriptionTextColor: "#000",
-    breakpoints: {
-      320: { slidesPerView: 1, spaceBetween: 10 },
-      640: { slidesPerView: 2, spaceBetween: 20 },
-      1024: { slidesPerView: 3, spaceBetween: 30 },
-    },
   },
 };

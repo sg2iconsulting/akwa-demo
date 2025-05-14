@@ -333,7 +333,30 @@ const Home = () => {
       <PostCardItem
         title="Actualités"
         titleClassename=""
-        items={[]}
+        items={articles.map((article, index) => ({
+          ...article,
+          imageClassename:
+            index === 0
+              ? "object-cover w-full h-full"
+              : "w-full h-full rounded-[8px] object-cover",
+          dateClassename:
+            index === 0
+              ? "text-[10px] md:text-[12px] lg:text-[12px] xl:text-[14px]"
+              : "text-[8px] md:text-[12px] xl:text-[13px]",
+          titleClassename:
+            index === 0
+              ? "text-[15px] md:text-[23px] lg:text-2xl xl:text-[28px] 2xl:text-[36px] font-bold"
+              : "text-[10px] md:text-[14px] xl:text-[15px] font-bold line-clamp-2",
+          descriptionClassename:
+            index === 0
+              ? "text-[10px] md:text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[20px] font-medium line-clamp-2"
+              : "",
+          buttonClassename:
+            index === 0 ? "px-6 py-2 w-[200px] rounded-full" : "",
+          containerBackgroundColor: "white",
+          containerBorderStyle: "1px solid #F1F1F1",
+          textColor: "#052337",
+        }))}
         titleTextColor="#052337"
         backgroundButtonColor="#19A0BF"
         buttonTextColor="white"

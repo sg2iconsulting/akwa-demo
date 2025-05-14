@@ -61,29 +61,6 @@ const page = () => {
                 "Pour répondre à tous vos besoins, deux formules d'abonnement sont mises à votre disposition. Avec FastVolt vous pouvez désormais profiter d'un parking électrique, dans un emplacement dédié et accessible.",
             },
           ]}
-          paginationStyles={`
-            .swiper-pagination {
-              position: absolute;
-              bottom: 20px !important;
-              z-index: 50 !important;
-            }
-
-            .swiper-pagination-bullet {
-              width: 12px;
-              height: 12px;
-              background: white;
-              opacity: 0.6;
-            }
-
-            .swiper-pagination-bullet-active {
-              opacity: 1;
-              background: #8BBA25;
-            }
-
-            .swiper-button-next, .swiper-button-prev {
-              color: white;
-            }
-          `}
           titleClassName="text-[20px] sm:text-[30px] md:text-[40px] lg:text-[52px] xl:text-[70px] 2xl:text-[85px] 3xl:text-[100px] font-bold leading-tight xl:mt-8 2xl:mt-12 3xl:mt-16"
           subtitleClassName="text-[12px] sm:text-[16px] md:text-[20px] lg:text-[28px] xl:text-[36px] 2xl:text-[48px] font-bold"
           contentClassName="text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[18px] 2xl:text-[20px] mt-6"
