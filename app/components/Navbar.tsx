@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -17,7 +17,55 @@ import useInView from "../hook/useView";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
+  const menuItems = [
+    {
+      label: "Notre Groupe",
+      subItems: [
+        { label: "Présentation", href: "/presentation" },
+        { label: "Historique", href: "/historique" },
+        { label: "Chiffres Clés", href: "/chiffres-cles" },
+      ],
+    },
+    {
+      label: "Nos Métiers",
+      subItems: [
+        { label: "Énergie", href: "/energie" },
+        { label: "Solutions durables", href: "/historique" },
+        { label: "Gaz Industriels & Médicaux", href: "/chiffres-cles" },
+        { label: "Hôtellerie", href: "/chiffres-cles" },
+        { label: "Immobilier", href: "/chiffres-cles" },
+        { label: "VC & Tech", href: "/chiffres-cles" },
+        { label: "Médias", href: "/chiffres-cles" },
+      ],
+    },
+    {
+      label: "Nos Engagements",
+      subItems: [
+        { label: "Développement Durable & RSE", href: "/presentation" },
+        { label: "Impact Social & Communautaire", href: "/historique" },
+        { label: "Sponsoring & Mécénat", href: "/chiffres-cles" },
+      ],
+    },
+    {
+      label: "Nous rejoindre",
+      subItems: [
+        { label: "Pourquoi Nous Rejoindre", href: "/presentation" },
+        { label: "Offres d'Emploi", href: "/historique" },
+      ],
+    },
+    {
+      label: "Nos actualités",
+      subItems: [
+        { label: "Communiqués de Presse", href: "/presentation" },
+        { label: "Akwa Group dans les Médias", href: "/historique" },
+        { label: "Galerie", href: "/historique" },
+      ],
+    },
+    { label: "Contact", href: "/engagements" },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -131,35 +179,72 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden xl:flex gap-5">
-          <ul className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold text-white">
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Le Groupe
-            </motion.li>
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Pôles d’activités
-            </motion.li>
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Finance
-            </motion.li>
-            <motion.li
-              className="cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              Engagements
-            </motion.li>
+          <ul className="flex justify-evenly gap-4 text-[10px] md:text-[12px] xl:text-[18px]  font-bold text-white w-full ">
+            {menuItems.map((item, idx) => (
+              <li
+                key={item.label}
+                className=" cursor-pointer"
+                onMouseEnter={() => setOpenDropdown(idx)}
+                onMouseLeave={() => setOpenDropdown(null)}
+                tabIndex={0}
+                onFocus={() => setOpenDropdown(idx)}
+                onBlur={() => setOpenDropdown(null)}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center gap-1"
+                >
+                  {item.href ? (
+                    <Link href={item.href}>{item.label}</Link>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                  {item.subItems && (
+                    <svg
+                      className="ml-1 w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </motion.div>
+                {/* Dropdown */}
+                <AnimatePresence>
+                  {item.subItems && openDropdown === idx && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 20, transition: { delay: 0.25 } }}
+                      transition={{
+                        duration: 0.25,
+                      }}
+                      className="absolute left-0 right-0 mx-auto top-full  mt-2 w-full bg-white rounded-lg shadow-lg z-50 p-6 max-w-[90%]"
+                      style={{
+                        color: "#052337",
+                      }}
+                    >
+                      <ul className="flex flex-col gap-3">
+                        <li className="font-bold text-[#052337]">
+                          {item.label}
+                        </li>
+                        {item.subItems.map((sub, subIdx) => (
+                          <li
+                            key={subIdx}
+                            className="font-normal hover:underline"
+                          >
+                            <Link href={sub.href}>{sub.label}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
+            ))}
           </ul>
         </div>
 
