@@ -15,6 +15,7 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 interface MenuItem {
   label: string;
+  subItems: { label: string; href: string }[];
   href: string;
 }
 
@@ -27,11 +28,22 @@ interface NavbarProps {
   buttonTextColor?: string;
   buttonBackgroundColor?: string;
   logoSrcUrl: string;
-  logoSizeStyle?:React.CSSProperties;
+  logoSizeStyle?: React.CSSProperties;
 }
 
-const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, menuItemsTextColor, buttonBackgroundColor, buttonTextColor, logoSrcUrl, logoSizeStyle }: NavbarProps) => {
+const Navbar = ({
+  link = "",
+  menuItems,
+  SupComponent,
+  navbarBackgroundColor,
+  menuItemsTextColor,
+  buttonBackgroundColor,
+  buttonTextColor,
+  logoSrcUrl,
+  logoSizeStyle,
+}: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -76,16 +88,17 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
   return (
     <div
       style={{
-        backgroundColor: navbarBackgroundColor
+        backgroundColor: navbarBackgroundColor,
       }}
       className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212] z-40"
     >
       {/* Navbar */}
-      <div 
-      style={{
-        backgroundColor: navbarBackgroundColor
-      }}
-      className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
+      <div
+        style={{
+          backgroundColor: navbarBackgroundColor,
+        }}
+        className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center"
+      >
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
@@ -144,38 +157,80 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
 
         {/* Desktop Menu */}
         <div className="hidden xl:flex gap-5">
-          <ul 
-          style={{
-            color: menuItemsTextColor
-          }}
-          className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold">
+          <ul
+            style={{
+              color: menuItemsTextColor,
+            }}
+            className="flex xl:gap-12 2xl:gap-16 text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] font-bold"
+          >
             {menuItems.map((item, index) => (
-              <motion.li
+              <li
                 key={index}
-                className="cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                className="relative cursor-pointer"
+                onMouseEnter={() => setOpenDropdown(index)}
+                onMouseLeave={() => setOpenDropdown(null)}
+                tabIndex={0}
+                onFocus={() => setOpenDropdown(index)}
+                onBlur={() => setOpenDropdown(null)}
               >
-                <Link href={item.href}>{item.label}</Link>
-              </motion.li>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex items-center gap-1"
+                >
+                  {item.href ? (
+                    <Link href={item.href}>{item.label}</Link>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                  {item.subItems && (
+                    <svg
+                      className="ml-1 w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </motion.div>
+                {/* Dropdown */}
+                {item.subItems && openDropdown === index && (
+                  <div
+                    className="absolute left-0 top-full mt-2 min-w-[220px] bg-white rounded-lg shadow-lg z-50 p-6"
+                    style={{ color: "#052337" }}
+                  >
+                    <ul className="flex flex-col gap-3">
+                      <li className="font-bold text-[#052337]">{item.label}</li>
+                      {item.subItems.map((sub, subIdx) => (
+                        <li
+                          key={subIdx}
+                          className="font-normal hover:underline"
+                        >
+                          <Link href={sub.href}>{sub.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
             ))}
           </ul>
         </div>
 
         <div className="xl:flex 2xl:gap-4 hidden">
           <div className="flex items-center">
-            <LanguageSwitcher 
-            languageItems={
-              [
+            <LanguageSwitcher
+              languageItems={[
                 { value: "en", label: "En" },
                 { value: "fr", label: "Fr" },
                 { value: "ar", label: "Ar" },
-              ]
-            }
-            itemBackgroundHoverColor="red"
-            languageItemsTextColor="white"
-            iconColor="white"
-            chevronColor="white"
+              ]}
+              itemBackgroundHoverColor="red"
+              languageItemsTextColor="white"
+              iconColor="white"
+              chevronColor="white"
             />
           </div>
           <div className="flex items-center gap-2 mt-1 justify-around w-[90px] mr-3">
@@ -209,10 +264,10 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
           {/* Desktop Buttons */}
           <div className="hidden xl:block">
             <motion.button
-            style={{
-              color: buttonTextColor,
-              backgroundColor: buttonBackgroundColor
-            }}
+              style={{
+                color: buttonTextColor,
+                backgroundColor: buttonBackgroundColor,
+              }}
               className={`xl:w-[200px] 2xl:w-[220px] w-[18px] h-[40px] md:h-[50px] xl:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full font-bold`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
@@ -229,17 +284,18 @@ const Navbar = ({ link = "", menuItems, SupComponent, navbarBackgroundColor, men
           isOpen ? "max-h-[300px]" : "max-h-0"
         }`}
       >
-        <ul 
-        style={{
-          color: menuItemsTextColor
-        }}
-        className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 ">
+        <ul
+          style={{
+            color: menuItemsTextColor,
+          }}
+          className="flex flex-col font-bold items-center gap-4 p-6 text-[10px] md:text-[12px] mt-11 "
+        >
           <li className="">
             <motion.button
-            style={{
-              backgroundColor: buttonBackgroundColor,
-              color: buttonTextColor
-            }}
+              style={{
+                backgroundColor: buttonBackgroundColor,
+                color: buttonTextColor,
+              }}
               className={`lg:w-[220px]  w-[140px] md:w-[180px] h-[40px] md:h-[50px] rounded-full font-bold`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
