@@ -247,13 +247,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                   transition={{ duration: 0.3 }}
                   className="flex items-center gap-1 "
                 >
-                  {item.href ? (
-                    <Link className="w-fit cursor-pointer" href={item.href}>
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <span className="w-fit cursor-pointer">{item.label}</span>
-                  )}
+                  {<span className="w-fit cursor-pointer">{item.label}</span>}
                   {item.subItems && (
                     <svg
                       className="ml-1 w-3 h-3"
@@ -537,7 +531,7 @@ const DropdownList = ({ items }: { items: any[] }) => (
         )}
         {item.subItems && (
           <ul className="flex flex-col">
-            {item.subItems.map((item, idx) => (
+            {item.subItems.map((item: any, idx: any) => (
               <li key={idx} className="mb-1 font-normal hover:underline">
                 {item.href ? (
                   <Link href={item.href}>{item.label}</Link>
