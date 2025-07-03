@@ -17,14 +17,7 @@ import useInView from "../hook/useView";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
-  const menuItems: {
-    label?: string;
-    href?: string;
-    subItems?: {
-      label?: string;
-      href?: string;
-    }[];
-  }[] = [
+  const menuItems = [
     {
       label: "Notre Groupe",
       subItems: [
@@ -36,13 +29,58 @@ const Navbar = ({ link = "" }: { link?: string }) => {
     {
       label: "Nos Métiers",
       subItems: [
-        { label: "Énergie", href: "#" },
-        { label: "Solutions durables", href: "#" },
-        { label: "Gaz Industriels & Médicaux", href: "#" },
-        { label: "Hôtellerie", href: "#" },
-        { label: "Immobilier", href: "#" },
-        { label: "VC & Tech", href: "#" },
-        { label: "Médias", href: "#" },
+        {
+          label: "Énergie",
+          subItems: [
+            { label: "Pour la Mobilité", href: "#" },
+            { label: "Pour l’Industrie", href: "#" },
+            { label: "Pour le Résidentiel & l’Hôtellerie", href: "#" },
+          ],
+        },
+        {
+          label: "Solutions durables",
+          subItems: [
+            { label: "Dessalement", href: "#" },
+            { label: "Énergies Vertes & Durabilité", href: "#" },
+          ],
+        },
+        {
+          label: "Gaz Industriels & Médicaux",
+          subItems: [
+            { label: "Production & Distribution", href: "#" },
+            { label: "Expertise sectorielle", href: "#" },
+          ],
+        },
+        {
+          label: "Hôtellerie",
+          subItems: [
+            { label: "Taghazout Bay", href: "#" },
+            { label: "Marina Agadir", href: "#" },
+            { label: "Kasbahs", href: "#" },
+          ],
+        },
+        {
+          label: "Immobilier",
+          subItems: [
+            { label: "Gestion Immobilière", href: "#" },
+            { label: "Projets Immobiliers", href: "#" },
+          ],
+        },
+        {
+          label: "VC & Tech",
+          subItems: [
+            { label: "VC", href: "#" },
+            { label: "Startup studio", href: "#" },
+            { label: "Loyalty & Payment", href: "#" },
+          ],
+        },
+        {
+          label: "Médias",
+          subItems: [
+            { label: "Presse économique", href: "#" },
+            { label: "Presse féminine", href: "#" },
+          ],
+        },
       ],
     },
     {
@@ -197,7 +235,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             {menuItems.map((item, idx) => (
               <li
                 key={item.label}
-                className=" cursor-pointer"
+                className=""
                 onMouseEnter={() => setOpenDropdown(idx)}
                 onMouseLeave={() => setOpenDropdown(null)}
                 tabIndex={0}
@@ -210,11 +248,11 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                   className="flex items-center gap-1 "
                 >
                   {item.href ? (
-                    <Link className="w-fit" href={item.href}>
+                    <Link className="w-fit cursor-pointer" href={item.href}>
                       {item.label}
                     </Link>
                   ) : (
-                    <span className="w-fit">{item.label}</span>
+                    <span className="w-fit cursor-pointer">{item.label}</span>
                   )}
                   {item.subItems && (
                     <svg
@@ -247,16 +285,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                       <h3 className="font-bold text-[#052337] text-xl mb-4">
                         {item.label}
                       </h3>
-                      <ul className="grid grid-flow-col grid-rows-3 gap-4">
-                        {item.subItems.map((sub, subIdx) => (
-                          <li
-                            key={subIdx}
-                            className="font-normal hover:underline"
-                          >
-                            <Link href={sub.href || "#"}>{sub.label}</Link>
-                          </li>
-                        ))}
-                      </ul>
+                      <DropdownList items={item.subItems} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -496,3 +525,32 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 };
 
 export default Navbar;
+
+const DropdownList = ({ items }: { items: any[] }) => (
+  <ul className="grid grid-flow-col grid-rows-3 gap-4">
+    {items.map((item, idx) => (
+      <li key={idx} className="mb-1 font-normal ">
+        {item.href ? (
+          <Link href={item.href}>{item.label}</Link>
+        ) : (
+          <span className="font-semibold">{item.label}</span>
+        )}
+        {item.subItems && (
+          <ul className="flex flex-col">
+            {item.subItems.map((item, idx) => (
+              <li key={idx} className="mb-1 font-normal hover:underline">
+                {item.href ? (
+                  <Link href={item.href}>{item.label}</Link>
+                ) : (
+                  <span className="font-normal hover:underline">
+                    {item.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+);
