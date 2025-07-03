@@ -17,51 +17,65 @@ import useInView from "../hook/useView";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = ({ link = "" }: { link?: string }) => {
-  const menuItems = [
+  const menuItems: {
+    label?: string;
+    href?: string;
+    subItems?: {
+      label?: string;
+      href?: string;
+    }[];
+  }[] = [
     {
       label: "Notre Groupe",
       subItems: [
-        { label: "Présentation", href: "/presentation" },
-        { label: "Historique", href: "/historique" },
-        { label: "Chiffres Clés", href: "/chiffres-cles" },
+        { label: "Histoire", href: "#" },
+        { label: "Vision & Mission", href: "#" },
+        { label: "Gouvernance", href: "#" },
       ],
     },
     {
       label: "Nos Métiers",
       subItems: [
-        { label: "Énergie", href: "/energie" },
-        { label: "Solutions durables", href: "/historique" },
-        { label: "Gaz Industriels & Médicaux", href: "/chiffres-cles" },
-        { label: "Hôtellerie", href: "/chiffres-cles" },
-        { label: "Immobilier", href: "/chiffres-cles" },
-        { label: "VC & Tech", href: "/chiffres-cles" },
-        { label: "Médias", href: "/chiffres-cles" },
+        { label: "Énergie", href: "#" },
+        { label: "Solutions durables", href: "#" },
+        { label: "Gaz Industriels & Médicaux", href: "#" },
+        { label: "Hôtellerie", href: "#" },
+        { label: "Immobilier", href: "#" },
+        { label: "VC & Tech", href: "#" },
+        { label: "Médias", href: "#" },
       ],
     },
     {
       label: "Nos Engagements",
       subItems: [
-        { label: "Développement Durable & RSE", href: "/presentation" },
-        { label: "Impact Social & Communautaire", href: "/historique" },
-        { label: "Sponsoring & Mécénat", href: "/chiffres-cles" },
+        { label: "Développement Durable & RSE", href: "#" },
+        { label: "Impact Social & Communautaire", href: "#" },
+        { label: "Sponsoring & Mécénat", href: "#" },
       ],
     },
     {
-      label: "Nous rejoindre",
+      label: "Nous Rejoindre",
       subItems: [
-        { label: "Pourquoi Nous Rejoindre", href: "/presentation" },
-        { label: "Offres d'Emploi", href: "/historique" },
+        { label: "Pourquoi Nous Rejoindre", href: "#" },
+        { label: "Offres d'Emploi", href: "#" },
+        { label: "La Vie au sein d'Akwa", href: "#" },
       ],
     },
     {
-      label: "Nos actualités",
+      label: "Nos Actualités",
       subItems: [
-        { label: "Communiqués de Presse", href: "/presentation" },
-        { label: "Akwa Group dans les Médias", href: "/historique" },
-        { label: "Galerie", href: "/historique" },
+        { label: "Communiqués de Presse", href: "#" },
+        { label: "Akwa Group dans les Médias", href: "#" },
+        { label: "Galerie", href: "#" },
       ],
     },
-    { label: "Contact", href: "/engagements" },
+    {
+      label: "Contact",
+      subItems: [
+        { label: "Formulaire de Contact", href: "#" },
+        { label: "Nos Bureaux", href: "#" },
+      ],
+    },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
@@ -224,21 +238,22 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                       transition={{
                         duration: 0.25,
                       }}
-                      className="absolute left-0 right-0 mx-auto top-full  mt-2 w-full bg-white rounded-lg shadow-lg z-50 p-6 max-w-[90%] text-lg"
+                      className="absolute left-0 right-0 mx-auto top-full min-h-[300px]  mt-2 w-full bg-white rounded-lg shadow-lg z-50 px-10 py-6 max-w-[90%] text-lg"
                       style={{
                         color: "#052337",
                       }}
                     >
-                      <ul className="flex flex-col gap-3">
-                        <li className="font-bold text-[#052337]">
-                          {item.label}
-                        </li>
+                      {" "}
+                      <h3 className="font-bold text-[#052337] text-xl mb-4">
+                        {item.label}
+                      </h3>
+                      <ul className="grid grid-flow-col grid-rows-3 gap-4">
                         {item.subItems.map((sub, subIdx) => (
                           <li
                             key={subIdx}
                             className="font-normal hover:underline"
                           >
-                            <Link href={sub.href}>{sub.label}</Link>
+                            <Link href={sub.href || "#"}>{sub.label}</Link>
                           </li>
                         ))}
                       </ul>
