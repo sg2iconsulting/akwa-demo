@@ -122,7 +122,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
   return (
     <div className="font-poppins w-full max-w-[2000px] mx-auto relative dark:bg-[#121212] z-40">
       {/* Navbar */}
-      <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 lg:px-20 justify-between items-center">
+      <div className="w-full h-[80px] md:h-[96px] 2xl:h-[123px] absolute top-0 left-0 z-50 bg-transparent flex p-5 md:px-10 2xl:px-20 justify-between items-center">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
@@ -179,7 +179,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 
         {/* Desktop Menu */}
         <div className="hidden xl:flex gap-5">
-          <ul className="flex justify-evenly gap-4 text-[10px] md:text-[12px] xl:text-[18px]  font-bold text-white w-full ">
+          <ul className="flex justify-evenly gap-2 2xl:gap-4  text-[14px]   font-bold text-white w-full ">
             {menuItems.map((item, idx) => (
               <li
                 key={item.label}
@@ -193,12 +193,14 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="flex items-center gap-1"
+                  className="flex items-center gap-1 "
                 >
                   {item.href ? (
-                    <Link href={item.href}>{item.label}</Link>
+                    <Link className="w-fit" href={item.href}>
+                      {item.label}
+                    </Link>
                   ) : (
-                    <span>{item.label}</span>
+                    <span className="w-fit">{item.label}</span>
                   )}
                   {item.subItems && (
                     <svg
@@ -222,7 +224,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
                       transition={{
                         duration: 0.25,
                       }}
-                      className="absolute left-0 right-0 mx-auto top-full  mt-2 w-full bg-white rounded-lg shadow-lg z-50 p-6 max-w-[90%]"
+                      className="absolute left-0 right-0 mx-auto top-full  mt-2 w-full bg-white rounded-lg shadow-lg z-50 p-6 max-w-[90%] text-lg"
                       style={{
                         color: "#052337",
                       }}
@@ -254,7 +256,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           </div>
           <div className="flex items-center gap-2 mt-1 justify-around w-[90px] mr-3">
             {resolvedTheme === "dark" ? (
-              <HiSun className="text-white text-[13px] md:text-[28px] mb-1 dark:text-white" />
+              <HiSun className="text-white text-[13px] md:text-[28px] mb-1" />
             ) : (
               <FaMoon className="text-white text-[10px] md:text-[15px] mb-1" />
             )}
