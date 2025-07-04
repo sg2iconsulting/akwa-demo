@@ -32,9 +32,9 @@ const Navbar = ({ link = "" }: { link?: string }) => {
         {
           label: "Énergie",
           subItems: [
-            { label: "Pour la Mobilité", href: "#" },
-            { label: "Pour l’Industrie", href: "#" },
-            { label: "Pour le Résidentiel & l’Hôtellerie", href: "#" },
+            { label: "Mobilité", href: "#" },
+            { label: "Industrie", href: "#" },
+            { label: "Résidentiel & Hôtellerie", href: "#" },
           ],
         },
         {
@@ -79,6 +79,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
           subItems: [
             { label: "Presse économique", href: "#" },
             { label: "Presse féminine", href: "#" },
+            { label: "Presse spécialisée", href: "#" },
           ],
         },
       ],
@@ -96,28 +97,28 @@ const Navbar = ({ link = "" }: { link?: string }) => {
       subItems: [
         { label: "Pourquoi Nous Rejoindre", href: "#" },
         { label: "Offres d'Emploi", href: "#" },
-        { label: "La Vie au sein d'Akwa", href: "#" },
       ],
     },
     {
       label: "Nos Actualités",
       subItems: [
         { label: "Communiqués de Presse", href: "#" },
-        { label: "Akwa Group dans les Médias", href: "#" },
         { label: "Galerie", href: "#" },
       ],
     },
-    {
-      label: "Contact",
-      subItems: [
-        { label: "Formulaire de Contact", href: "#" },
-        { label: "Nos Bureaux", href: "#" },
-      ],
-    },
+    // {
+    //   label: "Contact",
+    //   subItems: [
+    //     { label: "Formulaire de Contact", href: "#" },
+    //     { label: "Nos Bureaux", href: "#" },
+    //   ],
+    // },
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<number | string | null>(
+    null
+  );
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollDirection, setScrollDirection] = useState("up");
@@ -321,14 +322,51 @@ const Navbar = ({ link = "" }: { link?: string }) => {
             </form>
           </div>
           {/* Desktop Buttons */}
-          <div className="hidden xl:block">
+          <div
+            className="hidden xl:block relative"
+            onMouseEnter={() => setOpenDropdown("contact")}
+            onMouseLeave={() => setOpenDropdown(null)}
+            onFocus={() => setOpenDropdown("contact")}
+            onBlur={() => setOpenDropdown(null)}
+          >
             <motion.button
               className={`xl:w-[200px] 2xl:w-[220px] w-[18px] h-[40px] md:h-[50px] xl:h-[50px]  2xl:h-[67px] text-[10px] md:text-[12px] xl:text-[16px] 2xl:text-[22px] rounded-full text-white font-bold bg-[#19A0BF]`}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Espace Media</Link>
+              <Link href={link || "#"}>Contact</Link>
             </motion.button>
+            {/* Contact Dropdown */}
+            <AnimatePresence>
+              {openDropdown === "contact" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20, transition: { delay: 0.15 } }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 top-full mt-2 w-[220px] bg-white rounded-lg shadow-lg z-50 px-4 py-3"
+                >
+                  <ul className="flex flex-col gap-2 text-[#052337] font-semibold">
+                    <li>
+                      <Link
+                        href="/contact/formulaire"
+                        className="hover:text-[#19A0BF]"
+                      >
+                        Formulaire de contact
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/contact/bureaux"
+                        className="hover:text-[#19A0BF]"
+                      >
+                        Nos bureaux
+                      </Link>
+                    </li>
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
@@ -346,7 +384,7 @@ const Navbar = ({ link = "" }: { link?: string }) => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
-              <Link href={link || "#"}>Espace Media</Link>
+              <Link href={link || "#"}></Link>
             </motion.button>
           </li>
           <motion.li
@@ -519,32 +557,44 @@ const Navbar = ({ link = "" }: { link?: string }) => {
 };
 
 export default Navbar;
-
 const DropdownList = ({ items }: { items: any[] }) => (
   <ul className="grid grid-flow-col grid-rows-3 gap-4">
-    {items.map((item, idx) => (
-      <li key={idx} className="mb-1 font-normal ">
-        {item.href ? (
-          <Link href={item.href}>{item.label}</Link>
-        ) : (
-          <span className="font-semibold">{item.label}</span>
-        )}
-        {item.subItems && (
-          <ul className="flex flex-col">
-            {item.subItems.map((item: any, idx: any) => (
-              <li key={idx} className="mb-1 font-normal hover:underline">
-                {item.href ? (
-                  <Link href={item.href}>{item.label}</Link>
-                ) : (
-                  <span className="font-normal hover:underline">
-                    {item.label}
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </li>
-    ))}
+    {items.map((item, idx) => {
+      // Check if parent is "Médias"
+      const isMedia = item.label === "Médias";
+      return (
+        <li key={idx} className="mb-1 font-normal ">
+          {item.href ? (
+            <Link href={item.href}>{item.label}</Link>
+          ) : (
+            <span className="font-semibold">{item.label}</span>
+          )}
+          {item.subItems && (
+            <ul className="flex flex-col">
+              {item.subItems.map((subItem: any, subIdx: any) => (
+                <li
+                  key={subIdx}
+                  className={`mb-1 font-normal hover:underline ${
+                    isMedia ? "text-green-600" : ""
+                  }`}
+                >
+                  {subItem.href ? (
+                    <Link href={subItem.href}>{subItem.label}</Link>
+                  ) : (
+                    <span
+                      className={`font-normal hover:underline ${
+                        isMedia ? "text-green-600" : ""
+                      }`}
+                    >
+                      {subItem.label}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      );
+    })}
   </ul>
 );
