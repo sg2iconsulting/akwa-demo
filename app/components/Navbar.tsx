@@ -561,7 +561,6 @@ const DropdownList = ({ items }: { items: any[] }) => (
   <ul className="grid grid-flow-col grid-rows-3 gap-4">
     {items.map((item, idx) => {
       // Check if parent is "Médias"
-      const isMedia = item.label === "Médias";
       return (
         <li key={idx} className="mb-1 font-normal ">
           {item.href ? (
@@ -572,20 +571,11 @@ const DropdownList = ({ items }: { items: any[] }) => (
           {item.subItems && (
             <ul className="flex flex-col">
               {item.subItems.map((subItem: any, subIdx: any) => (
-                <li
-                  key={subIdx}
-                  className={`mb-1 font-normal hover:underline ${
-                    isMedia ? "text-green-600" : ""
-                  }`}
-                >
+                <li key={subIdx} className={`mb-1 font-normal hover:underline`}>
                   {subItem.href ? (
                     <Link href={subItem.href}>{subItem.label}</Link>
                   ) : (
-                    <span
-                      className={`font-normal hover:underline ${
-                        isMedia ? "text-green-600" : ""
-                      }`}
-                    >
+                    <span className={`font-normal hover:underline`}>
                       {subItem.label}
                     </span>
                   )}
